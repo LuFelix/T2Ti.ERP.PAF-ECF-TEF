@@ -1,7 +1,5 @@
 package com.t2tierp.pafecf.vo;
 
-import java.util.Collection;
-
 /**
  * <p>Title: T2Ti ERP</p>
  * <p>Description: PAF-ECF + TEF - Objeto de valor referente a tabela Funcionário.</p>
@@ -46,9 +44,6 @@ public class FuncionarioVO {
     private Double comissaoVista;
     private Double comissaoPrazo;
     private String nivelAutorizacao;
-    private Collection<Nf2CabecalhoVO> nf2CabecalhoVOCollection;
-    private Collection<OperadorVO> operadorVOCollection;
-    private Collection<VendaCabecalhoVO> vendaCabecalhoVOCollection;
 
     public FuncionarioVO() {
     }
@@ -163,48 +158,6 @@ public class FuncionarioVO {
      */
     public void setNivelAutorizacao(String nivelAutorizacao) {
         this.nivelAutorizacao = nivelAutorizacao;
-    }
-
-    /**
-     * @return the nf2CabecalhoVOCollection
-     */
-    public Collection<Nf2CabecalhoVO> getNf2CabecalhoVOCollection() {
-        return nf2CabecalhoVOCollection;
-    }
-
-    /**
-     * @param nf2CabecalhoVOCollection the nf2CabecalhoVOCollection to set
-     */
-    public void setNf2CabecalhoVOCollection(Collection<Nf2CabecalhoVO> nf2CabecalhoVOCollection) {
-        this.nf2CabecalhoVOCollection = nf2CabecalhoVOCollection;
-    }
-
-    /**
-     * @return the operadorVOCollection
-     */
-    public Collection<OperadorVO> getOperadorVOCollection() {
-        return operadorVOCollection;
-    }
-
-    /**
-     * @param operadorVOCollection the operadorVOCollection to set
-     */
-    public void setOperadorVOCollection(Collection<OperadorVO> operadorVOCollection) {
-        this.operadorVOCollection = operadorVOCollection;
-    }
-
-    /**
-     * @return the vendaCabecalhoVOCollection
-     */
-    public Collection<VendaCabecalhoVO> getVendaCabecalhoVOCollection() {
-        return vendaCabecalhoVOCollection;
-    }
-
-    /**
-     * @param vendaCabecalhoVOCollection the vendaCabecalhoVOCollection to set
-     */
-    public void setVendaCabecalhoVOCollection(Collection<VendaCabecalhoVO> vendaCabecalhoVOCollection) {
-        this.vendaCabecalhoVOCollection = vendaCabecalhoVOCollection;
     }
 
 }

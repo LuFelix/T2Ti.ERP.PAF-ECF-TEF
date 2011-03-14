@@ -1,6 +1,5 @@
 package com.t2tierp.pafecf.vo;
 
-import java.util.Collection;
 import java.util.Date;
 
 /**
@@ -41,21 +40,16 @@ import java.util.Date;
 public class ClienteVO  {
     private Integer id;
     private String nome;
-    private String cpfCnpj;
-    private String rg;
-    private String orgaoRg;
+    private String CPFOuCNPJ;
+    private String RG;
+    private String orgaoRG;
     private String inscricaoEstadual;
     private String inscricaoMunicipal;
     private Date desde;
     private String tipoPessoa;
     private String excluido;
     private Date dataCadastro;
-    private SituacaoCliVO situacaoCliVO;
-    private Collection<ContatoVO> contatoVOCollection;
-    private Collection<Nf2CabecalhoVO> nf2CabecalhoVOCollection;
-    private Collection<VendaCabecalhoVO> vendaCabecalhoVOCollection;
-    private Collection<ChequeClienteVO> chequeClienteVOCollection;
-    private Collection<EnderecoVO> enderecoVOCollection;
+    private SituacaoClienteVO situacaoClienteVO;
 
     public ClienteVO() {
     }
@@ -89,45 +83,45 @@ public class ClienteVO  {
     }
 
     /**
-     * @return the cpfCnpj
+     * @return the CPFOuCNPJ
      */
-    public String getCpfCnpj() {
-        return cpfCnpj;
+    public String getCPFOuCNPJ() {
+        return CPFOuCNPJ;
     }
 
     /**
-     * @param cpfCnpj the cpfCnpj to set
+     * @param CPFOuCNPJ the CPFOuCNPJ to set
      */
-    public void setCpfCnpj(String cpfCnpj) {
-        this.cpfCnpj = cpfCnpj;
+    public void setCPFOuCNPJ(String CPFOuCNPJ) {
+        this.CPFOuCNPJ = CPFOuCNPJ;
     }
 
     /**
-     * @return the rg
+     * @return the RG
      */
-    public String getRg() {
-        return rg;
+    public String getRG() {
+        return RG;
     }
 
     /**
-     * @param rg the rg to set
+     * @param RG the RG to set
      */
-    public void setRg(String rg) {
-        this.rg = rg;
+    public void setRG(String RG) {
+        this.RG = RG;
     }
 
     /**
-     * @return the orgaoRg
+     * @return the orgaoRG
      */
-    public String getOrgaoRg() {
-        return orgaoRg;
+    public String getOrgaoRG() {
+        return orgaoRG;
     }
 
     /**
-     * @param orgaoRg the orgaoRg to set
+     * @param orgaoRG the orgaoRG to set
      */
-    public void setOrgaoRg(String orgaoRg) {
-        this.orgaoRg = orgaoRg;
+    public void setOrgaoRG(String orgaoRG) {
+        this.orgaoRG = orgaoRG;
     }
 
     /**
@@ -215,87 +209,16 @@ public class ClienteVO  {
     }
 
     /**
-     * @return the situacaoCliVO
+     * @return the situacaoClienteVO
      */
-    public SituacaoCliVO getSituacaoCliVO() {
-        return situacaoCliVO;
+    public SituacaoClienteVO getSituacaoClienteVO() {
+        return situacaoClienteVO;
     }
 
     /**
-     * @param situacaoCliVO the situacaoCliVO to set
+     * @param situacaoClienteVO the situacaoClienteVO to set
      */
-    public void setSituacaoCliVO(SituacaoCliVO situacaoCliVO) {
-        this.situacaoCliVO = situacaoCliVO;
+    public void setSituacaoClienteVO(SituacaoClienteVO situacaoClienteVO) {
+        this.situacaoClienteVO = situacaoClienteVO;
     }
-
-    /**
-     * @return the contatoVOCollection
-     */
-    public Collection<ContatoVO> getContatoVOCollection() {
-        return contatoVOCollection;
-    }
-
-    /**
-     * @param contatoVOCollection the contatoVOCollection to set
-     */
-    public void setContatoVOCollection(Collection<ContatoVO> contatoVOCollection) {
-        this.contatoVOCollection = contatoVOCollection;
-    }
-
-    /**
-     * @return the nf2CabecalhoVOCollection
-     */
-    public Collection<Nf2CabecalhoVO> getNf2CabecalhoVOCollection() {
-        return nf2CabecalhoVOCollection;
-    }
-
-    /**
-     * @param nf2CabecalhoVOCollection the nf2CabecalhoVOCollection to set
-     */
-    public void setNf2CabecalhoVOCollection(Collection<Nf2CabecalhoVO> nf2CabecalhoVOCollection) {
-        this.nf2CabecalhoVOCollection = nf2CabecalhoVOCollection;
-    }
-
-    /**
-     * @return the vendaCabecalhoVOCollection
-     */
-    public Collection<VendaCabecalhoVO> getVendaCabecalhoVOCollection() {
-        return vendaCabecalhoVOCollection;
-    }
-
-    /**
-     * @param vendaCabecalhoVOCollection the vendaCabecalhoVOCollection to set
-     */
-    public void setVendaCabecalhoVOCollection(Collection<VendaCabecalhoVO> vendaCabecalhoVOCollection) {
-        this.vendaCabecalhoVOCollection = vendaCabecalhoVOCollection;
-    }
-
-    /**
-     * @return the chequeClienteVOCollection
-     */
-    public Collection<ChequeClienteVO> getChequeClienteVOCollection() {
-        return chequeClienteVOCollection;
-    }
-
-    /**
-     * @param chequeClienteVOCollection the chequeClienteVOCollection to set
-     */
-    public void setChequeClienteVOCollection(Collection<ChequeClienteVO> chequeClienteVOCollection) {
-        this.chequeClienteVOCollection = chequeClienteVOCollection;
-    }
-
-    /**
-     * @return the enderecoVOCollection
-     */
-    public Collection<EnderecoVO> getEnderecoVOCollection() {
-        return enderecoVOCollection;
-    }
-
-    /**
-     * @param enderecoVOCollection the enderecoVOCollection to set
-     */
-    public void setEnderecoVOCollection(Collection<EnderecoVO> enderecoVOCollection) {
-        this.enderecoVOCollection = enderecoVOCollection;
-    }
-
 }

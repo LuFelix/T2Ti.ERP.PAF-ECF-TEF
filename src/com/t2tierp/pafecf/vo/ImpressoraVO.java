@@ -1,7 +1,5 @@
 package com.t2tierp.pafecf.vo;
 
-import java.util.Collection;
-
 /**
  * <p>Title: T2Ti ERP</p>
  * <p>Description: PAF-ECF + TEF - Objeto de valor referente a tabela Impressora.</p>
@@ -42,20 +40,19 @@ public class ImpressoraVO {
     private String codigo;
     private String serie;
     private String identificacao;
-    private String mc;
-    private String md;
-    private String vr;
+    private String MC;
+    private String MD;
+    private String VR;
     private String tipo;
     private String marca;
     private String modelo;
+    private String modeloACBr;
     private String versao;
-    private String le;
-    private String lef;
-    private String mfd;
-    private String crenamfd;
-    private String docto;
-    private Collection<ConfiguracaoVO> configuracaoVOCollection;
-    private Collection<CaixaVO> caixaVOCollection;
+    private String LE;
+    private String LEF;
+    private String MFD;
+    private String CRENAMDF;
+    private String DOCTO;
 
     public ImpressoraVO() {
     }
@@ -117,45 +114,45 @@ public class ImpressoraVO {
     }
 
     /**
-     * @return the mc
+     * @return the MC
      */
-    public String getMc() {
-        return mc;
+    public String getMC() {
+        return MC;
     }
 
     /**
-     * @param mc the mc to set
+     * @param MC the MC to set
      */
-    public void setMc(String mc) {
-        this.mc = mc;
+    public void setMC(String MC) {
+        this.MC = MC;
     }
 
     /**
-     * @return the md
+     * @return the MD
      */
-    public String getMd() {
-        return md;
+    public String getMD() {
+        return MD;
     }
 
     /**
-     * @param md the md to set
+     * @param MD the MD to set
      */
-    public void setMd(String md) {
-        this.md = md;
+    public void setMD(String MD) {
+        this.MD = MD;
     }
 
     /**
-     * @return the vr
+     * @return the VR
      */
-    public String getVr() {
-        return vr;
+    public String getVR() {
+        return VR;
     }
 
     /**
-     * @param vr the vr to set
+     * @param VR the VR to set
      */
-    public void setVr(String vr) {
-        this.vr = vr;
+    public void setVR(String VR) {
+        this.VR = VR;
     }
 
     /**
@@ -215,101 +212,87 @@ public class ImpressoraVO {
     }
 
     /**
-     * @return the le
+     * @return the LE
      */
-    public String getLe() {
-        return le;
+    public String getLE() {
+        return LE;
     }
 
     /**
-     * @param le the le to set
+     * @param LE the LE to set
      */
-    public void setLe(String le) {
-        this.le = le;
+    public void setLE(String LE) {
+        this.LE = LE;
     }
 
     /**
-     * @return the lef
+     * @return the LEF
      */
-    public String getLef() {
-        return lef;
+    public String getLEF() {
+        return LEF;
     }
 
     /**
-     * @param lef the lef to set
+     * @param LEF the LEF to set
      */
-    public void setLef(String lef) {
-        this.lef = lef;
+    public void setLEF(String LEF) {
+        this.LEF = LEF;
     }
 
     /**
-     * @return the mfd
+     * @return the MFD
      */
-    public String getMfd() {
-        return mfd;
+    public String getMFD() {
+        return MFD;
     }
 
     /**
-     * @param mfd the mfd to set
+     * @param MFD the MFD to set
      */
-    public void setMfd(String mfd) {
-        this.mfd = mfd;
+    public void setMFD(String MFD) {
+        this.MFD = MFD;
     }
 
     /**
-     * @return the crenamfd
+     * @return the CRENAMDF
      */
-    public String getCrenamfd() {
-        return crenamfd;
+    public String getCRENAMDF() {
+        return CRENAMDF;
     }
 
     /**
-     * @param crenamfd the crenamfd to set
+     * @param CRENAMDF the CRENAMDF to set
      */
-    public void setCrenamfd(String crenamfd) {
-        this.crenamfd = crenamfd;
+    public void setCRENAMDF(String CRENAMDF) {
+        this.CRENAMDF = CRENAMDF;
     }
 
     /**
-     * @return the docto
+     * @return the DOCTO
      */
-    public String getDocto() {
-        return docto;
+    public String getDOCTO() {
+        return DOCTO;
     }
 
     /**
-     * @param docto the docto to set
+     * @param DOCTO the DOCTO to set
      */
-    public void setDocto(String docto) {
-        this.docto = docto;
+    public void setDOCTO(String DOCTO) {
+        this.DOCTO = DOCTO;
     }
 
     /**
-     * @return the configuracaoVOCollection
+     * @return the modeloACBr
      */
-    public Collection<ConfiguracaoVO> getConfiguracaoVOCollection() {
-        return configuracaoVOCollection;
+    public String getModeloACBr() {
+        return modeloACBr;
     }
 
     /**
-     * @param configuracaoVOCollection the configuracaoVOCollection to set
+     * @param modeloACBr the modeloACBr to set
      */
-    public void setConfiguracaoVOCollection(Collection<ConfiguracaoVO> configuracaoVOCollection) {
-        this.configuracaoVOCollection = configuracaoVOCollection;
-    }
-
-    /**
-     * @return the caixaVOCollection
-     */
-    public Collection<CaixaVO> getCaixaVOCollection() {
-        return caixaVOCollection;
-    }
-
-    /**
-     * @param caixaVOCollection the caixaVOCollection to set
-     */
-    public void setCaixaVOCollection(Collection<CaixaVO> caixaVOCollection) {
-        this.caixaVOCollection = caixaVOCollection;
+    public void setModeloACBr(String modeloACBr) {
+        this.modeloACBr = modeloACBr;
     }
 
 }

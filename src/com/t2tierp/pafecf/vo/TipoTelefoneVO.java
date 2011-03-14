@@ -1,7 +1,5 @@
 package com.t2tierp.pafecf.vo;
 
-import java.util.Collection;
-
 /**
  * <p>Title: T2Ti ERP</p>
  * <p>Description: PAF-ECF + TEF - Objeto de valor referente a tabela Tipo de Telefone.</p>
@@ -41,7 +39,6 @@ public class TipoTelefoneVO {
     private Integer id;
     private String nome;
     private String descricao;
-    private Collection<ContatoTelefoneVO> contatoTelefoneVoCollection;
 
     public TipoTelefoneVO() {
     }
@@ -86,20 +83,6 @@ public class TipoTelefoneVO {
      */
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    /**
-     * @return the contatoTelefoneVoCollection
-     */
-    public Collection<ContatoTelefoneVO> getContatoTelefoneVoCollection() {
-        return contatoTelefoneVoCollection;
-    }
-
-    /**
-     * @param contatoTelefoneVoCollection the contatoTelefoneVoCollection to set
-     */
-    public void setContatoTelefoneVoCollection(Collection<ContatoTelefoneVO> contatoTelefoneVoCollection) {
-        this.contatoTelefoneVoCollection = contatoTelefoneVoCollection;
     }
 
 }

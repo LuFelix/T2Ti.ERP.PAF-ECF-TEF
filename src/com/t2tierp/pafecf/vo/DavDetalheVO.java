@@ -35,15 +35,16 @@ package com.t2tierp.pafecf.vo;
  * @author Albert Eije (T2Ti.COM)
  * @version 1.0
  */
-public class DavDetalheVO {
+public class DAVDetalheVO {
     private Integer id;
+    private Integer idDAVCabecalho;
+    private Integer idProduto;
     private Double quantidade;
     private Double valorUnitario;
     private Double valorTotal;
-    private DavVO davVO;
-    private ProdutoVO produtoVO;
+    private String descricaoProduto;
 
-    public DavDetalheVO() {
+    public DAVDetalheVO() {
     }
 
     /**
@@ -58,6 +59,34 @@ public class DavDetalheVO {
      */
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    /**
+     * @return the idDAVCabecalho
+     */
+    public Integer getIdDAVCabecalho() {
+        return idDAVCabecalho;
+    }
+
+    /**
+     * @param idDAVCabecalho the idDAVCabecalho to set
+     */
+    public void setIdDAVCabecalho(Integer idDAVCabecalho) {
+        this.idDAVCabecalho = idDAVCabecalho;
+    }
+
+    /**
+     * @return the idProduto
+     */
+    public Integer getIdProduto() {
+        return idProduto;
+    }
+
+    /**
+     * @param idProduto the idProduto to set
+     */
+    public void setIdProduto(Integer idProduto) {
+        this.idProduto = idProduto;
     }
 
     /**
@@ -103,31 +132,17 @@ public class DavDetalheVO {
     }
 
     /**
-     * @return the davVO
+     * @return the descricaoProduto
      */
-    public DavVO getDavVO() {
-        return davVO;
+    public String getDescricaoProduto() {
+        return descricaoProduto;
     }
 
     /**
-     * @param davVO the davVO to set
+     * @param descricaoProduto the descricaoProduto to set
      */
-    public void setDavVO(DavVO davVO) {
-        this.davVO = davVO;
-    }
-
-    /**
-     * @return the produtoVO
-     */
-    public ProdutoVO getProdutoVO() {
-        return produtoVO;
-    }
-
-    /**
-     * @param produtoVO the produtoVO to set
-     */
-    public void setProdutoVO(ProdutoVO produtoVO) {
-        this.produtoVO = produtoVO;
+    public void setDescricaoProduto(String descricaoProduto) {
+        this.descricaoProduto = descricaoProduto;
     }
 
 }

@@ -39,13 +39,11 @@ import java.util.Date;
  */
 public class DocumentosEmitidosVO {
     private Integer id;
-    private Integer idOperador;
-    private Integer idImpressora;
+    private Integer idMovimento;
     private Date dataHoraEmissao;
     private String tipo;
-    private Integer coo;
+    private Integer COO;
     private String sincronizado;
-    private CaixaVO caixaVO;
 
     public DocumentosEmitidosVO() {
     }
@@ -65,31 +63,17 @@ public class DocumentosEmitidosVO {
     }
 
     /**
-     * @return the idOperador
+     * @return the idMovimento
      */
-    public Integer getIdOperador() {
-        return idOperador;
+    public Integer getIdMovimento() {
+        return idMovimento;
     }
 
     /**
-     * @param idOperador the idOperador to set
+     * @param idMovimento the idMovimento to set
      */
-    public void setIdOperador(Integer idOperador) {
-        this.idOperador = idOperador;
-    }
-
-    /**
-     * @return the idImpressora
-     */
-    public Integer getIdImpressora() {
-        return idImpressora;
-    }
-
-    /**
-     * @param idImpressora the idImpressora to set
-     */
-    public void setIdImpressora(Integer idImpressora) {
-        this.idImpressora = idImpressora;
+    public void setIdMovimento(Integer idMovimento) {
+        this.idMovimento = idMovimento;
     }
 
     /**
@@ -121,17 +105,17 @@ public class DocumentosEmitidosVO {
     }
 
     /**
-     * @return the coo
+     * @return the COO
      */
-    public Integer getCoo() {
-        return coo;
+    public Integer getCOO() {
+        return COO;
     }
 
     /**
-     * @param coo the coo to set
+     * @param COO the COO to set
      */
-    public void setCoo(Integer coo) {
-        this.coo = coo;
+    public void setCOO(Integer COO) {
+        this.COO = COO;
     }
 
     /**
@@ -146,20 +130,6 @@ public class DocumentosEmitidosVO {
      */
     public void setSincronizado(String sincronizado) {
         this.sincronizado = sincronizado;
-    }
-
-    /**
-     * @return the caixaVO
-     */
-    public CaixaVO getCaixaVO() {
-        return caixaVO;
-    }
-
-    /**
-     * @param caixaVO the caixaVO to set
-     */
-    public void setCaixaVO(CaixaVO caixaVO) {
-        this.caixaVO = caixaVO;
     }
 
 }

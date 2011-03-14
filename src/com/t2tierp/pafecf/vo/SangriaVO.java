@@ -1,6 +1,6 @@
 package com.t2tierp.pafecf.vo;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * <p>Title: T2Ti ERP</p>
@@ -41,7 +41,7 @@ public class SangriaVO {
     private Integer id;
     private Date dataSangria;
     private Double valor;
-    private MovimentoVO movimentoVO;
+    private Integer idMovimento;
 
     public SangriaVO() {
     }
@@ -89,17 +89,17 @@ public class SangriaVO {
     }
 
     /**
-     * @return the movimentoVO
+     * @return the idMovimento
      */
-    public MovimentoVO getMovimentoVO() {
-        return movimentoVO;
+    public Integer getIdMovimento() {
+        return idMovimento;
     }
 
     /**
-     * @param movimentoVO the movimentoVO to set
+     * @param idMovimento the idMovimento to set
      */
-    public void setMovimentoVO(MovimentoVO movimentoVO) {
-        this.movimentoVO = movimentoVO;
+    public void setIdMovimento(Integer idMovimento) {
+        this.idMovimento = idMovimento;
     }
 
 }

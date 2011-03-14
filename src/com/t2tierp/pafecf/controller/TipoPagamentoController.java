@@ -34,9 +34,13 @@
  * @version 1.0
  */
 package com.t2tierp.pafecf.controller;
+
 import com.t2tierp.pafecf.bd.AcessoBanco;
+import com.t2tierp.pafecf.vo.TipoPagamentoVO;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TipoPagamentoController {
 
@@ -44,18 +48,51 @@ public class TipoPagamentoController {
     ResultSet rs;
     AcessoBanco bd = new AcessoBanco();
 
-    public void consulta() {
-        String consultaSQL = "select ID, CODIGO, DESCRICAO from ECF_TIPO_PAGAMENTO";
+    public List<TipoPagamentoVO> consulta() {
+        String consultaSQL = "select * from ECF_TIPO_PAGAMENTO order by TEF, ID";
+
+        try {
+            List<TipoPagamentoVO> listaTipoPagamento = new ArrayList<TipoPagamentoVO>();
+
+            stm = bd.conectar().createStatement();
+            rs = stm.executeQuery(consultaSQL);
+            rs.beforeFirst();
+            while (rs.next()) {
+                TipoPagamentoVO tipoPagamento = new TipoPagamentoVO();
+                tipoPagamento.setId(rs.getInt("ID"));
+                tipoPagamento.setCodigo(rs.getString("CODIGO"));
+                tipoPagamento.setDescricao(rs.getString("DESCRICAO"));
+                tipoPagamento.setTEF(rs.getString("TEF"));
+                tipoPagamento.setImprimeVinculado(rs.getString("IMPRIME_VINCULADO"));
+                listaTipoPagamento.add(tipoPagamento);
+            }
+            return listaTipoPagamento;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            bd.desconectar();
+        }
+    }
+
+    public TipoPagamentoVO consultaPeloId(Integer pId) {
+        String consultaSQL = "select * from ECF_TIPO_PAGAMENTO where ID=" + pId;
 
         try {
             stm = bd.conectar().createStatement();
             rs = stm.executeQuery(consultaSQL);
-            rs.first();
-            /*produtoVO.setId(rs.getInt(1));
-            produtoVO.setGtin(rs.getString(2));
-            produtoVO.setDescricaoPdv(rs.getString(3));*/
+            rs.beforeFirst();
+            rs.next();
+            TipoPagamentoVO tipoPagamento = new TipoPagamentoVO();
+            tipoPagamento.setId(rs.getInt("ID"));
+            tipoPagamento.setCodigo(rs.getString("CODIGO"));
+            tipoPagamento.setDescricao(rs.getString("DESCRICAO"));
+            tipoPagamento.setTEF(rs.getString("TEF"));
+            tipoPagamento.setImprimeVinculado(rs.getString("IMPRIME_VINCULADO"));
+            return tipoPagamento;
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         } finally {
             bd.desconectar();
         }

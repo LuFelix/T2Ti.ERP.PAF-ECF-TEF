@@ -39,10 +39,10 @@ import java.util.Date;
  */
 public class RecebimentoNaoFiscalVO  {
     private Integer id;
-    private Date dataRecbto;
+    private Date dataRecebimento;
     private String descricao;
     private Double valor;
-    private MovimentoVO movimentoVO;
+    private Integer idMovimento;
 
     public RecebimentoNaoFiscalVO() {
     }
@@ -62,17 +62,17 @@ public class RecebimentoNaoFiscalVO  {
     }
 
     /**
-     * @return the dataRecbto
+     * @return the dataRecebimento
      */
-    public Date getDataRecbto() {
-        return dataRecbto;
+    public Date getDataRecebimento() {
+        return dataRecebimento;
     }
 
     /**
-     * @param dataRecbto the dataRecbto to set
+     * @param dataRecebimento the dataRecebimento to set
      */
-    public void setDataRecbto(Date dataRecbto) {
-        this.dataRecbto = dataRecbto;
+    public void setDataRecebimento(Date dataRecebimento) {
+        this.dataRecebimento = dataRecebimento;
     }
 
     /**
@@ -104,17 +104,17 @@ public class RecebimentoNaoFiscalVO  {
     }
 
     /**
-     * @return the movimentoVO
+     * @return the idMovimento
      */
-    public MovimentoVO getMovimentoVO() {
-        return movimentoVO;
+    public Integer getIdMovimento() {
+        return idMovimento;
     }
 
     /**
-     * @param movimentoVO the movimentoVO to set
+     * @param idMovimento the idMovimento to set
      */
-    public void setMovimentoVO(MovimentoVO movimentoVO) {
-        this.movimentoVO = movimentoVO;
+    public void setIdMovimento(Integer idMovimento) {
+        this.idMovimento = idMovimento;
     }
 
 }

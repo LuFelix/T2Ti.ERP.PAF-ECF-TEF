@@ -1,7 +1,6 @@
 package com.t2tierp.pafecf.vo;
 
-import java.util.Collection;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * <p>Title: T2Ti ERP</p>
@@ -40,21 +39,18 @@ import java.util.Date;
  */
 public class R02VO {
     private Integer id;
+    private Integer idCaixa;
     private Integer idOperador;
     private Integer idImpressora;
-    private String numeroUsuario;
-    private Integer crz;
-    private Integer coo;
-    private Integer cro;
+    private Integer CRZ;
+    private Integer COO;
+    private Integer CRO;
     private Date dataMovimento;
     private Date dataEmissao;
-    private Date horaEmissao;
-    private Double vendaBruta;
-    private Double grandeTotal;
+    private String horaEmissao;
+    private Double valorVendaBruta;
+    private Double valorGrandeTotal;
     private String sincronizado;
-    private CaixaVO caixaVO;
-    private Collection<R03VO> r03VOCollection;
-    private Collection<R07VO> r07VOCollection;
 
     public R02VO() {
     }
@@ -71,6 +67,20 @@ public class R02VO {
      */
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    /**
+     * @return the idCaixa
+     */
+    public Integer getIdCaixa() {
+        return idCaixa;
+    }
+
+    /**
+     * @param idCaixa the idCaixa to set
+     */
+    public void setIdCaixa(Integer idCaixa) {
+        this.idCaixa = idCaixa;
     }
 
     /**
@@ -102,59 +112,45 @@ public class R02VO {
     }
 
     /**
-     * @return the numeroUsuario
+     * @return the CRZ
      */
-    public String getNumeroUsuario() {
-        return numeroUsuario;
+    public Integer getCRZ() {
+        return CRZ;
     }
 
     /**
-     * @param numeroUsuario the numeroUsuario to set
+     * @param CRZ the CRZ to set
      */
-    public void setNumeroUsuario(String numeroUsuario) {
-        this.numeroUsuario = numeroUsuario;
+    public void setCRZ(Integer CRZ) {
+        this.CRZ = CRZ;
     }
 
     /**
-     * @return the crz
+     * @return the COO
      */
-    public Integer getCrz() {
-        return crz;
+    public Integer getCOO() {
+        return COO;
     }
 
     /**
-     * @param crz the crz to set
+     * @param COO the COO to set
      */
-    public void setCrz(Integer crz) {
-        this.crz = crz;
+    public void setCOO(Integer COO) {
+        this.COO = COO;
     }
 
     /**
-     * @return the coo
+     * @return the CRO
      */
-    public Integer getCoo() {
-        return coo;
+    public Integer getCRO() {
+        return CRO;
     }
 
     /**
-     * @param coo the coo to set
+     * @param CRO the CRO to set
      */
-    public void setCoo(Integer coo) {
-        this.coo = coo;
-    }
-
-    /**
-     * @return the cro
-     */
-    public Integer getCro() {
-        return cro;
-    }
-
-    /**
-     * @param cro the cro to set
-     */
-    public void setCro(Integer cro) {
-        this.cro = cro;
+    public void setCRO(Integer CRO) {
+        this.CRO = CRO;
     }
 
     /**
@@ -188,43 +184,43 @@ public class R02VO {
     /**
      * @return the horaEmissao
      */
-    public Date getHoraEmissao() {
+    public String getHoraEmissao() {
         return horaEmissao;
     }
 
     /**
      * @param horaEmissao the horaEmissao to set
      */
-    public void setHoraEmissao(Date horaEmissao) {
+    public void setHoraEmissao(String horaEmissao) {
         this.horaEmissao = horaEmissao;
     }
 
     /**
-     * @return the vendaBruta
+     * @return the valorVendaBruta
      */
-    public Double getVendaBruta() {
-        return vendaBruta;
+    public Double getValorVendaBruta() {
+        return valorVendaBruta;
     }
 
     /**
-     * @param vendaBruta the vendaBruta to set
+     * @param valorVendaBruta the valorVendaBruta to set
      */
-    public void setVendaBruta(Double vendaBruta) {
-        this.vendaBruta = vendaBruta;
+    public void setValorVendaBruta(Double valorVendaBruta) {
+        this.valorVendaBruta = valorVendaBruta;
     }
 
     /**
-     * @return the grandeTotal
+     * @return the valorGrandeTotal
      */
-    public Double getGrandeTotal() {
-        return grandeTotal;
+    public Double getValorGrandeTotal() {
+        return valorGrandeTotal;
     }
 
     /**
-     * @param grandeTotal the grandeTotal to set
+     * @param valorGrandeTotal the valorGrandeTotal to set
      */
-    public void setGrandeTotal(Double grandeTotal) {
-        this.grandeTotal = grandeTotal;
+    public void setValorGrandeTotal(Double valorGrandeTotal) {
+        this.valorGrandeTotal = valorGrandeTotal;
     }
 
     /**
@@ -241,46 +237,5 @@ public class R02VO {
         this.sincronizado = sincronizado;
     }
 
-    /**
-     * @return the caixaVO
-     */
-    public CaixaVO getCaixaVO() {
-        return caixaVO;
-    }
-
-    /**
-     * @param caixaVO the caixaVO to set
-     */
-    public void setCaixaVO(CaixaVO caixaVO) {
-        this.caixaVO = caixaVO;
-    }
-
-    /**
-     * @return the r03VOCollection
-     */
-    public Collection<R03VO> getR03VOCollection() {
-        return r03VOCollection;
-    }
-
-    /**
-     * @param r03VOCollection the r03VOCollection to set
-     */
-    public void setR03VOCollection(Collection<R03VO> r03VOCollection) {
-        this.r03VOCollection = r03VOCollection;
-    }
-
-    /**
-     * @return the r07VOCollection
-     */
-    public Collection<R07VO> getR07VOCollection() {
-        return r07VOCollection;
-    }
-
-    /**
-     * @param r07VOCollection the r07VOCollection to set
-     */
-    public void setR07VOCollection(Collection<R07VO> r07VOCollection) {
-        this.r07VOCollection = r07VOCollection;
-    }
 
 }

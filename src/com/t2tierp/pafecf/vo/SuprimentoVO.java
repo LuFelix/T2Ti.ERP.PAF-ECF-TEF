@@ -1,6 +1,6 @@
 package com.t2tierp.pafecf.vo;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * <p>Title: T2Ti ERP</p>

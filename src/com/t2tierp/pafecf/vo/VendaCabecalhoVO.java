@@ -1,7 +1,6 @@
 package com.t2tierp.pafecf.vo;
 
-import java.util.Collection;
-import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  * <p>Title: T2Ti ERP</p>
@@ -40,13 +39,15 @@ import java.sql.Date;
  */
 public class VendaCabecalhoVO {
     private Integer id;
-    private Integer coo;
-    private Integer ccf;
-    private Integer idCaixa;
-    private Integer idOperador;
-    private Integer idImpressora;
+    private Integer idCFOP;
+    private Integer idDAV;
+    private Integer idPreVenda;
+    private Integer idCliente;
+    private Integer idVendedor;
     private Integer idMovimento;
-    private Date dataHoraVenda;
+    private Integer COO;
+    private Integer CCF;
+    private Timestamp dataHoraVenda;
     private Double valorVenda;
     private Double taxaDesconto;
     private Double desconto;
@@ -59,22 +60,18 @@ public class VendaCabecalhoVO {
     private String sincronizado;
     private Double totalProdutos;
     private Double totalDocumento;
-    private Double baseIcms;
-    private Double icms;
-    private Double icmsOutras;
-    private Double issqn;
-    private Double pis;
-    private Double cofins;
+    private Double baseICMS;
+    private Double ICMS;
+    private Double ICMSOutras;
+    private Double ISSQN;
+    private Double PIS;
+    private Double COFINS;
     private Double acrescimoItens;
     private Double descontoItens;
     private String cancelada;
-    private Collection<TotalTipoPgtoVO> totalTipoPgtoVOCollection;
-    private Collection<VendaDetalheVO> vendaDetalheVOCollection;
-    private FuncionarioVO funcionarioVO;
-    private ClienteVO clienteVO;
-    private PreVendaCabecalhoVO preVendaCabecalhoVO;
-    private DavVO davVO;
-    private CfopVO cfopVO;
+    private String statusVenda;
+    private String nomeCliente;
+    private String CPFouCNPJCliente;
 
     public VendaCabecalhoVO() {
     }
@@ -94,73 +91,73 @@ public class VendaCabecalhoVO {
     }
 
     /**
-     * @return the coo
+     * @return the idCFOP
      */
-    public Integer getCoo() {
-        return coo;
+    public Integer getIdCFOP() {
+        return idCFOP;
     }
 
     /**
-     * @param coo the coo to set
+     * @param idCFOP the idCFOP to set
      */
-    public void setCoo(Integer coo) {
-        this.coo = coo;
+    public void setIdCFOP(Integer idCFOP) {
+        this.idCFOP = idCFOP;
     }
 
     /**
-     * @return the ccf
+     * @return the idDAV
      */
-    public Integer getCcf() {
-        return ccf;
+    public Integer getIdDAV() {
+        return idDAV;
     }
 
     /**
-     * @param ccf the ccf to set
+     * @param idDAV the idDAV to set
      */
-    public void setCcf(Integer ccf) {
-        this.ccf = ccf;
+    public void setIdDAV(Integer idDAV) {
+        this.idDAV = idDAV;
     }
 
     /**
-     * @return the idCaixa
+     * @return the idPreVenda
      */
-    public Integer getIdCaixa() {
-        return idCaixa;
+    public Integer getIdPreVenda() {
+        return idPreVenda;
     }
 
     /**
-     * @param idCaixa the idCaixa to set
+     * @param idPreVenda the idPreVenda to set
      */
-    public void setIdCaixa(Integer idCaixa) {
-        this.idCaixa = idCaixa;
+    public void setIdPreVenda(Integer idPreVenda) {
+        this.idPreVenda = idPreVenda;
     }
 
     /**
-     * @return the idOperador
+     * @return the idCliente
      */
-    public Integer getIdOperador() {
-        return idOperador;
+    public Integer getIdCliente() {
+        return idCliente;
     }
 
     /**
-     * @param idOperador the idOperador to set
+     * @param idCliente the idCliente to set
      */
-    public void setIdOperador(Integer idOperador) {
-        this.idOperador = idOperador;
+    public void setIdCliente(Integer idCliente) {
+        this.idCliente = idCliente;
     }
 
     /**
-     * @return the idImpressora
+     * @return the idVendedor
      */
-    public Integer getIdImpressora() {
-        return idImpressora;
+    public Integer getIdVendedor() {
+        return idVendedor;
     }
 
     /**
-     * @param idImpressora the idImpressora to set
+     * @param idVendedor the idVendedor to set
      */
-    public void setIdImpressora(Integer idImpressora) {
-        this.idImpressora = idImpressora;
+    public void setIdVendedor(Integer idVendedor) {
+        this.idVendedor = idVendedor;
     }
 
     /**
@@ -178,16 +175,44 @@ public class VendaCabecalhoVO {
     }
 
     /**
+     * @return the COO
+     */
+    public Integer getCOO() {
+        return COO;
+    }
+
+    /**
+     * @param COO the COO to set
+     */
+    public void setCOO(Integer COO) {
+        this.COO = COO;
+    }
+
+    /**
+     * @return the CCF
+     */
+    public Integer getCCF() {
+        return CCF;
+    }
+
+    /**
+     * @param CCF the CCF to set
+     */
+    public void setCCF(Integer CCF) {
+        this.CCF = CCF;
+    }
+
+    /**
      * @return the dataHoraVenda
      */
-    public Date getDataHoraVenda() {
+    public Timestamp getDataHoraVenda() {
         return dataHoraVenda;
     }
 
     /**
      * @param dataHoraVenda the dataHoraVenda to set
      */
-    public void setDataHoraVenda(Date dataHoraVenda) {
+    public void setDataHoraVenda(Timestamp dataHoraVenda) {
         this.dataHoraVenda = dataHoraVenda;
     }
 
@@ -360,87 +385,87 @@ public class VendaCabecalhoVO {
     }
 
     /**
-     * @return the baseIcms
+     * @return the baseICMS
      */
-    public Double getBaseIcms() {
-        return baseIcms;
+    public Double getBaseICMS() {
+        return baseICMS;
     }
 
     /**
-     * @param baseIcms the baseIcms to set
+     * @param baseICMS the baseICMS to set
      */
-    public void setBaseIcms(Double baseIcms) {
-        this.baseIcms = baseIcms;
+    public void setBaseICMS(Double baseICMS) {
+        this.baseICMS = baseICMS;
     }
 
     /**
-     * @return the icms
+     * @return the ICMS
      */
-    public Double getIcms() {
-        return icms;
+    public Double getICMS() {
+        return ICMS;
     }
 
     /**
-     * @param icms the icms to set
+     * @param ICMS the ICMS to set
      */
-    public void setIcms(Double icms) {
-        this.icms = icms;
+    public void setICMS(Double ICMS) {
+        this.ICMS = ICMS;
     }
 
     /**
-     * @return the icmsOutras
+     * @return the ICMSOutras
      */
-    public Double getIcmsOutras() {
-        return icmsOutras;
+    public Double getICMSOutras() {
+        return ICMSOutras;
     }
 
     /**
-     * @param icmsOutras the icmsOutras to set
+     * @param ICMSOutras the ICMSOutras to set
      */
-    public void setIcmsOutras(Double icmsOutras) {
-        this.icmsOutras = icmsOutras;
+    public void setICMSOutras(Double ICMSOutras) {
+        this.ICMSOutras = ICMSOutras;
     }
 
     /**
-     * @return the issqn
+     * @return the ISSQN
      */
-    public Double getIssqn() {
-        return issqn;
+    public Double getISSQN() {
+        return ISSQN;
     }
 
     /**
-     * @param issqn the issqn to set
+     * @param ISSQN the ISSQN to set
      */
-    public void setIssqn(Double issqn) {
-        this.issqn = issqn;
+    public void setISSQN(Double ISSQN) {
+        this.ISSQN = ISSQN;
     }
 
     /**
-     * @return the pis
+     * @return the PIS
      */
-    public Double getPis() {
-        return pis;
+    public Double getPIS() {
+        return PIS;
     }
 
     /**
-     * @param pis the pis to set
+     * @param PIS the PIS to set
      */
-    public void setPis(Double pis) {
-        this.pis = pis;
+    public void setPIS(Double PIS) {
+        this.PIS = PIS;
     }
 
     /**
-     * @return the cofins
+     * @return the COFINS
      */
-    public Double getCofins() {
-        return cofins;
+    public Double getCOFINS() {
+        return COFINS;
     }
 
     /**
-     * @param cofins the cofins to set
+     * @param COFINS the COFINS to set
      */
-    public void setCofins(Double cofins) {
-        this.cofins = cofins;
+    public void setCOFINS(Double COFINS) {
+        this.COFINS = COFINS;
     }
 
     /**
@@ -486,102 +511,45 @@ public class VendaCabecalhoVO {
     }
 
     /**
-     * @return the totalTipoPgtoVOCollection
+     * @return the statusVenda
      */
-    public Collection<TotalTipoPgtoVO> getTotalTipoPgtoVOCollection() {
-        return totalTipoPgtoVOCollection;
+    public String getStatusVenda() {
+        return statusVenda;
     }
 
     /**
-     * @param totalTipoPgtoVOCollection the totalTipoPgtoVOCollection to set
+     * @param statusVenda the statusVenda to set
      */
-    public void setTotalTipoPgtoVOCollection(Collection<TotalTipoPgtoVO> totalTipoPgtoVOCollection) {
-        this.totalTipoPgtoVOCollection = totalTipoPgtoVOCollection;
+    public void setStatusVenda(String statusVenda) {
+        this.statusVenda = statusVenda;
     }
 
     /**
-     * @return the vendaDetalheVOCollection
+     * @return the nomeCliente
      */
-    public Collection<VendaDetalheVO> getVendaDetalheVOCollection() {
-        return vendaDetalheVOCollection;
+    public String getNomeCliente() {
+        return nomeCliente;
     }
 
     /**
-     * @param vendaDetalheVOCollection the vendaDetalheVOCollection to set
+     * @param nomeCliente the nomeCliente to set
      */
-    public void setVendaDetalheVOCollection(Collection<VendaDetalheVO> vendaDetalheVOCollection) {
-        this.vendaDetalheVOCollection = vendaDetalheVOCollection;
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
     }
 
     /**
-     * @return the funcionarioVO
+     * @return the CPFouCNPJCliente
      */
-    public FuncionarioVO getFuncionarioVO() {
-        return funcionarioVO;
+    public String getCPFouCNPJCliente() {
+        return CPFouCNPJCliente;
     }
 
     /**
-     * @param funcionarioVO the funcionarioVO to set
+     * @param CPFouCNPJCliente the CPFouCNPJCliente to set
      */
-    public void setFuncionarioVO(FuncionarioVO funcionarioVO) {
-        this.funcionarioVO = funcionarioVO;
+    public void setCPFouCNPJCliente(String CPFouCNPJCliente) {
+        this.CPFouCNPJCliente = CPFouCNPJCliente;
     }
-
-    /**
-     * @return the clienteVO
-     */
-    public ClienteVO getClienteVO() {
-        return clienteVO;
-    }
-
-    /**
-     * @param clienteVO the clienteVO to set
-     */
-    public void setClienteVO(ClienteVO clienteVO) {
-        this.clienteVO = clienteVO;
-    }
-
-    /**
-     * @return the preVendaCabecalhoVO
-     */
-    public PreVendaCabecalhoVO getPreVendaCabecalhoVO() {
-        return preVendaCabecalhoVO;
-    }
-
-    /**
-     * @param preVendaCabecalhoVO the preVendaCabecalhoVO to set
-     */
-    public void setPreVendaCabecalhoVO(PreVendaCabecalhoVO preVendaCabecalhoVO) {
-        this.preVendaCabecalhoVO = preVendaCabecalhoVO;
-    }
-
-    /**
-     * @return the davVO
-     */
-    public DavVO getDavVO() {
-        return davVO;
-    }
-
-    /**
-     * @param davVO the davVO to set
-     */
-    public void setDavVO(DavVO davVO) {
-        this.davVO = davVO;
-    }
-
-    /**
-     * @return the cfopVO
-     */
-    public CfopVO getCfopVO() {
-        return cfopVO;
-    }
-
-    /**
-     * @param cfopVO the cfopVO to set
-     */
-    public void setCfopVO(CfopVO cfopVO) {
-        this.cfopVO = cfopVO;
-    }
-
 
 }

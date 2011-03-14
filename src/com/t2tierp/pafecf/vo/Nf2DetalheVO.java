@@ -35,36 +35,37 @@ package com.t2tierp.pafecf.vo;
  * @author Albert Eije (T2Ti.COM)
  * @version 1.0
  */
-public class Nf2DetalheVO {
+public class NF2DetalheVO {
     private Integer id;
+    private Integer idCFOP;
+    private Integer idTributo;
+    private Integer idProduto;
+    private Integer idNF2Cabecalho;
+    private Integer item;
     private Double quantidade;
     private Double valorUnitario;
     private Double valorTotal;
-    private Double baseIcms;
-    private Double taxaIcms;
-    private Double icms;
-    private Double icmsOutras;
-    private Double icmsIsento;
+    private Double baseICMS;
+    private Double taxaICMS;
+    private Double ICMS;
+    private Double ICMSOutras;
+    private Double ICMSIsento;
     private Double taxaDesconto;
     private Double desconto;
-    private Double taxaIssqn;
-    private Double issqn;
-    private Double taxaPis;
-    private Double pis;
-    private Double taxaCofins;
-    private Double cofins;
+    private Double taxaISSQN;
+    private Double ISSQN;
+    private Double taxaPIS;
+    private Double PIS;
+    private Double taxaCOFINS;
+    private Double COFINS;
     private Double taxaAcrescimo;
     private Double acrescimo;
-    private Double taxaIpi;
-    private Double ipi;
+    private Double taxaIPI;
+    private Double IPI;
     private String cancelado;
     private String movimentaEstoque;
-    private Nf2CabecalhoVO nf2CabecalhoVO;
-    private ProdutoVO produtoVO;
-    private TributoProdutoVO tributoProdutoVO;
-    private CfopVO cfopVO;
 
-    public Nf2DetalheVO() {
+    public NF2DetalheVO() {
     }
 
     /**
@@ -79,6 +80,76 @@ public class Nf2DetalheVO {
      */
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    /**
+     * @return the idCFOP
+     */
+    public Integer getIdCFOP() {
+        return idCFOP;
+    }
+
+    /**
+     * @param idCFOP the idCFOP to set
+     */
+    public void setIdCFOP(Integer idCFOP) {
+        this.idCFOP = idCFOP;
+    }
+
+    /**
+     * @return the idTributo
+     */
+    public Integer getIdTributo() {
+        return idTributo;
+    }
+
+    /**
+     * @param idTributo the idTributo to set
+     */
+    public void setIdTributo(Integer idTributo) {
+        this.idTributo = idTributo;
+    }
+
+    /**
+     * @return the idProduto
+     */
+    public Integer getIdProduto() {
+        return idProduto;
+    }
+
+    /**
+     * @param idProduto the idProduto to set
+     */
+    public void setIdProduto(Integer idProduto) {
+        this.idProduto = idProduto;
+    }
+
+    /**
+     * @return the idNF2Cabecalho
+     */
+    public Integer getIdNF2Cabecalho() {
+        return idNF2Cabecalho;
+    }
+
+    /**
+     * @param idNF2Cabecalho the idNF2Cabecalho to set
+     */
+    public void setIdNF2Cabecalho(Integer idNF2Cabecalho) {
+        this.idNF2Cabecalho = idNF2Cabecalho;
+    }
+
+    /**
+     * @return the item
+     */
+    public Integer getItem() {
+        return item;
+    }
+
+    /**
+     * @param item the item to set
+     */
+    public void setItem(Integer item) {
+        this.item = item;
     }
 
     /**
@@ -124,73 +195,73 @@ public class Nf2DetalheVO {
     }
 
     /**
-     * @return the baseIcms
+     * @return the baseICMS
      */
-    public Double getBaseIcms() {
-        return baseIcms;
+    public Double getBaseICMS() {
+        return baseICMS;
     }
 
     /**
-     * @param baseIcms the baseIcms to set
+     * @param baseICMS the baseICMS to set
      */
-    public void setBaseIcms(Double baseIcms) {
-        this.baseIcms = baseIcms;
+    public void setBaseICMS(Double baseICMS) {
+        this.baseICMS = baseICMS;
     }
 
     /**
-     * @return the taxaIcms
+     * @return the taxaICMS
      */
-    public Double getTaxaIcms() {
-        return taxaIcms;
+    public Double getTaxaICMS() {
+        return taxaICMS;
     }
 
     /**
-     * @param taxaIcms the taxaIcms to set
+     * @param taxaICMS the taxaICMS to set
      */
-    public void setTaxaIcms(Double taxaIcms) {
-        this.taxaIcms = taxaIcms;
+    public void setTaxaICMS(Double taxaICMS) {
+        this.taxaICMS = taxaICMS;
     }
 
     /**
-     * @return the icms
+     * @return the ICMS
      */
-    public Double getIcms() {
-        return icms;
+    public Double getICMS() {
+        return ICMS;
     }
 
     /**
-     * @param icms the icms to set
+     * @param ICMS the ICMS to set
      */
-    public void setIcms(Double icms) {
-        this.icms = icms;
+    public void setICMS(Double ICMS) {
+        this.ICMS = ICMS;
     }
 
     /**
-     * @return the icmsOutras
+     * @return the ICMSOutras
      */
-    public Double getIcmsOutras() {
-        return icmsOutras;
+    public Double getICMSOutras() {
+        return ICMSOutras;
     }
 
     /**
-     * @param icmsOutras the icmsOutras to set
+     * @param ICMSOutras the ICMSOutras to set
      */
-    public void setIcmsOutras(Double icmsOutras) {
-        this.icmsOutras = icmsOutras;
+    public void setICMSOutras(Double ICMSOutras) {
+        this.ICMSOutras = ICMSOutras;
     }
 
     /**
-     * @return the icmsIsento
+     * @return the ICMSIsento
      */
-    public Double getIcmsIsento() {
-        return icmsIsento;
+    public Double getICMSIsento() {
+        return ICMSIsento;
     }
 
     /**
-     * @param icmsIsento the icmsIsento to set
+     * @param ICMSIsento the ICMSIsento to set
      */
-    public void setIcmsIsento(Double icmsIsento) {
-        this.icmsIsento = icmsIsento;
+    public void setICMSIsento(Double ICMSIsento) {
+        this.ICMSIsento = ICMSIsento;
     }
 
     /**
@@ -222,87 +293,87 @@ public class Nf2DetalheVO {
     }
 
     /**
-     * @return the taxaIssqn
+     * @return the taxaISSQN
      */
-    public Double getTaxaIssqn() {
-        return taxaIssqn;
+    public Double getTaxaISSQN() {
+        return taxaISSQN;
     }
 
     /**
-     * @param taxaIssqn the taxaIssqn to set
+     * @param taxaISSQN the taxaISSQN to set
      */
-    public void setTaxaIssqn(Double taxaIssqn) {
-        this.taxaIssqn = taxaIssqn;
+    public void setTaxaISSQN(Double taxaISSQN) {
+        this.taxaISSQN = taxaISSQN;
     }
 
     /**
-     * @return the issqn
+     * @return the ISSQN
      */
-    public Double getIssqn() {
-        return issqn;
+    public Double getISSQN() {
+        return ISSQN;
     }
 
     /**
-     * @param issqn the issqn to set
+     * @param ISSQN the ISSQN to set
      */
-    public void setIssqn(Double issqn) {
-        this.issqn = issqn;
+    public void setISSQN(Double ISSQN) {
+        this.ISSQN = ISSQN;
     }
 
     /**
-     * @return the taxaPis
+     * @return the taxaPIS
      */
-    public Double getTaxaPis() {
-        return taxaPis;
+    public Double getTaxaPIS() {
+        return taxaPIS;
     }
 
     /**
-     * @param taxaPis the taxaPis to set
+     * @param taxaPIS the taxaPIS to set
      */
-    public void setTaxaPis(Double taxaPis) {
-        this.taxaPis = taxaPis;
+    public void setTaxaPIS(Double taxaPIS) {
+        this.taxaPIS = taxaPIS;
     }
 
     /**
-     * @return the pis
+     * @return the PIS
      */
-    public Double getPis() {
-        return pis;
+    public Double getPIS() {
+        return PIS;
     }
 
     /**
-     * @param pis the pis to set
+     * @param PIS the PIS to set
      */
-    public void setPis(Double pis) {
-        this.pis = pis;
+    public void setPIS(Double PIS) {
+        this.PIS = PIS;
     }
 
     /**
-     * @return the taxaCofins
+     * @return the taxaCOFINS
      */
-    public Double getTaxaCofins() {
-        return taxaCofins;
+    public Double getTaxaCOFINS() {
+        return taxaCOFINS;
     }
 
     /**
-     * @param taxaCofins the taxaCofins to set
+     * @param taxaCOFINS the taxaCOFINS to set
      */
-    public void setTaxaCofins(Double taxaCofins) {
-        this.taxaCofins = taxaCofins;
+    public void setTaxaCOFINS(Double taxaCOFINS) {
+        this.taxaCOFINS = taxaCOFINS;
     }
 
     /**
-     * @return the cofins
+     * @return the COFINS
      */
-    public Double getCofins() {
-        return cofins;
+    public Double getCOFINS() {
+        return COFINS;
     }
 
     /**
-     * @param cofins the cofins to set
+     * @param COFINS the COFINS to set
      */
-    public void setCofins(Double cofins) {
-        this.cofins = cofins;
+    public void setCOFINS(Double COFINS) {
+        this.COFINS = COFINS;
     }
 
     /**
@@ -334,31 +405,31 @@ public class Nf2DetalheVO {
     }
 
     /**
-     * @return the taxaIpi
+     * @return the taxaIPI
      */
-    public Double getTaxaIpi() {
-        return taxaIpi;
+    public Double getTaxaIPI() {
+        return taxaIPI;
     }
 
     /**
-     * @param taxaIpi the taxaIpi to set
+     * @param taxaIPI the taxaIPI to set
      */
-    public void setTaxaIpi(Double taxaIpi) {
-        this.taxaIpi = taxaIpi;
+    public void setTaxaIPI(Double taxaIPI) {
+        this.taxaIPI = taxaIPI;
     }
 
     /**
-     * @return the ipi
+     * @return the IPI
      */
-    public Double getIpi() {
-        return ipi;
+    public Double getIPI() {
+        return IPI;
     }
 
     /**
-     * @param ipi the ipi to set
+     * @param IPI the IPI to set
      */
-    public void setIpi(Double ipi) {
-        this.ipi = ipi;
+    public void setIPI(Double IPI) {
+        this.IPI = IPI;
     }
 
     /**
@@ -387,62 +458,6 @@ public class Nf2DetalheVO {
      */
     public void setMovimentaEstoque(String movimentaEstoque) {
         this.movimentaEstoque = movimentaEstoque;
-    }
-
-    /**
-     * @return the nf2CabecalhoVO
-     */
-    public Nf2CabecalhoVO getNf2CabecalhoVO() {
-        return nf2CabecalhoVO;
-    }
-
-    /**
-     * @param nf2CabecalhoVO the nf2CabecalhoVO to set
-     */
-    public void setNf2CabecalhoVO(Nf2CabecalhoVO nf2CabecalhoVO) {
-        this.nf2CabecalhoVO = nf2CabecalhoVO;
-    }
-
-    /**
-     * @return the produtoVO
-     */
-    public ProdutoVO getProdutoVO() {
-        return produtoVO;
-    }
-
-    /**
-     * @param produtoVO the produtoVO to set
-     */
-    public void setProdutoVO(ProdutoVO produtoVO) {
-        this.produtoVO = produtoVO;
-    }
-
-    /**
-     * @return the tributoProdutoVO
-     */
-    public TributoProdutoVO getTributoProdutoVO() {
-        return tributoProdutoVO;
-    }
-
-    /**
-     * @param tributoProdutoVO the tributoProdutoVO to set
-     */
-    public void setTributoProdutoVO(TributoProdutoVO tributoProdutoVO) {
-        this.tributoProdutoVO = tributoProdutoVO;
-    }
-
-    /**
-     * @return the cfopVO
-     */
-    public CfopVO getCfopVO() {
-        return cfopVO;
-    }
-
-    /**
-     * @param cfopVO the cfopVO to set
-     */
-    public void setCfopVO(CfopVO cfopVO) {
-        this.cfopVO = cfopVO;
     }
 
 }

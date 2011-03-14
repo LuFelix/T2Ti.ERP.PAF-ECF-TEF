@@ -1,6 +1,5 @@
 package com.t2tierp.pafecf.vo;
 
-import java.util.Collection;
 import java.util.Date;
 
 /**
@@ -42,7 +41,7 @@ public class EmpresaVO  {
     private Integer id;
     private String razaoSocial;
     private String nomeFantasia;
-    private String cnpj;
+    private String CNPJ;
     private String inscricaoEstadual;
     private String inscricaoMunicipal;
     private String matrizFilial;
@@ -51,13 +50,12 @@ public class EmpresaVO  {
     private String complemento;
     private String bairro;
     private String cidade;
-    private String uf;
-    private String cep;
+    private String UF;
+    private String CEP;
     private String fone1;
     private String fone2;
     private String contato;
-    private Collection<ConfiguracaoVO> configuracaoVOCollection;
-    private Collection<EmpresaVO> empresaVOCollection;
+    private Integer codigoMunicipioIBGE;
 
     public EmpresaVO() {
     }
@@ -105,17 +103,17 @@ public class EmpresaVO  {
     }
 
     /**
-     * @return the cnpj
+     * @return the CNPJ
      */
-    public String getCnpj() {
-        return cnpj;
+    public String getCNPJ() {
+        return CNPJ;
     }
 
     /**
-     * @param cnpj the cnpj to set
+     * @param CNPJ the CNPJ to set
      */
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+    public void setCNPJ(String CNPJ) {
+        this.CNPJ = CNPJ;
     }
 
     /**
@@ -231,31 +229,31 @@ public class EmpresaVO  {
     }
 
     /**
-     * @return the uf
+     * @return the UF
      */
-    public String getUf() {
-        return uf;
+    public String getUF() {
+        return UF;
     }
 
     /**
-     * @param uf the uf to set
+     * @param UF the UF to set
      */
-    public void setUf(String uf) {
-        this.uf = uf;
+    public void setUF(String UF) {
+        this.UF = UF;
     }
 
     /**
-     * @return the cep
+     * @return the CEP
      */
-    public String getCep() {
-        return cep;
+    public String getCEP() {
+        return CEP;
     }
 
     /**
-     * @param cep the cep to set
+     * @param CEP the CEP to set
      */
-    public void setCep(String cep) {
-        this.cep = cep;
+    public void setCEP(String CEP) {
+        this.CEP = CEP;
     }
 
     /**
@@ -301,31 +299,17 @@ public class EmpresaVO  {
     }
 
     /**
-     * @return the configuracaoVOCollection
+     * @return the codigoMunicipioIBGE
      */
-    public Collection<ConfiguracaoVO> getConfiguracaoVOCollection() {
-        return configuracaoVOCollection;
+    public Integer getCodigoMunicipioIBGE() {
+        return codigoMunicipioIBGE;
     }
 
     /**
-     * @param configuracaoVOCollection the configuracaoVOCollection to set
+     * @param codigoMunicipioIBGE the codigoMunicipioIBGE to set
      */
-    public void setConfiguracaoVOCollection(Collection<ConfiguracaoVO> configuracaoVOCollection) {
-        this.configuracaoVOCollection = configuracaoVOCollection;
-    }
-
-    /**
-     * @return the empresaVOCollection
-     */
-    public Collection<EmpresaVO> getEmpresaVOCollection() {
-        return empresaVOCollection;
-    }
-
-    /**
-     * @param empresaVOCollection the empresaVOCollection to set
-     */
-    public void setEmpresaVOCollection(Collection<EmpresaVO> empresaVOCollection) {
-        this.empresaVOCollection = empresaVOCollection;
+    public void setCodigoMunicipioIBGE(Integer codigoMunicipioIBGE) {
+        this.codigoMunicipioIBGE = codigoMunicipioIBGE;
     }
 
 }

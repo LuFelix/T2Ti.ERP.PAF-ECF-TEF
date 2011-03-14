@@ -41,7 +41,7 @@ public class EnderecoVO {
     private Integer numero;
     private String complemento;
     private String bairro;
-    private String cep;
+    private String CEP;
     private ClienteVO clienteVO;
 
     public EnderecoVO() {
@@ -118,17 +118,17 @@ public class EnderecoVO {
     }
 
     /**
-     * @return the cep
+     * @return the CEP
      */
-    public String getCep() {
-        return cep;
+    public String getCEP() {
+        return CEP;
     }
 
     /**
-     * @param cep the cep to set
+     * @param CEP the CEP to set
      */
-    public void setCep(String cep) {
-        this.cep = cep;
+    public void setCEP(String CEP) {
+        this.CEP = CEP;
     }
 
     /**

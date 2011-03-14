@@ -1,7 +1,5 @@
 package com.t2tierp.pafecf.vo;
 
-import java.util.Collection;
-
 /**
  * <p>Title: T2Ti ERP</p>
  * <p>Description: PAF-ECF + TEF - Objeto de valor referente a tabela CFOP.</p>
@@ -37,85 +35,69 @@ import java.util.Collection;
  * @author Albert Eije (T2Ti.COM)
  * @version 1.0
  */
-public class CfopVO {
+public class CFOPVO {
     private Integer id;
-    private Integer cfop;
+    private Integer CFOP;
     private String descricao;
     private String aplicacao;
-    private Collection<Nf2DetalheVO> nf2DetalheVOCollection;
-    private Collection<VendaDetalheVO> vendaDetalheVOCollection;
-    private Collection<Nf2CabecalhoVO> nf2CabecalhoVOCollection;
-    private Collection<VendaCabecalhoVO> vendaCabecalhoVOCollection;
 
-    public CfopVO() {
+    public CFOPVO() {
     }
 
-    public CfopVO(Integer id) {
-        this.id = id;
-    }
-
+    /**
+     * @return the id
+     */
     public Integer getId() {
         return id;
     }
 
+    /**
+     * @param id the id to set
+     */
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public Integer getCfop() {
-        return cfop;
+    /**
+     * @return the CFOP
+     */
+    public Integer getCFOP() {
+        return CFOP;
     }
 
-    public void setCfop(Integer cfop) {
-        this.cfop = cfop;
+    /**
+     * @param CFOP the CFOP to set
+     */
+    public void setCFOP(Integer CFOP) {
+        this.CFOP = CFOP;
     }
 
+    /**
+     * @return the descricao
+     */
     public String getDescricao() {
         return descricao;
     }
 
+    /**
+     * @param descricao the descricao to set
+     */
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
+    /**
+     * @return the aplicacao
+     */
     public String getAplicacao() {
         return aplicacao;
     }
 
+    /**
+     * @param aplicacao the aplicacao to set
+     */
     public void setAplicacao(String aplicacao) {
         this.aplicacao = aplicacao;
-    }
-
-    public Collection<Nf2DetalheVO> getNf2DetalheVOCollection() {
-        return nf2DetalheVOCollection;
-    }
-
-    public void setNf2DetalheVOCollection(Collection<Nf2DetalheVO> nf2DetalheVOCollection) {
-        this.nf2DetalheVOCollection = nf2DetalheVOCollection;
-    }
-
-    public Collection<VendaDetalheVO> getVendaDetalheVOCollection() {
-        return vendaDetalheVOCollection;
-    }
-
-    public void setVendaDetalheVOCollection(Collection<VendaDetalheVO> vendaDetalheVOCollection) {
-        this.vendaDetalheVOCollection = vendaDetalheVOCollection;
-    }
-
-    public Collection<Nf2CabecalhoVO> getNf2CabecalhoVOCollection() {
-        return nf2CabecalhoVOCollection;
-    }
-
-    public void setNf2CabecalhoVOCollection(Collection<Nf2CabecalhoVO> nf2CabecalhoVOCollection) {
-        this.nf2CabecalhoVOCollection = nf2CabecalhoVOCollection;
-    }
-
-    public Collection<VendaCabecalhoVO> getVendaCabecalhoVOCollection() {
-        return vendaCabecalhoVOCollection;
-    }
-
-    public void setVendaCabecalhoVOCollection(Collection<VendaCabecalhoVO> vendaCabecalhoVOCollection) {
-        this.vendaCabecalhoVOCollection = vendaCabecalhoVOCollection;
     }
 
 }

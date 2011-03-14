@@ -1,7 +1,6 @@
 package com.t2tierp.pafecf.vo;
 
-import java.util.Collection;
-import java.util.Date;
+import java.sql.Timestamp;
 
 /**
  * <p>Title: T2Ti ERP</p>
@@ -40,17 +39,11 @@ import java.util.Date;
  */
 public class PreVendaCabecalhoVO {
     private Integer id;
-    private Date dataHoraPv;
-    private Double valorPv;
-    private Double taxaDesconto;
-    private Double valorDesconto;
-    private Double taxaAcrescimo;
-    private Double valorAcrescimo;
-    private Double valorFinal;
+    private Timestamp dataHoraEmissao;
+    private Double valor;
     private String situacao;
-    private Integer ccf;
-    private Collection<PreVendaDetalheVO> preVendaDetalheVOCollection;
-    private Collection<VendaCabecalhoVO> vendaCabecalhoVOCollection;
+    private Integer CCF;
+    private String selecao;
 
     public PreVendaCabecalhoVO() {
     }
@@ -70,101 +63,31 @@ public class PreVendaCabecalhoVO {
     }
 
     /**
-     * @return the dataHoraPv
+     * @return the dataHoraEmissao
      */
-    public Date getDataHoraPv() {
-        return dataHoraPv;
+    public Timestamp getDataHoraEmissao() {
+        return dataHoraEmissao;
     }
 
     /**
-     * @param dataHoraPv the dataHoraPv to set
+     * @param dataHoraEmissao the dataHoraEmissao to set
      */
-    public void setDataHoraPv(Date dataHoraPv) {
-        this.dataHoraPv = dataHoraPv;
+    public void setDataHoraEmissao(Timestamp dataHoraEmissao) {
+        this.dataHoraEmissao = dataHoraEmissao;
     }
 
     /**
-     * @return the valorPv
+     * @return the valor
      */
-    public Double getValorPv() {
-        return valorPv;
+    public Double getValor() {
+        return valor;
     }
 
     /**
-     * @param valorPv the valorPv to set
+     * @param valor the valor to set
      */
-    public void setValorPv(Double valorPv) {
-        this.valorPv = valorPv;
-    }
-
-    /**
-     * @return the taxaDesconto
-     */
-    public Double getTaxaDesconto() {
-        return taxaDesconto;
-    }
-
-    /**
-     * @param taxaDesconto the taxaDesconto to set
-     */
-    public void setTaxaDesconto(Double taxaDesconto) {
-        this.taxaDesconto = taxaDesconto;
-    }
-
-    /**
-     * @return the valorDesconto
-     */
-    public Double getValorDesconto() {
-        return valorDesconto;
-    }
-
-    /**
-     * @param valorDesconto the valorDesconto to set
-     */
-    public void setValorDesconto(Double valorDesconto) {
-        this.valorDesconto = valorDesconto;
-    }
-
-    /**
-     * @return the taxaAcrescimo
-     */
-    public Double getTaxaAcrescimo() {
-        return taxaAcrescimo;
-    }
-
-    /**
-     * @param taxaAcrescimo the taxaAcrescimo to set
-     */
-    public void setTaxaAcrescimo(Double taxaAcrescimo) {
-        this.taxaAcrescimo = taxaAcrescimo;
-    }
-
-    /**
-     * @return the valorAcrescimo
-     */
-    public Double getValorAcrescimo() {
-        return valorAcrescimo;
-    }
-
-    /**
-     * @param valorAcrescimo the valorAcrescimo to set
-     */
-    public void setValorAcrescimo(Double valorAcrescimo) {
-        this.valorAcrescimo = valorAcrescimo;
-    }
-
-    /**
-     * @return the valorFinal
-     */
-    public Double getValorFinal() {
-        return valorFinal;
-    }
-
-    /**
-     * @param valorFinal the valorFinal to set
-     */
-    public void setValorFinal(Double valorFinal) {
-        this.valorFinal = valorFinal;
+    public void setValor(Double valor) {
+        this.valor = valor;
     }
 
     /**
@@ -182,45 +105,31 @@ public class PreVendaCabecalhoVO {
     }
 
     /**
-     * @return the ccf
+     * @return the CCF
      */
-    public Integer getCcf() {
-        return ccf;
+    public Integer getCCF() {
+        return CCF;
     }
 
     /**
-     * @param ccf the ccf to set
+     * @param CCF the CCF to set
      */
-    public void setCcf(Integer ccf) {
-        this.ccf = ccf;
+    public void setCCF(Integer CCF) {
+        this.CCF = CCF;
     }
 
     /**
-     * @return the preVendaDetalheVOCollection
+     * @return the selecao
      */
-    public Collection<PreVendaDetalheVO> getPreVendaDetalheVOCollection() {
-        return preVendaDetalheVOCollection;
+    public String getSelecao() {
+        return selecao;
     }
 
     /**
-     * @param preVendaDetalheVOCollection the preVendaDetalheVOCollection to set
+     * @param selecao the selecao to set
      */
-    public void setPreVendaDetalheVOCollection(Collection<PreVendaDetalheVO> preVendaDetalheVOCollection) {
-        this.preVendaDetalheVOCollection = preVendaDetalheVOCollection;
-    }
-
-    /**
-     * @return the vendaCabecalhoVOCollection
-     */
-    public Collection<VendaCabecalhoVO> getVendaCabecalhoVOCollection() {
-        return vendaCabecalhoVOCollection;
-    }
-
-    /**
-     * @param vendaCabecalhoVOCollection the vendaCabecalhoVOCollection to set
-     */
-    public void setVendaCabecalhoVOCollection(Collection<VendaCabecalhoVO> vendaCabecalhoVOCollection) {
-        this.vendaCabecalhoVOCollection = vendaCabecalhoVOCollection;
+    public void setSelecao(String selecao) {
+        this.selecao = selecao;
     }
 
 }

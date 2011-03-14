@@ -1,7 +1,5 @@
 package com.t2tierp.pafecf.vo;
 
-import java.util.Collection;
-
 /**
  * <p>Title: T2Ti ERP</p>
  * <p>Description: PAF-ECF + TEF - Objeto de valor referente a tabela Tributo do Produto.</p>
@@ -40,15 +38,14 @@ import java.util.Collection;
 public class TributoProdutoVO {
     private Integer id;
     private String descricao;
-    private Double taxaIpi;
-    private Double taxaIssqn;
-    private Double taxaPis;
-    private Double taxaCofins;
-    private Double taxaIcms;
-    private String ecfIcms;
-    private Collection<ProdutoVO> produtoVOCollection;
-    private Collection<Nf2DetalheVO> nf2DetalheVOCollection;
-    private Collection<VendaDetalheVO> vendaDetalheVOCollection;
+    private Double taxaIPI;
+    private Double taxaISSQN;
+    private Double taxaPIS;
+    private Double taxaCOFINS;
+    private Double taxaICMS;
+    private String ECFICMS;
+    private String CST;
+    private String totalizadorParcial;
 
     public TributoProdutoVO() {
     }
@@ -82,129 +79,115 @@ public class TributoProdutoVO {
     }
 
     /**
-     * @return the taxaIpi
+     * @return the taxaIPI
      */
-    public Double getTaxaIpi() {
-        return taxaIpi;
+    public Double getTaxaIPI() {
+        return taxaIPI;
     }
 
     /**
-     * @param taxaIpi the taxaIpi to set
+     * @param taxaIPI the taxaIPI to set
      */
-    public void setTaxaIpi(Double taxaIpi) {
-        this.taxaIpi = taxaIpi;
+    public void setTaxaIPI(Double taxaIPI) {
+        this.taxaIPI = taxaIPI;
     }
 
     /**
-     * @return the taxaIssqn
+     * @return the taxaISSQN
      */
-    public Double getTaxaIssqn() {
-        return taxaIssqn;
+    public Double getTaxaISSQN() {
+        return taxaISSQN;
     }
 
     /**
-     * @param taxaIssqn the taxaIssqn to set
+     * @param taxaISSQN the taxaISSQN to set
      */
-    public void setTaxaIssqn(Double taxaIssqn) {
-        this.taxaIssqn = taxaIssqn;
+    public void setTaxaISSQN(Double taxaISSQN) {
+        this.taxaISSQN = taxaISSQN;
     }
 
     /**
-     * @return the taxaPis
+     * @return the taxaPIS
      */
-    public Double getTaxaPis() {
-        return taxaPis;
+    public Double getTaxaPIS() {
+        return taxaPIS;
     }
 
     /**
-     * @param taxaPis the taxaPis to set
+     * @param taxaPIS the taxaPIS to set
      */
-    public void setTaxaPis(Double taxaPis) {
-        this.taxaPis = taxaPis;
+    public void setTaxaPIS(Double taxaPIS) {
+        this.taxaPIS = taxaPIS;
     }
 
     /**
-     * @return the taxaCofins
+     * @return the taxaCOFINS
      */
-    public Double getTaxaCofins() {
-        return taxaCofins;
+    public Double getTaxaCOFINS() {
+        return taxaCOFINS;
     }
 
     /**
-     * @param taxaCofins the taxaCofins to set
+     * @param taxaCOFINS the taxaCOFINS to set
      */
-    public void setTaxaCofins(Double taxaCofins) {
-        this.taxaCofins = taxaCofins;
+    public void setTaxaCOFINS(Double taxaCOFINS) {
+        this.taxaCOFINS = taxaCOFINS;
     }
 
     /**
-     * @return the taxaIcms
+     * @return the taxaICMS
      */
-    public Double getTaxaIcms() {
-        return taxaIcms;
+    public Double getTaxaICMS() {
+        return taxaICMS;
     }
 
     /**
-     * @param taxaIcms the taxaIcms to set
+     * @param taxaICMS the taxaICMS to set
      */
-    public void setTaxaIcms(Double taxaIcms) {
-        this.taxaIcms = taxaIcms;
+    public void setTaxaICMS(Double taxaICMS) {
+        this.taxaICMS = taxaICMS;
     }
 
     /**
-     * @return the ecfIcms
+     * @return the ECFICMS
      */
-    public String getEcfIcms() {
-        return ecfIcms;
+    public String getECFICMS() {
+        return ECFICMS;
     }
 
     /**
-     * @param ecfIcms the ecfIcms to set
+     * @param ECFICMS the ECFICMS to set
      */
-    public void setEcfIcms(String ecfIcms) {
-        this.ecfIcms = ecfIcms;
+    public void setECFICMS(String ECFICMS) {
+        this.ECFICMS = ECFICMS;
     }
 
     /**
-     * @return the produtoVOCollection
+     * @return the CST
      */
-    public Collection<ProdutoVO> getProdutoVOCollection() {
-        return produtoVOCollection;
+    public String getCST() {
+        return CST;
     }
 
     /**
-     * @param produtoVOCollection the produtoVOCollection to set
+     * @param CST the CST to set
      */
-    public void setProdutoVOCollection(Collection<ProdutoVO> produtoVOCollection) {
-        this.produtoVOCollection = produtoVOCollection;
+    public void setCST(String CST) {
+        this.CST = CST;
     }
 
     /**
-     * @return the nf2DetalheVOCollection
+     * @return the totalizadorParcial
      */
-    public Collection<Nf2DetalheVO> getNf2DetalheVOCollection() {
-        return nf2DetalheVOCollection;
+    public String getTotalizadorParcial() {
+        return totalizadorParcial;
     }
 
     /**
-     * @param nf2DetalheVOCollection the nf2DetalheVOCollection to set
+     * @param totalizadorParcial the totalizadorParcial to set
      */
-    public void setNf2DetalheVOCollection(Collection<Nf2DetalheVO> nf2DetalheVOCollection) {
-        this.nf2DetalheVOCollection = nf2DetalheVOCollection;
-    }
-
-    /**
-     * @return the vendaDetalheVOCollection
-     */
-    public Collection<VendaDetalheVO> getVendaDetalheVOCollection() {
-        return vendaDetalheVOCollection;
-    }
-
-    /**
-     * @param vendaDetalheVOCollection the vendaDetalheVOCollection to set
-     */
-    public void setVendaDetalheVOCollection(Collection<VendaDetalheVO> vendaDetalheVOCollection) {
-        this.vendaDetalheVOCollection = vendaDetalheVOCollection;
+    public void setTotalizadorParcial(String totalizadorParcial) {
+        this.totalizadorParcial = totalizadorParcial;
     }
 
 }

@@ -37,36 +37,99 @@
 package com.t2tierp.pafecf.controller;
 
 import com.t2tierp.pafecf.bd.AcessoBanco;
-import com.t2tierp.pafecf.vo.TotalTipoPgtoVO;
+import com.t2tierp.pafecf.view.Caixa;
+import com.t2tierp.pafecf.vo.MeiosPagamentoVO;
+import com.t2tierp.pafecf.vo.R07VO;
+import com.t2tierp.pafecf.vo.TotalTipoPagamentoVO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 public class TotalTipoPagamentoController {
 
+    String consultaSQL;
+    Statement stm;
     PreparedStatement pstm;
     ResultSet rs;
     AcessoBanco bd = new AcessoBanco();
 
-    public void gravaTotaisVenda(ArrayList<TotalTipoPgtoVO> totais) {
-        String consultaSQL =
-        "insert into ECF_TOTAL_TIPO_PGTO (ID_ECF_VENDA_CABECALHO,ID_ECF_TIPO_PAGAMENTO,VALOR) "
-        + "values (?, ?, ?)";
-        
-        for (int i=0; i<3; i++) {
-            try {
+    public void gravaTotaisVenda(ArrayList<TotalTipoPagamentoVO> pListaTotalTipoPagamento) {
+
+        TotalTipoPagamentoVO totalTipoPagamento;
+
+        try {
+            for (int i = 0; i < pListaTotalTipoPagamento.size(); i++) {
+                totalTipoPagamento = pListaTotalTipoPagamento.get(i);
+                consultaSQL =
+                        "insert into ECF_TOTAL_TIPO_PGTO (ID_ECF_VENDA_CABECALHO,ID_ECF_TIPO_PAGAMENTO,VALOR,NSU) "
+                        + "values (?, ?, ?, ?)";
                 pstm = bd.conectar().prepareStatement(consultaSQL);
-                pstm.setInt(1, totais.get(i).getIdVendaCabecalho());
-                pstm.setInt(2, totais.get(i).getIdTipoPagamento());
-                pstm.setDouble(3, totais.get(i).getValor());
+                pstm.setInt(1, totalTipoPagamento.getIdVendaCabecalho());
+                pstm.setInt(2, totalTipoPagamento.getTipoPagamentoVO().getId());
+                pstm.setDouble(3, totalTipoPagamento.getValor());
+                if (totalTipoPagamento.getNSU() != null) {
+                    pstm.setString(4, totalTipoPagamento.getNSU());
+                } else {
+                    pstm.setNull(4, java.sql.Types.VARCHAR);
+                }
                 pstm.executeUpdate();
 
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                bd.desconectar();
+                //TODO : Esse é o melhor lugar para gerar o R07?
+                R07VO R07 = new R07VO();
+                try {
+                    R07.setCCF(Integer.valueOf(Caixa.ACBrECF.getNumCCF()));
+                } catch (Throwable t) {
+                }
+                R07.setMeioPagamento(totalTipoPagamento.getTipoPagamentoVO().getDescricao());
+                R07.setValorPagamento(totalTipoPagamento.getValor());
+                //TODO : Como fazer o controle dos estornos?
+                R07.setIndicadorEstorno("N");
+                R07.setValorEstorno(0.0);
+                RegistroRController RegistroRControl = new RegistroRController();
+                RegistroRControl.gravaR07(R07);
             }
-            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            bd.desconectar();
+        }
+    }
+
+    public List<MeiosPagamentoVO> meiosPagamento(String pDataInicio, String pDataFim, Integer pIdImpressora) {
+        consultaSQL =
+                "SELECT V.DATA_HORA_VENDA, M.ID_ECF_IMPRESSORA, P.DESCRICAO, SUM(TP.VALOR) AS TOTAL "
+                + "FROM "
+                + "ECF_VENDA_CABECALHO V, ECF_MOVIMENTO M, ECF_TIPO_PAGAMENTO P, ECF_TOTAL_TIPO_PGTO TP "
+                + "WHERE "
+                + "V.ID_ECF_MOVIMENTO = M.ID AND "
+                + "TP.ID_ECF_VENDA_CABECALHO=V.ID AND "
+                + "TP.ID_ECF_TIPO_PAGAMENTO = P.ID AND "
+                + "M.ID_ECF_IMPRESSORA = " + pIdImpressora + " AND "
+                + "(V.DATA_HORA_VENDA BETWEEN '" + pDataInicio + "' and '" + pDataFim
+                + "') GROUP BY "
+                + "P.DESCRICAO,V.DATA_HORA_VENDA,M.ID_ECF_IMPRESSORA";
+
+        try {
+            List<MeiosPagamentoVO> listaMeiosPagamento = new ArrayList<MeiosPagamentoVO>();
+
+            stm = bd.conectar().createStatement();
+            rs = stm.executeQuery(consultaSQL);
+            rs.beforeFirst();
+            while (rs.next()) {
+                MeiosPagamentoVO meiosPagamento = new MeiosPagamentoVO();
+                meiosPagamento.setDescricao(rs.getString("DESCRICAO"));
+                meiosPagamento.setDataHora(rs.getDate("DATA_HORA_VENDA"));
+                meiosPagamento.setTotal(rs.getDouble("TOTAL"));
+                listaMeiosPagamento.add(meiosPagamento);
+            }
+            return listaMeiosPagamento;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            bd.desconectar();
         }
     }
 }

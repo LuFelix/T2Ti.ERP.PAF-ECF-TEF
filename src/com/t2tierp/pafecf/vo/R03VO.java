@@ -37,9 +37,9 @@ package com.t2tierp.pafecf.vo;
  */
 public class R03VO {
     private Integer id;
-    private Double totalizadorParcial;
+    private Integer idR02;
+    private String totalizadorParcial;
     private Double valorAcumulado;
-    private R02VO r02VO;
 
     public R03VO() {
     }
@@ -61,14 +61,14 @@ public class R03VO {
     /**
      * @return the totalizadorParcial
      */
-    public Double getTotalizadorParcial() {
+    public String getTotalizadorParcial() {
         return totalizadorParcial;
     }
 
     /**
      * @param totalizadorParcial the totalizadorParcial to set
      */
-    public void setTotalizadorParcial(Double totalizadorParcial) {
+    public void setTotalizadorParcial(String totalizadorParcial) {
         this.totalizadorParcial = totalizadorParcial;
     }
 
@@ -87,17 +87,17 @@ public class R03VO {
     }
 
     /**
-     * @return the r02VO
+     * @return the idR02
      */
-    public R02VO getR02VO() {
-        return r02VO;
+    public Integer getIdR02() {
+        return idR02;
     }
 
     /**
-     * @param r02VO the r02VO to set
+     * @param idR02 the idR02 to set
      */
-    public void setR02VO(R02VO r02VO) {
-        this.r02VO = r02VO;
+    public void setIdR02(Integer idR02) {
+        this.idR02 = idR02;
     }
 
 }

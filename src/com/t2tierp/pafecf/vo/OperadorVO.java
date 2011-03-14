@@ -1,7 +1,5 @@
 package com.t2tierp.pafecf.vo;
 
-import java.util.Collection;
-
 /**
  * <p>Title: T2Ti ERP</p>
  * <p>Description: PAF-ECF + TEF - Objeto de valor referente a tabela Operador.</p>
@@ -42,7 +40,6 @@ public class OperadorVO  {
     private String login;
     private String senha;
     private FuncionarioVO funcionarioVO;
-    private Collection<CaixaVO> caixaVOCollection;
 
     public OperadorVO() {
     }
@@ -101,20 +98,6 @@ public class OperadorVO  {
      */
     public void setFuncionarioVO(FuncionarioVO funcionarioVO) {
         this.funcionarioVO = funcionarioVO;
-    }
-
-    /**
-     * @return the caixaVOCollection
-     */
-    public Collection<CaixaVO> getCaixaVOCollection() {
-        return caixaVOCollection;
-    }
-
-    /**
-     * @param caixaVOCollection the caixaVOCollection to set
-     */
-    public void setCaixaVOCollection(Collection<CaixaVO> caixaVOCollection) {
-        this.caixaVOCollection = caixaVOCollection;
     }
 
 }

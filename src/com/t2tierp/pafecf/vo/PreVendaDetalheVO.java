@@ -37,11 +37,12 @@ package com.t2tierp.pafecf.vo;
  */
 public class PreVendaDetalheVO {
     private Integer id;
+    private Integer idProduto;
+    private Integer idPreVendaCabecalho;
     private Double quantidade;
     private Double valorUnitario;
     private Double valorTotal;
-    private PreVendaCabecalhoVO preVendaCabecalhoVO;
-    private ProdutoVO produtoVO;
+    private String descricaoProduto;
 
     public PreVendaDetalheVO() {
     }
@@ -58,6 +59,34 @@ public class PreVendaDetalheVO {
      */
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    /**
+     * @return the idProduto
+     */
+    public Integer getIdProduto() {
+        return idProduto;
+    }
+
+    /**
+     * @param idProduto the idProduto to set
+     */
+    public void setIdProduto(Integer idProduto) {
+        this.idProduto = idProduto;
+    }
+
+    /**
+     * @return the idPreVendaCabecalho
+     */
+    public Integer getIdPreVendaCabecalho() {
+        return idPreVendaCabecalho;
+    }
+
+    /**
+     * @param idPreVendaCabecalho the idPreVendaCabecalho to set
+     */
+    public void setIdPreVendaCabecalho(Integer idPreVendaCabecalho) {
+        this.idPreVendaCabecalho = idPreVendaCabecalho;
     }
 
     /**
@@ -103,31 +132,17 @@ public class PreVendaDetalheVO {
     }
 
     /**
-     * @return the preVendaCabecalhoVO
+     * @return the descricaoProduto
      */
-    public PreVendaCabecalhoVO getPreVendaCabecalhoVO() {
-        return preVendaCabecalhoVO;
+    public String getDescricaoProduto() {
+        return descricaoProduto;
     }
 
     /**
-     * @param preVendaCabecalhoVO the preVendaCabecalhoVO to set
+     * @param descricaoProduto the descricaoProduto to set
      */
-    public void setPreVendaCabecalhoVO(PreVendaCabecalhoVO preVendaCabecalhoVO) {
-        this.preVendaCabecalhoVO = preVendaCabecalhoVO;
-    }
-
-    /**
-     * @return the produtoVO
-     */
-    public ProdutoVO getProdutoVO() {
-        return produtoVO;
-    }
-
-    /**
-     * @param produtoVO the produtoVO to set
-     */
-    public void setProdutoVO(ProdutoVO produtoVO) {
-        this.produtoVO = produtoVO;
+    public void setDescricaoProduto(String descricaoProduto) {
+        this.descricaoProduto = descricaoProduto;
     }
 
 }

@@ -37,12 +37,12 @@ package com.t2tierp.pafecf.vo;
  */
 public class R07VO {
     private Integer id;
+    private Integer idR06;
+    private Integer CCF;
     private String meioPagamento;
     private Double valorPagamento;
-    private String estorno;
+    private String indicadorEstorno;
     private Double valorEstorno;
-    private R02VO r02VO;
-    private R06VO r06VO;
 
     public R07VO() {
     }
@@ -59,6 +59,34 @@ public class R07VO {
      */
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    /**
+     * @return the idR06
+     */
+    public Integer getIdR06() {
+        return idR06;
+    }
+
+    /**
+     * @param idR06 the idR06 to set
+     */
+    public void setIdR06(Integer idR06) {
+        this.idR06 = idR06;
+    }
+
+    /**
+     * @return the CCF
+     */
+    public Integer getCCF() {
+        return CCF;
+    }
+
+    /**
+     * @param CCF the CCF to set
+     */
+    public void setCCF(Integer CCF) {
+        this.CCF = CCF;
     }
 
     /**
@@ -90,17 +118,17 @@ public class R07VO {
     }
 
     /**
-     * @return the estorno
+     * @return the indicadorEstorno
      */
-    public String getEstorno() {
-        return estorno;
+    public String getIndicadorEstorno() {
+        return indicadorEstorno;
     }
 
     /**
-     * @param estorno the estorno to set
+     * @param indicadorEstorno the indicadorEstorno to set
      */
-    public void setEstorno(String estorno) {
-        this.estorno = estorno;
+    public void setIndicadorEstorno(String indicadorEstorno) {
+        this.indicadorEstorno = indicadorEstorno;
     }
 
     /**
@@ -115,34 +143,6 @@ public class R07VO {
      */
     public void setValorEstorno(Double valorEstorno) {
         this.valorEstorno = valorEstorno;
-    }
-
-    /**
-     * @return the r02VO
-     */
-    public R02VO getR02VO() {
-        return r02VO;
-    }
-
-    /**
-     * @param r02VO the r02VO to set
-     */
-    public void setR02VO(R02VO r02VO) {
-        this.r02VO = r02VO;
-    }
-
-    /**
-     * @return the r06VO
-     */
-    public R06VO getR06VO() {
-        return r06VO;
-    }
-
-    /**
-     * @param r06VO the r06VO to set
-     */
-    public void setR06VO(R06VO r06VO) {
-        this.r06VO = r06VO;
     }
 
 }

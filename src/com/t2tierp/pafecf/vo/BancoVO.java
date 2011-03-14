@@ -1,7 +1,5 @@
 package com.t2tierp.pafecf.vo;
 
-import java.util.Collection;
-
 /**
  * <p>Title: T2Ti ERP</p>
  * <p>Description: PAF-ECF + TEF - Objeto de valor referente a tabela Banco.</p>
@@ -42,7 +40,6 @@ public class BancoVO  {
     private Integer codigo;
     private String nome;
     private String url;
-    private Collection<ChequeClienteVO> chequeClienteVOCollection;
 
     public BancoVO() {
     }
@@ -101,20 +98,6 @@ public class BancoVO  {
      */
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    /**
-     * @return the chequeClienteVOCollection
-     */
-    public Collection<ChequeClienteVO> getChequeClienteVOCollection() {
-        return chequeClienteVOCollection;
-    }
-
-    /**
-     * @param chequeClienteVOCollection the chequeClienteVOCollection to set
-     */
-    public void setChequeClienteVOCollection(Collection<ChequeClienteVO> chequeClienteVOCollection) {
-        this.chequeClienteVOCollection = chequeClienteVOCollection;
     }
 
 }

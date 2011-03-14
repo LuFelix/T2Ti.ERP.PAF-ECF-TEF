@@ -1,7 +1,5 @@
 package com.t2tierp.pafecf.vo;
 
-import java.util.Collection;
-
 /**
  * <p>Title: T2Ti ERP</p>
  * <p>Description: PAF-ECF + TEF - Objeto de valor referente a tabela Tipo de Pagamento.</p>
@@ -41,8 +39,9 @@ public class TipoPagamentoVO {
     private Integer id;
     private String codigo;
     private String descricao;
-    private String tef;
-    private Collection<TotalTipoPgtoVO> totalTipoPgtoVOCollection;
+    private String TEF;
+    private String imprimeVinculado;
+    private Double valor;
 
     public TipoPagamentoVO() {
     }
@@ -90,31 +89,45 @@ public class TipoPagamentoVO {
     }
 
     /**
-     * @return the tef
+     * @return the TEF
      */
-    public String getTef() {
-        return tef;
+    public String getTEF() {
+        return TEF;
     }
 
     /**
-     * @param tef the tef to set
+     * @param TEF the TEF to set
      */
-    public void setTef(String tef) {
-        this.tef = tef;
+    public void setTEF(String TEF) {
+        this.TEF = TEF;
     }
 
     /**
-     * @return the totalTipoPgtoVOCollection
+     * @return the imprimeVinculado
      */
-    public Collection<TotalTipoPgtoVO> getTotalTipoPgtoVOCollection() {
-        return totalTipoPgtoVOCollection;
+    public String getImprimeVinculado() {
+        return imprimeVinculado;
     }
 
     /**
-     * @param totalTipoPgtoVOCollection the totalTipoPgtoVOCollection to set
+     * @param imprimeVinculado the imprimeVinculado to set
      */
-    public void setTotalTipoPgtoVOCollection(Collection<TotalTipoPgtoVO> totalTipoPgtoVOCollection) {
-        this.totalTipoPgtoVOCollection = totalTipoPgtoVOCollection;
+    public void setImprimeVinculado(String imprimeVinculado) {
+        this.imprimeVinculado = imprimeVinculado;
+    }
+
+    /**
+     * @return the valor
+     */
+    public Double getValor() {
+        return valor;
+    }
+
+    /**
+     * @param valor the valor to set
+     */
+    public void setValor(Double valor) {
+        this.valor = valor;
     }
 
 }

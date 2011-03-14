@@ -1,7 +1,5 @@
 package com.t2tierp.pafecf.vo;
 
-import java.util.Collection;
-
 /**
  * <p>Title: T2Ti ERP</p>
  * <p>Description: PAF-ECF + TEF - Objeto de valor referente a tabela Unidade do Produto.</p>
@@ -41,7 +39,6 @@ public class UnidadeProdutoVO {
     private Integer id;
     private String nome;
     private String descricao;
-    private Collection<ProdutoVO> produtoVOCollection;
 
     public UnidadeProdutoVO() {
     }
@@ -86,20 +83,6 @@ public class UnidadeProdutoVO {
      */
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    /**
-     * @return the produtoVOCollection
-     */
-    public Collection<ProdutoVO> getProdutoVOCollection() {
-        return produtoVOCollection;
-    }
-
-    /**
-     * @param produtoVOCollection the produtoVOCollection to set
-     */
-    public void setProdutoVOCollection(Collection<ProdutoVO> produtoVOCollection) {
-        this.produtoVOCollection = produtoVOCollection;
     }
 
 }

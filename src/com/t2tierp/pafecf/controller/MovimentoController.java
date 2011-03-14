@@ -37,68 +37,76 @@ package com.t2tierp.pafecf.controller;
 
 import com.t2tierp.pafecf.bd.AcessoBanco;
 import com.t2tierp.pafecf.vo.MovimentoVO;
+import com.t2tierp.pafecf.vo.SangriaVO;
+import com.t2tierp.pafecf.vo.SuprimentoVO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class MovimentoController {
 
+    String consultaSQL;
     Statement stm;
     PreparedStatement pstm;
     ResultSet rs;
     AcessoBanco bd = new AcessoBanco();
 
-    public void consulta() {
-        String consultaSQL = "select * from ECF_MOVIMENTO";
-        try {
-            stm = bd.conectar().createStatement();
-            rs = stm.executeQuery(consultaSQL);
-            rs.first();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            bd.desconectar();
-        }
-    }
-
     public MovimentoVO verificaMovimento() {
-        MovimentoVO movimentoVO = new MovimentoVO();
-        String consultaSQL = "select M.ID, M.ID_OPERADOR, O.LOGIN, M.ID_ECF_CAIXA, "
-                + "M.ID_IMPRESSORA, M.DATA_HORA_ABERTURA from ECF_MOVIMENTO M, "
-                + "ECF_OPERADOR O where STATUS_MOVIMENTO='A' and M.ID_OPERADOR=O.ID";
+        MovimentoVO movimento = new MovimentoVO();
+        consultaSQL =
+                "select "
+                + "M.ID as MID, T.ID as TID, T.DESCRICAO, C.ID as CID, C.NOME, "
+                + "O.ID as OID, O.LOGIN, I.ID as IID, I.IDENTIFICACAO, "
+                + "M.DATA_HORA_ABERTURA, M.ID_GERENTE_SUPERVISOR, M.STATUS_MOVIMENTO "
+                + "from "
+                + "ECF_MOVIMENTO M, ECF_TURNO T, ECF_CAIXA C, ECF_OPERADOR O, ECF_IMPRESSORA I "
+                + "where "
+                + "M.ID_ECF_TURNO = T.ID AND "
+                + "M.ID_ECF_IMPRESSORA = I.ID AND "
+                + "M.ID_ECF_OPERADOR = O.ID AND "
+                + "M.ID_ECF_CAIXA = C.ID AND"
+                + "(STATUS_MOVIMENTO='A' or STATUS_MOVIMENTO='T')";
 
         try {
             stm = bd.conectar().createStatement();
             rs = stm.executeQuery(consultaSQL);
             rs.beforeFirst();
             if (rs.next()) {
-                movimentoVO.setId(rs.getInt(1));
-                movimentoVO.setIdOperador(rs.getInt(2));
-                movimentoVO.setIdCaixa(rs.getInt(4));
-                movimentoVO.setIdImpressora(rs.getInt(5));
-                movimentoVO.setDataHoraAbertura(rs.getDate(6));
+                movimento.setId(rs.getInt("MID"));
+                movimento.setIdTurno(rs.getInt("TID"));
+                movimento.setIdImpressora(rs.getInt("IID"));
+                movimento.setIdOperador(rs.getInt("OID"));
+                movimento.setIdCaixa(rs.getInt("CID"));
+                movimento.setIdGerenteSupervisor(rs.getInt("ID_GERENTE_SUPERVISOR"));
+                movimento.setDataHoraAbertura(rs.getTimestamp("DATA_HORA_ABERTURA"));
+                movimento.setStatusMovimento(rs.getString("STATUS_MOVIMENTO"));
+                movimento.setLoginOperador(rs.getString("LOGIN"));
+                movimento.setNomeCaixa(rs.getString("NOME"));
+                movimento.setDescricaoTurno(rs.getString("DESCRICAO"));
+                movimento.setIdentificacaoImpressora(rs.getString("IDENTIFICACAO"));
+                return movimento;
             } else {
-                movimentoVO.setId(0);
+                return null;
             }
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         } finally {
             bd.desconectar();
         }
-        return movimentoVO;
     }
 
-    public void encerraMovimento(MovimentoVO movimentoVO) {
-        String consultaSQL =
-        "update ECF_MOVIMENTO set DATA_HORA_FECHAMENTO=?, STATUS_MOVIMENTO=? " +
-        " where ID = ?";
+    public void encerraMovimento(MovimentoVO movimento) {
+        consultaSQL =
+                "update ECF_MOVIMENTO set DATA_HORA_FECHAMENTO=?, STATUS_MOVIMENTO=? "
+                + " where ID = ?";
 
         try {
             pstm = bd.conectar().prepareStatement(consultaSQL);
 
-            pstm.setDate(1, movimentoVO.getDataHoraFechamento());
-            pstm.setString(2, movimentoVO.getStatusMovimento());
-            pstm.setInt(3, movimentoVO.getId());
+            pstm.setTimestamp(1, movimento.getDataHoraFechamento());
+            pstm.setString(2, movimento.getStatusMovimento());
+            pstm.setInt(3, movimento.getId());
             pstm.executeUpdate();
 
         } catch (Exception e) {
@@ -112,45 +120,119 @@ public class MovimentoController {
         return true;
     }
 
-    public MovimentoVO iniciaMovimento(MovimentoVO movimentoVO) {
+    public MovimentoVO iniciaMovimento(MovimentoVO movimento) {
 
-        String consultaSQL =
-        "insert into ECF_MOVIMENTO ("+
-        "ID_ECF_CAIXA,"+
-        "ID_OPERADOR,"+
-        "ID_IMPRESSORA,"+
-        "DATA_HORA_ABERTURA,"+
-        "TOTAL_SUPRIMENTO,"+
-        "STATUS_MOVIMENTO,"+
-        "SINCRONIZADO) values (?,?,?,?,?,?,?)";
+        consultaSQL =
+                "insert into ECF_MOVIMENTO ("
+                + "ID_ECF_TURNO,"
+                + "ID_ECF_IMPRESSORA,"
+                + "ID_ECF_OPERADOR,"
+                + "ID_ECF_CAIXA,"
+                + "ID_GERENTE_SUPERVISOR,"
+                + "DATA_HORA_ABERTURA,"
+                + "TOTAL_SUPRIMENTO,"
+                + "STATUS_MOVIMENTO,"
+                + "SINCRONIZADO) "
+                + "values (?,?,?,?,?,?,?,?,?)";
 
         try {
             pstm = bd.conectar().prepareStatement(consultaSQL);
-
-            pstm.setInt(1, movimentoVO.getIdCaixa());
-            pstm.setInt(2, movimentoVO.getIdOperador());
-            pstm.setInt(3, movimentoVO.getIdImpressora());
-            pstm.setDate(4, movimentoVO.getDataHoraAbertura());
-            pstm.setDouble(5, movimentoVO.getTotalSuprimento());
-            pstm.setString(6, movimentoVO.getStatusMovimento());
-            pstm.setString(7, movimentoVO.getSincronizado());
+            pstm.setInt(1, movimento.getIdTurno());
+            pstm.setInt(2, movimento.getIdImpressora());
+            pstm.setInt(3, movimento.getIdOperador());
+            pstm.setInt(4, movimento.getIdCaixa());
+            pstm.setInt(5, movimento.getIdGerenteSupervisor());
+            pstm.setTimestamp(6, movimento.getDataHoraAbertura());
+            pstm.setDouble(7, movimento.getTotalSuprimento());
+            pstm.setString(8, movimento.getStatusMovimento());
+            pstm.setString(9, movimento.getSincronizado());
             pstm.executeUpdate();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        try {
             stm = bd.conectar().createStatement();
             rs = stm.executeQuery("select max(ID) as ID from ECF_MOVIMENTO");
             rs.first();
-            movimentoVO.setId(rs.getInt(1));
+            movimento.setId(rs.getInt(1));
+            return movimento;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            bd.desconectar();
+        }
+    }
+
+    public void saidaTemporaria(MovimentoVO movimento) {
+        consultaSQL =
+                "update ECF_MOVIMENTO set STATUS_MOVIMENTO='T' "
+                + " where ID = ?";
+        try {
+            pstm = bd.conectar().prepareStatement(consultaSQL);
+            pstm.setInt(1, movimento.getId());
+            pstm.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             bd.desconectar();
         }
+    }
 
-        return movimentoVO;
+    public void retornoOperador(MovimentoVO movimento) {
+        consultaSQL =
+                "update ECF_MOVIMENTO set STATUS_MOVIMENTO='A' "
+                + " where ID = ?";
+        try {
+            pstm = bd.conectar().prepareStatement(consultaSQL);
+            pstm.setInt(1, movimento.getId());
+            pstm.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            bd.desconectar();
+        }
+    }
+
+    public boolean suprimento(SuprimentoVO suprimento) {
+        String consultaSQL =
+        "insert into ECF_SUPRIMENTO (ID_ECF_MOVIMENTO,DATA_SUPRIMENTO,VALOR)" +
+        " values (?,?,?)";
+
+        try {
+            pstm = bd.conectar().prepareStatement(consultaSQL);
+
+            pstm.setInt(1, suprimento.getIdMovimento());
+            pstm.setDate(2, suprimento.getDataSuprimento());
+            pstm.setDouble(3, suprimento.getValor());
+            pstm.executeUpdate();
+
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            bd.desconectar();
+        }
+    }
+
+    public boolean sangria(SangriaVO sangria) {
+        String consultaSQL =
+        "insert into ECF_SANGRIA (ID_ECF_MOVIMENTO,DATA_SANGRIA,VALOR)" +
+        " values (?,?,?)";
+
+        try {
+            pstm = bd.conectar().prepareStatement(consultaSQL);
+
+            pstm.setInt(1, sangria.getIdMovimento());
+            pstm.setDate(2, sangria.getDataSangria());
+            pstm.setDouble(3, sangria.getValor());
+            pstm.executeUpdate();
+
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            bd.desconectar();
+        }
     }
 }

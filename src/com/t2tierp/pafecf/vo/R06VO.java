@@ -1,7 +1,6 @@
 package com.t2tierp.pafecf.vo;
 
-import java.util.Collection;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * <p>Title: T2Ti ERP</p>
@@ -40,19 +39,17 @@ import java.util.Date;
  */
 public class R06VO  {
     private Integer id;
+    private Integer idCaixa;
     private Integer idOperador;
     private Integer idImpressora;
-    private String numeroUsuario;
-    private Integer coo;
-    private Integer gnf;
-    private Integer grg;
-    private Integer cdc;
+    private Integer COO;
+    private Integer GNF;
+    private Integer GRG;
+    private Integer CDC;
     private String denominacao;
     private Date dataEmissao;
-    private Date horaEmissao;
+    private String horaEmissao;
     private String sincronizado;
-    private CaixaVO caixaVO;
-    private Collection<R07VO> r07VOCollection;
 
     public R06VO() {
     }
@@ -69,6 +66,20 @@ public class R06VO  {
      */
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    /**
+     * @return the idCaixa
+     */
+    public Integer getIdCaixa() {
+        return idCaixa;
+    }
+
+    /**
+     * @param idCaixa the idCaixa to set
+     */
+    public void setIdCaixa(Integer idCaixa) {
+        this.idCaixa = idCaixa;
     }
 
     /**
@@ -100,73 +111,59 @@ public class R06VO  {
     }
 
     /**
-     * @return the numeroUsuario
+     * @return the COO
      */
-    public String getNumeroUsuario() {
-        return numeroUsuario;
+    public Integer getCOO() {
+        return COO;
     }
 
     /**
-     * @param numeroUsuario the numeroUsuario to set
+     * @param COO the COO to set
      */
-    public void setNumeroUsuario(String numeroUsuario) {
-        this.numeroUsuario = numeroUsuario;
+    public void setCOO(Integer COO) {
+        this.COO = COO;
     }
 
     /**
-     * @return the coo
+     * @return the GNF
      */
-    public Integer getCoo() {
-        return coo;
+    public Integer getGNF() {
+        return GNF;
     }
 
     /**
-     * @param coo the coo to set
+     * @param GNF the GNF to set
      */
-    public void setCoo(Integer coo) {
-        this.coo = coo;
+    public void setGNF(Integer GNF) {
+        this.GNF = GNF;
     }
 
     /**
-     * @return the gnf
+     * @return the GRG
      */
-    public Integer getGnf() {
-        return gnf;
+    public Integer getGRG() {
+        return GRG;
     }
 
     /**
-     * @param gnf the gnf to set
+     * @param GRG the GRG to set
      */
-    public void setGnf(Integer gnf) {
-        this.gnf = gnf;
+    public void setGRG(Integer GRG) {
+        this.GRG = GRG;
     }
 
     /**
-     * @return the grg
+     * @return the CDC
      */
-    public Integer getGrg() {
-        return grg;
+    public Integer getCDC() {
+        return CDC;
     }
 
     /**
-     * @param grg the grg to set
+     * @param CDC the CDC to set
      */
-    public void setGrg(Integer grg) {
-        this.grg = grg;
-    }
-
-    /**
-     * @return the cdc
-     */
-    public Integer getCdc() {
-        return cdc;
-    }
-
-    /**
-     * @param cdc the cdc to set
-     */
-    public void setCdc(Integer cdc) {
-        this.cdc = cdc;
+    public void setCDC(Integer CDC) {
+        this.CDC = CDC;
     }
 
     /**
@@ -200,14 +197,14 @@ public class R06VO  {
     /**
      * @return the horaEmissao
      */
-    public Date getHoraEmissao() {
+    public String getHoraEmissao() {
         return horaEmissao;
     }
 
     /**
      * @param horaEmissao the horaEmissao to set
      */
-    public void setHoraEmissao(Date horaEmissao) {
+    public void setHoraEmissao(String horaEmissao) {
         this.horaEmissao = horaEmissao;
     }
 
@@ -223,34 +220,6 @@ public class R06VO  {
      */
     public void setSincronizado(String sincronizado) {
         this.sincronizado = sincronizado;
-    }
-
-    /**
-     * @return the caixaVO
-     */
-    public CaixaVO getCaixaVO() {
-        return caixaVO;
-    }
-
-    /**
-     * @param caixaVO the caixaVO to set
-     */
-    public void setCaixaVO(CaixaVO caixaVO) {
-        this.caixaVO = caixaVO;
-    }
-
-    /**
-     * @return the r07VOCollection
-     */
-    public Collection<R07VO> getR07VOCollection() {
-        return r07VOCollection;
-    }
-
-    /**
-     * @param r07VOCollection the r07VOCollection to set
-     */
-    public void setR07VOCollection(Collection<R07VO> r07VOCollection) {
-        this.r07VOCollection = r07VOCollection;
     }
 
 }

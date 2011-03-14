@@ -37,29 +37,38 @@ package com.t2tierp.pafecf.vo;
  */
 public class VendaDetalheVO {
     private Integer id;
-    private Integer idVendaCabecalho;
-    private Integer idProduto;
-    private Integer idTributo;
     private Integer idCFOP;
+    private Integer idTributo;
+    private Integer idProduto;
+    private Integer idVendaCabecalho;
+    private Integer item;
     private Double quantidade;
     private Double valorUnitario;
     private Double valorTotal;
     private Double totalItem;
-    private Double baseIcms;
-    private Double taxaIcms;
-    private Double icms;
+    private Double baseICMS;
+    private Double taxaICMS;
+    private Double ICMS;
     private Double taxaDesconto;
     private Double desconto;
-    private Double taxaIssqn;
-    private Double issqn;
-    private Double taxaPis;
-    private Double pis;
-    private Double taxaCofins;
-    private Double cofins;
+    private Double taxaISSQN;
+    private Double ISSQN;
+    private Double taxaPIS;
+    private Double PIS;
+    private Double taxaCOFINS;
+    private Double COFINS;
     private Double taxaAcrescimo;
     private Double acrescimo;
+    private String totalizadorParcial;
+    private String CST;
     private String cancelado;
     private String movimentaEstoque;
+    private String GTIN;
+    private String unidadeProduto;
+    private String descricaoPDV;
+    private String ECFICMS;
+    //apenas para quando for recuperar uma venda perdida
+    private String identificacaoCliente;
 
     public VendaDetalheVO() {
     }
@@ -79,31 +88,17 @@ public class VendaDetalheVO {
     }
 
     /**
-     * @return the idVendaCabecalho
+     * @return the idCFOP
      */
-    public Integer getIdVendaCabecalho() {
-        return idVendaCabecalho;
+    public Integer getIdCFOP() {
+        return idCFOP;
     }
 
     /**
-     * @param idVendaCabecalho the idVendaCabecalho to set
+     * @param idCFOP the idCFOP to set
      */
-    public void setIdVendaCabecalho(Integer idVendaCabecalho) {
-        this.idVendaCabecalho = idVendaCabecalho;
-    }
-
-    /**
-     * @return the idProduto
-     */
-    public Integer getIdProduto() {
-        return idProduto;
-    }
-
-    /**
-     * @param idProduto the idProduto to set
-     */
-    public void setIdProduto(Integer idProduto) {
-        this.idProduto = idProduto;
+    public void setIdCFOP(Integer idCFOP) {
+        this.idCFOP = idCFOP;
     }
 
     /**
@@ -121,17 +116,45 @@ public class VendaDetalheVO {
     }
 
     /**
-     * @return the idCFOP
+     * @return the idProduto
      */
-    public Integer getIdCFOP() {
-        return idCFOP;
+    public Integer getIdProduto() {
+        return idProduto;
     }
 
     /**
-     * @param idCFOP the idCFOP to set
+     * @param idProduto the idProduto to set
      */
-    public void setIdCFOP(Integer idCFOP) {
-        this.idCFOP = idCFOP;
+    public void setIdProduto(Integer idProduto) {
+        this.idProduto = idProduto;
+    }
+
+    /**
+     * @return the idVendaCabecalho
+     */
+    public Integer getIdVendaCabecalho() {
+        return idVendaCabecalho;
+    }
+
+    /**
+     * @param idVendaCabecalho the idVendaCabecalho to set
+     */
+    public void setIdVendaCabecalho(Integer idVendaCabecalho) {
+        this.idVendaCabecalho = idVendaCabecalho;
+    }
+
+    /**
+     * @return the item
+     */
+    public Integer getItem() {
+        return item;
+    }
+
+    /**
+     * @param item the item to set
+     */
+    public void setItem(Integer item) {
+        this.item = item;
     }
 
     /**
@@ -191,45 +214,45 @@ public class VendaDetalheVO {
     }
 
     /**
-     * @return the baseIcms
+     * @return the baseICMS
      */
-    public Double getBaseIcms() {
-        return baseIcms;
+    public Double getBaseICMS() {
+        return baseICMS;
     }
 
     /**
-     * @param baseIcms the baseIcms to set
+     * @param baseICMS the baseICMS to set
      */
-    public void setBaseIcms(Double baseIcms) {
-        this.baseIcms = baseIcms;
+    public void setBaseICMS(Double baseICMS) {
+        this.baseICMS = baseICMS;
     }
 
     /**
-     * @return the taxaIcms
+     * @return the taxaICMS
      */
-    public Double getTaxaIcms() {
-        return taxaIcms;
+    public Double getTaxaICMS() {
+        return taxaICMS;
     }
 
     /**
-     * @param taxaIcms the taxaIcms to set
+     * @param taxaICMS the taxaICMS to set
      */
-    public void setTaxaIcms(Double taxaIcms) {
-        this.taxaIcms = taxaIcms;
+    public void setTaxaICMS(Double taxaICMS) {
+        this.taxaICMS = taxaICMS;
     }
 
     /**
-     * @return the icms
+     * @return the ICMS
      */
-    public Double getIcms() {
-        return icms;
+    public Double getICMS() {
+        return ICMS;
     }
 
     /**
-     * @param icms the icms to set
+     * @param ICMS the ICMS to set
      */
-    public void setIcms(Double icms) {
-        this.icms = icms;
+    public void setICMS(Double ICMS) {
+        this.ICMS = ICMS;
     }
 
     /**
@@ -261,87 +284,87 @@ public class VendaDetalheVO {
     }
 
     /**
-     * @return the taxaIssqn
+     * @return the taxaISSQN
      */
-    public Double getTaxaIssqn() {
-        return taxaIssqn;
+    public Double getTaxaISSQN() {
+        return taxaISSQN;
     }
 
     /**
-     * @param taxaIssqn the taxaIssqn to set
+     * @param taxaISSQN the taxaISSQN to set
      */
-    public void setTaxaIssqn(Double taxaIssqn) {
-        this.taxaIssqn = taxaIssqn;
+    public void setTaxaISSQN(Double taxaISSQN) {
+        this.taxaISSQN = taxaISSQN;
     }
 
     /**
-     * @return the issqn
+     * @return the ISSQN
      */
-    public Double getIssqn() {
-        return issqn;
+    public Double getISSQN() {
+        return ISSQN;
     }
 
     /**
-     * @param issqn the issqn to set
+     * @param ISSQN the ISSQN to set
      */
-    public void setIssqn(Double issqn) {
-        this.issqn = issqn;
+    public void setISSQN(Double ISSQN) {
+        this.ISSQN = ISSQN;
     }
 
     /**
-     * @return the taxaPis
+     * @return the taxaPIS
      */
-    public Double getTaxaPis() {
-        return taxaPis;
+    public Double getTaxaPIS() {
+        return taxaPIS;
     }
 
     /**
-     * @param taxaPis the taxaPis to set
+     * @param taxaPIS the taxaPIS to set
      */
-    public void setTaxaPis(Double taxaPis) {
-        this.taxaPis = taxaPis;
+    public void setTaxaPIS(Double taxaPIS) {
+        this.taxaPIS = taxaPIS;
     }
 
     /**
-     * @return the pis
+     * @return the PIS
      */
-    public Double getPis() {
-        return pis;
+    public Double getPIS() {
+        return PIS;
     }
 
     /**
-     * @param pis the pis to set
+     * @param PIS the PIS to set
      */
-    public void setPis(Double pis) {
-        this.pis = pis;
+    public void setPIS(Double PIS) {
+        this.PIS = PIS;
     }
 
     /**
-     * @return the taxaCofins
+     * @return the taxaCOFINS
      */
-    public Double getTaxaCofins() {
-        return taxaCofins;
+    public Double getTaxaCOFINS() {
+        return taxaCOFINS;
     }
 
     /**
-     * @param taxaCofins the taxaCofins to set
+     * @param taxaCOFINS the taxaCOFINS to set
      */
-    public void setTaxaCofins(Double taxaCofins) {
-        this.taxaCofins = taxaCofins;
+    public void setTaxaCOFINS(Double taxaCOFINS) {
+        this.taxaCOFINS = taxaCOFINS;
     }
 
     /**
-     * @return the cofins
+     * @return the COFINS
      */
-    public Double getCofins() {
-        return cofins;
+    public Double getCOFINS() {
+        return COFINS;
     }
 
     /**
-     * @param cofins the cofins to set
+     * @param COFINS the COFINS to set
      */
-    public void setCofins(Double cofins) {
-        this.cofins = cofins;
+    public void setCOFINS(Double COFINS) {
+        this.COFINS = COFINS;
     }
 
     /**
@@ -373,6 +396,34 @@ public class VendaDetalheVO {
     }
 
     /**
+     * @return the totalizadorParcial
+     */
+    public String getTotalizadorParcial() {
+        return totalizadorParcial;
+    }
+
+    /**
+     * @param totalizadorParcial the totalizadorParcial to set
+     */
+    public void setTotalizadorParcial(String totalizadorParcial) {
+        this.totalizadorParcial = totalizadorParcial;
+    }
+
+    /**
+     * @return the CST
+     */
+    public String getCST() {
+        return CST;
+    }
+
+    /**
+     * @param CST the CST to set
+     */
+    public void setCST(String CST) {
+        this.CST = CST;
+    }
+
+    /**
      * @return the cancelado
      */
     public String getCancelado() {
@@ -398,6 +449,76 @@ public class VendaDetalheVO {
      */
     public void setMovimentaEstoque(String movimentaEstoque) {
         this.movimentaEstoque = movimentaEstoque;
+    }
+
+    /**
+     * @return the GTIN
+     */
+    public String getGTIN() {
+        return GTIN;
+    }
+
+    /**
+     * @param GTIN the GTIN to set
+     */
+    public void setGTIN(String GTIN) {
+        this.GTIN = GTIN;
+    }
+
+    /**
+     * @return the unidadeProduto
+     */
+    public String getUnidadeProduto() {
+        return unidadeProduto;
+    }
+
+    /**
+     * @param unidadeProduto the unidadeProduto to set
+     */
+    public void setUnidadeProduto(String unidadeProduto) {
+        this.unidadeProduto = unidadeProduto;
+    }
+
+    /**
+     * @return the descricaoPDV
+     */
+    public String getDescricaoPDV() {
+        return descricaoPDV;
+    }
+
+    /**
+     * @param descricaoPDV the descricaoPDV to set
+     */
+    public void setDescricaoPDV(String descricaoPDV) {
+        this.descricaoPDV = descricaoPDV;
+    }
+
+    /**
+     * @return the ECFICMS
+     */
+    public String getECFICMS() {
+        return ECFICMS;
+    }
+
+    /**
+     * @param ECFICMS the ECFICMS to set
+     */
+    public void setECFICMS(String ECFICMS) {
+        this.ECFICMS = ECFICMS;
+    }
+
+    /**
+     * @return the identificacaoCliente
+     */
+    public String getIdentificacaoCliente() {
+        return identificacaoCliente;
+    }
+
+    /**
+     * @param identificacaoCliente the identificacaoCliente to set
+     */
+    public void setIdentificacaoCliente(String identificacaoCliente) {
+        this.identificacaoCliente = identificacaoCliente;
     }
 
 }

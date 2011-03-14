@@ -36,7 +36,6 @@
 package com.t2tierp.pafecf.controller;
 
 import com.t2tierp.pafecf.bd.AcessoBanco;
-import com.t2tierp.pafecf.vo.OperadorVO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -48,32 +47,6 @@ public class CaixaController {
     ResultSet rs;
     AcessoBanco bd = new AcessoBanco();
 
-    public OperadorVO consulta() {
-
-        OperadorVO operadorVO = new OperadorVO();
-
-        String consultaSQL = "select C.NOME, O.ID, O.LOGIN, I.IDENTIFICACAO, "
-                + "C.ID as ID_CAIXA, I.ID AS ID_IMPRESSORA from ECF_CAIXA C, "
-                + "ECF_IMPRESSORA I, ECF_OPERADOR O "
-                + " where C.ID_ECF_IMPRESSORA=I.ID AND C.ID_ECF_OPERADOR=O.ID";
-
-        try {
-            stm = bd.conectar().createStatement();
-            rs = stm.executeQuery(consultaSQL);
-            rs.beforeFirst();
-            if (rs.next()) {
-                operadorVO.setId(rs.getInt(2));
-                operadorVO.setLogin(rs.getString(3));
-            } else {
-                operadorVO.setId(0);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            bd.desconectar();
-        }
-
-        return operadorVO;
+    public void consulta() {
     }
-    
 }

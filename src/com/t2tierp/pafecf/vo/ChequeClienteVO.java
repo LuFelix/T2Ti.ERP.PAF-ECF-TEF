@@ -38,18 +38,69 @@ package com.t2tierp.pafecf.vo;
 public class ChequeClienteVO  {
     
     private Integer id;
+    private Integer numeroCheque;
+    private Double valor;
+    private String observacoes;
     private ClienteVO clienteVO;
     private BancoVO bancoVO;
 
     public ChequeClienteVO() {
     }
 
+    /**
+     * @return the id
+     */
     public Integer getId() {
         return id;
     }
 
+    /**
+     * @param id the id to set
+     */
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    /**
+     * @return the numeroCheque
+     */
+    public Integer getNumeroCheque() {
+        return numeroCheque;
+    }
+
+    /**
+     * @param numeroCheque the numeroCheque to set
+     */
+    public void setNumeroCheque(Integer numeroCheque) {
+        this.numeroCheque = numeroCheque;
+    }
+
+    /**
+     * @return the valor
+     */
+    public Double getValor() {
+        return valor;
+    }
+
+    /**
+     * @param valor the valor to set
+     */
+    public void setValor(Double valor) {
+        this.valor = valor;
+    }
+
+    /**
+     * @return the observacoes
+     */
+    public String getObservacoes() {
+        return observacoes;
+    }
+
+    /**
+     * @param observacoes the observacoes to set
+     */
+    public void setObservacoes(String observacoes) {
+        this.observacoes = observacoes;
     }
 
     /**
@@ -79,5 +130,4 @@ public class ChequeClienteVO  {
     public void setBancoVO(BancoVO bancoVO) {
         this.bancoVO = bancoVO;
     }
-
 }

@@ -36,34 +36,47 @@
 package com.t2tierp.pafecf.controller;
 
 import com.t2tierp.pafecf.bd.AcessoBanco;
+import com.t2tierp.pafecf.vo.FuncionarioVO;
 import com.t2tierp.pafecf.vo.OperadorVO;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class OperadorController {
+
+    String consultaSQL;
     Statement stm;
+    PreparedStatement pstm;
     ResultSet rs;
     AcessoBanco bd = new AcessoBanco();
 
-    public OperadorVO consultaUsuario(String login, String senha) {
-       OperadorVO operadorVO = new OperadorVO();
-        String consultaSQL = "select ID,LOGIN,SENHA from ECF_OPERADOR where LOGIN='" + login + "' and SENHA= '" + senha + "'";
+    public OperadorVO consultaUsuario(String pLogin, String pSenha) {
+        OperadorVO operador = new OperadorVO();
+        FuncionarioVO funcionario = new FuncionarioVO();
+        operador.setFuncionarioVO(funcionario);
+        consultaSQL =
+                "select O.ID,O.ID_ECF_FUNCIONARIO,O.LOGIN,O.SENHA,F.NIVEL_AUTORIZACAO "
+                + "from ECF_OPERADOR O, ECF_FUNCIONARIO F where O.ID_ECF_FUNCIONARIO=F.ID "
+                + "AND LOGIN='" + pLogin + "' and SENHA='" + pSenha + "'";
         try {
             stm = bd.conectar().createStatement();
             rs = stm.executeQuery(consultaSQL);
             rs.beforeFirst();
             if (rs.next()) {
-                operadorVO.setId(rs.getInt(1));
-                operadorVO.setLogin(rs.getString(2));
-                operadorVO.setSenha(rs.getString(3));
+                operador.setId(rs.getInt("ID"));
+                operador.setLogin(rs.getString("LOGIN"));
+                operador.setSenha(rs.getString("SENHA"));
+                operador.getFuncionarioVO().setId(rs.getInt("ID_ECF_FUNCIONARIO"));
+                operador.getFuncionarioVO().setNivelAutorizacao(rs.getString("NIVEL_AUTORIZACAO"));
+                return operador;
             } else {
-                operadorVO.setId(0);
+                return null;
             }
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         } finally {
             bd.desconectar();
         }
-        return operadorVO;
     }
 }

@@ -1,7 +1,6 @@
 package com.t2tierp.pafecf.vo;
 
-import java.util.Collection;
-import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  * <p>Title: T2Ti ERP</p>
@@ -40,8 +39,17 @@ import java.sql.Date;
  */
 public class MovimentoVO {
     private Integer id;
-    private Date dataHoraAbertura;
-    private Date dataHoraFechamento;
+    private Integer idImpressora;
+    private String identificacaoImpressora;
+    private Integer idTurno;
+    private String descricaoTurno;
+    private Integer idOperador;
+    private String loginOperador;
+    private Integer idCaixa;
+    private String nomeCaixa;
+    private Integer idGerenteSupervisor;
+    private Timestamp dataHoraAbertura;
+    private Timestamp dataHoraFechamento;
     private Double totalSuprimento;
     private Double totalSangria;
     private Double totalNaoFiscal;
@@ -54,13 +62,6 @@ public class MovimentoVO {
     private Double totalCancelado;
     private String statusMovimento;
     private String sincronizado;
-    private Integer idOperador;
-    private Integer idCaixa;
-    private Integer idImpressora;
-    private Collection<RecebimentoNaoFiscalVO> recebimentoNaoFiscalVOCollection;
-    private Collection<SuprimentoVO> suprimentoVOCollection;
-    private Collection<SangriaVO> sangriaVOCollection;
-    private Collection<VendaCabecalhoVO> vendaCabecalhoVOCollection;
 
     public MovimentoVO() {
     }
@@ -80,30 +81,156 @@ public class MovimentoVO {
     }
 
     /**
+     * @return the idImpressora
+     */
+    public Integer getIdImpressora() {
+        return idImpressora;
+    }
+
+    /**
+     * @param idImpressora the idImpressora to set
+     */
+    public void setIdImpressora(Integer idImpressora) {
+        this.idImpressora = idImpressora;
+    }
+
+    /**
+     * @return the identificacaoImpressora
+     */
+    public String getIdentificacaoImpressora() {
+        return identificacaoImpressora;
+    }
+
+    /**
+     * @param identificacaoImpressora the identificacaoImpressora to set
+     */
+    public void setIdentificacaoImpressora(String identificacaoImpressora) {
+        this.identificacaoImpressora = identificacaoImpressora;
+    }
+
+    /**
+     * @return the idTurno
+     */
+    public Integer getIdTurno() {
+        return idTurno;
+    }
+
+    /**
+     * @param idTurno the idTurno to set
+     */
+    public void setIdTurno(Integer idTurno) {
+        this.idTurno = idTurno;
+    }
+
+    /**
+     * @return the descricaoTurno
+     */
+    public String getDescricaoTurno() {
+        return descricaoTurno;
+    }
+
+    /**
+     * @param descricaoTurno the descricaoTurno to set
+     */
+    public void setDescricaoTurno(String descricaoTurno) {
+        this.descricaoTurno = descricaoTurno;
+    }
+
+    /**
+     * @return the idOperador
+     */
+    public Integer getIdOperador() {
+        return idOperador;
+    }
+
+    /**
+     * @param idOperador the idOperador to set
+     */
+    public void setIdOperador(Integer idOperador) {
+        this.idOperador = idOperador;
+    }
+
+    /**
+     * @return the loginOperador
+     */
+    public String getLoginOperador() {
+        return loginOperador;
+    }
+
+    /**
+     * @param loginOperador the loginOperador to set
+     */
+    public void setLoginOperador(String loginOperador) {
+        this.loginOperador = loginOperador;
+    }
+
+    /**
+     * @return the idCaixa
+     */
+    public Integer getIdCaixa() {
+        return idCaixa;
+    }
+
+    /**
+     * @param idCaixa the idCaixa to set
+     */
+    public void setIdCaixa(Integer idCaixa) {
+        this.idCaixa = idCaixa;
+    }
+
+    /**
+     * @return the nomeCaixa
+     */
+    public String getNomeCaixa() {
+        return nomeCaixa;
+    }
+
+    /**
+     * @param nomeCaixa the nomeCaixa to set
+     */
+    public void setNomeCaixa(String nomeCaixa) {
+        this.nomeCaixa = nomeCaixa;
+    }
+
+    /**
+     * @return the idGerenteSupervisor
+     */
+    public Integer getIdGerenteSupervisor() {
+        return idGerenteSupervisor;
+    }
+
+    /**
+     * @param idGerenteSupervisor the idGerenteSupervisor to set
+     */
+    public void setIdGerenteSupervisor(Integer idGerenteSupervisor) {
+        this.idGerenteSupervisor = idGerenteSupervisor;
+    }
+
+    /**
      * @return the dataHoraAbertura
      */
-    public Date getDataHoraAbertura() {
+    public Timestamp getDataHoraAbertura() {
         return dataHoraAbertura;
     }
 
     /**
      * @param dataHoraAbertura the dataHoraAbertura to set
      */
-    public void setDataHoraAbertura(Date dataHoraAbertura) {
+    public void setDataHoraAbertura(Timestamp dataHoraAbertura) {
         this.dataHoraAbertura = dataHoraAbertura;
     }
 
     /**
      * @return the dataHoraFechamento
      */
-    public Date getDataHoraFechamento() {
+    public Timestamp getDataHoraFechamento() {
         return dataHoraFechamento;
     }
 
     /**
      * @param dataHoraFechamento the dataHoraFechamento to set
      */
-    public void setDataHoraFechamento(Date dataHoraFechamento) {
+    public void setDataHoraFechamento(Timestamp dataHoraFechamento) {
         this.dataHoraFechamento = dataHoraFechamento;
     }
 
@@ -275,103 +402,4 @@ public class MovimentoVO {
         this.sincronizado = sincronizado;
     }
 
-    /**
-     * @return the idOperador
-     */
-    public Integer getIdOperador() {
-        return idOperador;
-    }
-
-    /**
-     * @param idOperador the idOperador to set
-     */
-    public void setIdOperador(Integer idOperador) {
-        this.idOperador = idOperador;
-    }
-
-    /**
-     * @return the idCaixa
-     */
-    public Integer getIdCaixa() {
-        return idCaixa;
-    }
-
-    /**
-     * @param idCaixa the idCaixa to set
-     */
-    public void setIdCaixa(Integer idCaixa) {
-        this.idCaixa = idCaixa;
-    }
-
-    /**
-     * @return the idImpressora
-     */
-    public Integer getIdImpressora() {
-        return idImpressora;
-    }
-
-    /**
-     * @param idImpressora the idImpressora to set
-     */
-    public void setIdImpressora(Integer idImpressora) {
-        this.idImpressora = idImpressora;
-    }
-
-    /**
-     * @return the recebimentoNaoFiscalVOCollection
-     */
-    public Collection<RecebimentoNaoFiscalVO> getRecebimentoNaoFiscalVOCollection() {
-        return recebimentoNaoFiscalVOCollection;
-    }
-
-    /**
-     * @param recebimentoNaoFiscalVOCollection the recebimentoNaoFiscalVOCollection to set
-     */
-    public void setRecebimentoNaoFiscalVOCollection(Collection<RecebimentoNaoFiscalVO> recebimentoNaoFiscalVOCollection) {
-        this.recebimentoNaoFiscalVOCollection = recebimentoNaoFiscalVOCollection;
-    }
-
-    /**
-     * @return the suprimentoVOCollection
-     */
-    public Collection<SuprimentoVO> getSuprimentoVOCollection() {
-        return suprimentoVOCollection;
-    }
-
-    /**
-     * @param suprimentoVOCollection the suprimentoVOCollection to set
-     */
-    public void setSuprimentoVOCollection(Collection<SuprimentoVO> suprimentoVOCollection) {
-        this.suprimentoVOCollection = suprimentoVOCollection;
-    }
-
-    /**
-     * @return the sangriaVOCollection
-     */
-    public Collection<SangriaVO> getSangriaVOCollection() {
-        return sangriaVOCollection;
-    }
-
-    /**
-     * @param sangriaVOCollection the sangriaVOCollection to set
-     */
-    public void setSangriaVOCollection(Collection<SangriaVO> sangriaVOCollection) {
-        this.sangriaVOCollection = sangriaVOCollection;
-    }
-
-    /**
-     * @return the vendaCabecalhoVOCollection
-     */
-    public Collection<VendaCabecalhoVO> getVendaCabecalhoVOCollection() {
-        return vendaCabecalhoVOCollection;
-    }
-
-    /**
-     * @param vendaCabecalhoVOCollection the vendaCabecalhoVOCollection to set
-     */
-    public void setVendaCabecalhoVOCollection(Collection<VendaCabecalhoVO> vendaCabecalhoVOCollection) {
-        this.vendaCabecalhoVOCollection = vendaCabecalhoVOCollection;
-    }
-
-    
 }

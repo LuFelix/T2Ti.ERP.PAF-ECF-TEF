@@ -1,7 +1,5 @@
 package com.t2tierp.pafecf.vo;
 
-import java.util.Collection;
-
 /**
  * <p>Title: T2Ti ERP</p>
  * <p>Description: PAF-ECF + TEF - Objeto de valor referente a tabela Produto.</p>
@@ -41,23 +39,23 @@ public class ProdutoVO {
     private Integer id;
     private Integer idUnidade;
     private Integer idTributo;
-    private String gtin;
+    private String GTIN;
     private String codigoInterno;
     private String nome;
     private String descricao;
-    private String descricaoPdv;
+    private String descricaoPDV;
     private Double valorVenda;
-    private Double qtdEstoque;
-    private Double estoqueMin;
-    private Double estoqueMax;
-    private String iat;
-    private String ippt;
-    private String ncm;
-    private String movimentaEstoque;
-    private Collection<Nf2DetalheVO> nf2DetalheVOCollection;
-    private Collection<VendaDetalheVO> vendaDetalheVOCollection;
-    private Collection<DavDetalheVO> davDetalheVOCollection;
-    private Collection<PreVendaDetalheVO> preVendaDetalheVOCollection;
+    private Double quantidadeEstoque;
+    private Double estoqueMinimo;
+    private Double estoqueMaximo;
+    private String IAT;
+    private String IPPT;
+    private String NCM;
+    private String unidadeProduto;
+    private String situacaoTributaria;
+    private String totalizadorParcial;
+    private String ECFICMS;
+    private Double aliquotaICMS;
 
     public ProdutoVO() {
     }
@@ -105,17 +103,17 @@ public class ProdutoVO {
     }
 
     /**
-     * @return the gtin
+     * @return the GTIN
      */
-    public String getGtin() {
-        return gtin;
+    public String getGTIN() {
+        return GTIN;
     }
 
     /**
-     * @param gtin the gtin to set
+     * @param GTIN the GTIN to set
      */
-    public void setGtin(String gtin) {
-        this.gtin = gtin;
+    public void setGTIN(String GTIN) {
+        this.GTIN = GTIN;
     }
 
     /**
@@ -161,17 +159,17 @@ public class ProdutoVO {
     }
 
     /**
-     * @return the descricaoPdv
+     * @return the descricaoPDV
      */
-    public String getDescricaoPdv() {
-        return descricaoPdv;
+    public String getDescricaoPDV() {
+        return descricaoPDV;
     }
 
     /**
-     * @param descricaoPdv the descricaoPdv to set
+     * @param descricaoPDV the descricaoPDV to set
      */
-    public void setDescricaoPdv(String descricaoPdv) {
-        this.descricaoPdv = descricaoPdv;
+    public void setDescricaoPDV(String descricaoPDV) {
+        this.descricaoPDV = descricaoPDV;
     }
 
     /**
@@ -189,157 +187,157 @@ public class ProdutoVO {
     }
 
     /**
-     * @return the qtdEstoque
+     * @return the quantidadeEstoque
      */
-    public Double getQtdEstoque() {
-        return qtdEstoque;
+    public Double getQuantidadeEstoque() {
+        return quantidadeEstoque;
     }
 
     /**
-     * @param qtdEstoque the qtdEstoque to set
+     * @param quantidadeEstoque the quantidadeEstoque to set
      */
-    public void setQtdEstoque(Double qtdEstoque) {
-        this.qtdEstoque = qtdEstoque;
+    public void setQuantidadeEstoque(Double quantidadeEstoque) {
+        this.quantidadeEstoque = quantidadeEstoque;
     }
 
     /**
-     * @return the estoqueMin
+     * @return the estoqueMinimo
      */
-    public Double getEstoqueMin() {
-        return estoqueMin;
+    public Double getEstoqueMinimo() {
+        return estoqueMinimo;
     }
 
     /**
-     * @param estoqueMin the estoqueMin to set
+     * @param estoqueMinimo the estoqueMinimo to set
      */
-    public void setEstoqueMin(Double estoqueMin) {
-        this.estoqueMin = estoqueMin;
+    public void setEstoqueMinimo(Double estoqueMinimo) {
+        this.estoqueMinimo = estoqueMinimo;
     }
 
     /**
-     * @return the estoqueMax
+     * @return the estoqueMaximo
      */
-    public Double getEstoqueMax() {
-        return estoqueMax;
+    public Double getEstoqueMaximo() {
+        return estoqueMaximo;
     }
 
     /**
-     * @param estoqueMax the estoqueMax to set
+     * @param estoqueMaximo the estoqueMaximo to set
      */
-    public void setEstoqueMax(Double estoqueMax) {
-        this.estoqueMax = estoqueMax;
+    public void setEstoqueMaximo(Double estoqueMaximo) {
+        this.estoqueMaximo = estoqueMaximo;
     }
 
     /**
-     * @return the iat
+     * @return the IAT
      */
-    public String getIat() {
-        return iat;
+    public String getIAT() {
+        return IAT;
     }
 
     /**
-     * @param iat the iat to set
+     * @param IAT the IAT to set
      */
-    public void setIat(String iat) {
-        this.iat = iat;
+    public void setIAT(String IAT) {
+        this.IAT = IAT;
     }
 
     /**
-     * @return the ippt
+     * @return the IPPT
      */
-    public String getIppt() {
-        return ippt;
+    public String getIPPT() {
+        return IPPT;
     }
 
     /**
-     * @param ippt the ippt to set
+     * @param IPPT the IPPT to set
      */
-    public void setIppt(String ippt) {
-        this.ippt = ippt;
+    public void setIPPT(String IPPT) {
+        this.IPPT = IPPT;
     }
 
     /**
-     * @return the ncm
+     * @return the NCM
      */
-    public String getNcm() {
-        return ncm;
+    public String getNCM() {
+        return NCM;
     }
 
     /**
-     * @param ncm the ncm to set
+     * @param NCM the NCM to set
      */
-    public void setNcm(String ncm) {
-        this.ncm = ncm;
+    public void setNCM(String NCM) {
+        this.NCM = NCM;
     }
 
     /**
-     * @return the movimentaEstoque
+     * @return the unidadeProduto
      */
-    public String getMovimentaEstoque() {
-        return movimentaEstoque;
+    public String getUnidadeProduto() {
+        return unidadeProduto;
     }
 
     /**
-     * @param movimentaEstoque the movimentaEstoque to set
+     * @param unidadeProduto the unidadeProduto to set
      */
-    public void setMovimentaEstoque(String movimentaEstoque) {
-        this.movimentaEstoque = movimentaEstoque;
+    public void setUnidadeProduto(String unidadeProduto) {
+        this.unidadeProduto = unidadeProduto;
     }
 
     /**
-     * @return the nf2DetalheVOCollection
+     * @return the situacaoTributaria
      */
-    public Collection<Nf2DetalheVO> getNf2DetalheVOCollection() {
-        return nf2DetalheVOCollection;
+    public String getSituacaoTributaria() {
+        return situacaoTributaria;
     }
 
     /**
-     * @param nf2DetalheVOCollection the nf2DetalheVOCollection to set
+     * @param situacaoTributaria the situacaoTributaria to set
      */
-    public void setNf2DetalheVOCollection(Collection<Nf2DetalheVO> nf2DetalheVOCollection) {
-        this.nf2DetalheVOCollection = nf2DetalheVOCollection;
+    public void setSituacaoTributaria(String situacaoTributaria) {
+        this.situacaoTributaria = situacaoTributaria;
     }
 
     /**
-     * @return the vendaDetalheVOCollection
+     * @return the totalizadorParcial
      */
-    public Collection<VendaDetalheVO> getVendaDetalheVOCollection() {
-        return vendaDetalheVOCollection;
+    public String getTotalizadorParcial() {
+        return totalizadorParcial;
     }
 
     /**
-     * @param vendaDetalheVOCollection the vendaDetalheVOCollection to set
+     * @param totalizadorParcial the totalizadorParcial to set
      */
-    public void setVendaDetalheVOCollection(Collection<VendaDetalheVO> vendaDetalheVOCollection) {
-        this.vendaDetalheVOCollection = vendaDetalheVOCollection;
+    public void setTotalizadorParcial(String totalizadorParcial) {
+        this.totalizadorParcial = totalizadorParcial;
     }
 
     /**
-     * @return the davDetalheVOCollection
+     * @return the ECFICMS
      */
-    public Collection<DavDetalheVO> getDavDetalheVOCollection() {
-        return davDetalheVOCollection;
+    public String getECFICMS() {
+        return ECFICMS;
     }
 
     /**
-     * @param davDetalheVOCollection the davDetalheVOCollection to set
+     * @param ECFICMS the ECFICMS to set
      */
-    public void setDavDetalheVOCollection(Collection<DavDetalheVO> davDetalheVOCollection) {
-        this.davDetalheVOCollection = davDetalheVOCollection;
+    public void setECFICMS(String ECFICMS) {
+        this.ECFICMS = ECFICMS;
     }
 
     /**
-     * @return the preVendaDetalheVOCollection
+     * @return the aliquotaICMS
      */
-    public Collection<PreVendaDetalheVO> getPreVendaDetalheVOCollection() {
-        return preVendaDetalheVOCollection;
+    public Double getAliquotaICMS() {
+        return aliquotaICMS;
     }
 
     /**
-     * @param preVendaDetalheVOCollection the preVendaDetalheVOCollection to set
+     * @param aliquotaICMS the aliquotaICMS to set
      */
-    public void setPreVendaDetalheVOCollection(Collection<PreVendaDetalheVO> preVendaDetalheVOCollection) {
-        this.preVendaDetalheVOCollection = preVendaDetalheVOCollection;
+    public void setAliquotaICMS(Double aliquotaICMS) {
+        this.aliquotaICMS = aliquotaICMS;
     }
 
 }

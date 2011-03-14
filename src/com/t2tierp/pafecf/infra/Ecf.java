@@ -35,20 +35,106 @@
  */
 package com.t2tierp.pafecf.infra;
 
+import com.t2tierp.pafecf.controller.PreVendaController;
+import com.t2tierp.pafecf.view.Caixa;
+import com.t2tierp.pafecf.vo.TotalTipoPagamentoVO;
+import com.t2tierp.pafecf.vo.VendaDetalheVO;
 import javax.swing.JOptionPane;
 
 public class Ecf {
 
+    public static void suprimento(Double valor, String descricao) {
+        try {
+            Caixa.ACBrECF.suprimento(valor, descricao);
+        } catch (Throwable t) {
+            JOptionPane.showMessageDialog(null, t.getMessage(), "Erro do Sistema", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public static void sangria(Double valor, String descricao) {
+        try {
+            Caixa.ACBrECF.sangria(valor, descricao);
+        } catch (Throwable t) {
+            JOptionPane.showMessageDialog(null, t.getMessage(), "Erro do Sistema", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
     public static void cancelaCupom() {
-        JOptionPane.showMessageDialog(null, "Procedimento para cancelamento do cupom!", "Aviso do Sistema", JOptionPane.INFORMATION_MESSAGE);
+        try {
+            Caixa.ACBrECF.cancelaCupom();
+        } catch (Throwable t) {
+            JOptionPane.showMessageDialog(null, t.getMessage(), "Erro do Sistema", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
-    public static void suprimento(String valor) {
-        JOptionPane.showMessageDialog(null, "Suprimento de: " + valor, "Aviso do Sistema", JOptionPane.INFORMATION_MESSAGE);
+    public static void reducaoZ() {
+        try {
+            PreVendaController preVendaControl = new PreVendaController();
+            //TODO : Devo cancelar as pre-vendas antes da redução Z do dia?
+            preVendaControl.cancelaPreVendasPendentes();
+            Caixa.ACBrECF.reducaoZ();
+            Paf.gravaR02R03();
+            //TODO : Devemos gravar o 60M (sintegra) neste momento?
+            Paf.grava60M60A();
+            Paf.geraArquivoEstoque();
+        } catch (Throwable t) {
+            JOptionPane.showMessageDialog(null, t.getMessage(), "Erro do Sistema", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
-    public static void sangria(String valor) {
-        JOptionPane.showMessageDialog(null, "Sangria de: " + valor, "Aviso do Sistema", JOptionPane.INFORMATION_MESSAGE);
+    public static void leituraX() {
+        try {
+            Caixa.ACBrECF.leituraX();
+        } catch (Throwable t) {
+            JOptionPane.showMessageDialog(null, t.getMessage(), "Erro do Sistema", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
+    public static void abreCupom(String CPFouCNPJ) {
+        try {
+            Caixa.ACBrECF.abreCupom(CPFouCNPJ, "", "");
+        } catch (Throwable t) {
+            JOptionPane.showMessageDialog(null, t.getMessage(), "Erro do Sistema", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public static void vendeItem(VendaDetalheVO vendaDetalhe) {
+        try {
+            Caixa.ACBrECF.vendeItem(vendaDetalhe.getGTIN(), vendaDetalhe.getDescricaoPDV(), vendaDetalhe.getECFICMS(), vendaDetalhe.getQuantidade(), vendaDetalhe.getValorUnitario(), 0.0, vendaDetalhe.getUnidadeProduto(), "", "");
+        } catch (Throwable t) {
+            JOptionPane.showMessageDialog(null, t.getMessage(), "Erro do Sistema", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public static void efetuaFormaPagamento(TotalTipoPagamentoVO totalTipoPagamento) {
+        try {
+            Caixa.ACBrECF.efetuaPagamento(totalTipoPagamento.getTipoPagamentoVO().getCodigo(), totalTipoPagamento.getValor(), "", false);
+        } catch (Throwable t) {
+            JOptionPane.showMessageDialog(null, t.getMessage(), "Erro do Sistema", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public static void subTotalizaCupom(Double AscDesc) {
+        try {
+            Caixa.ACBrECF.subtotalizaCupom(AscDesc, "");
+        } catch (Throwable t) {
+            JOptionPane.showMessageDialog(null, t.getMessage(), "Erro do Sistema", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public static void fechaCupom(String observacao) {
+        try {
+            Caixa.ACBrECF.fechaCupom(observacao);
+        } catch (Throwable t) {
+            JOptionPane.showMessageDialog(null, t.getMessage(), "Erro do Sistema", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public static void cancelaItem(Integer item) {
+        try {
+            Caixa.ACBrECF.cancelaItemVendido(item);
+        } catch (Throwable t) {
+            JOptionPane.showMessageDialog(null, t.getMessage(), "Erro do Sistema", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }

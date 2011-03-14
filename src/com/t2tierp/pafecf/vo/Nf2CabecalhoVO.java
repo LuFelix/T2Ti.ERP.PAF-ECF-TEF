@@ -1,6 +1,5 @@
 package com.t2tierp.pafecf.vo;
 
-import java.util.Collection;
 import java.util.Date;
 
 /**
@@ -38,21 +37,24 @@ import java.util.Date;
  * @author Albert Eije (T2Ti.COM)
  * @version 1.0
  */
-public class Nf2CabecalhoVO  {
+public class NF2CabecalhoVO  {
     private Integer id;
+    private Integer idCFOP;
+    private Integer idVendedor;
+    private Integer idCliente;
     private String numero;
     private Date dataHoraEmissao;
     private String serie;
     private String subserie;
     private Double totalProdutos;
-    private Double totalNf;
-    private Double baseIcms;
-    private Double icms;
-    private Double icmsOutras;
-    private Double issqn;
-    private Double pis;
-    private Double cofins;
-    private Double ipi;
+    private Double totalNF;
+    private Double baseICMS;
+    private Double ICMS;
+    private Double ICMSOutras;
+    private Double ISSQN;
+    private Double PIS;
+    private Double COFINS;
+    private Double IPI;
     private Double taxaAcrescimo;
     private Double acrescimo;
     private Double acrescimoItens;
@@ -61,12 +63,8 @@ public class Nf2CabecalhoVO  {
     private Double descontoItens;
     private String cancelada;
     private String sincronizado;
-    private ClienteVO clienteVO;
-    private FuncionarioVO funcionarioVO;
-    private CfopVO cfopVO;
-    private Collection<Nf2DetalheVO> nf2DetalheVOCollection;
 
-    public Nf2CabecalhoVO() {
+    public NF2CabecalhoVO() {
     }
 
     /**
@@ -81,6 +79,48 @@ public class Nf2CabecalhoVO  {
      */
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    /**
+     * @return the idCFOP
+     */
+    public Integer getIdCFOP() {
+        return idCFOP;
+    }
+
+    /**
+     * @param idCFOP the idCFOP to set
+     */
+    public void setIdCFOP(Integer idCFOP) {
+        this.idCFOP = idCFOP;
+    }
+
+    /**
+     * @return the idVendedor
+     */
+    public Integer getIdVendedor() {
+        return idVendedor;
+    }
+
+    /**
+     * @param idVendedor the idVendedor to set
+     */
+    public void setIdVendedor(Integer idVendedor) {
+        this.idVendedor = idVendedor;
+    }
+
+    /**
+     * @return the idCliente
+     */
+    public Integer getIdCliente() {
+        return idCliente;
+    }
+
+    /**
+     * @param idCliente the idCliente to set
+     */
+    public void setIdCliente(Integer idCliente) {
+        this.idCliente = idCliente;
     }
 
     /**
@@ -154,115 +194,115 @@ public class Nf2CabecalhoVO  {
     }
 
     /**
-     * @return the totalNf
+     * @return the totalNF
      */
-    public Double getTotalNf() {
-        return totalNf;
+    public Double getTotalNF() {
+        return totalNF;
     }
 
     /**
-     * @param totalNf the totalNf to set
+     * @param totalNF the totalNF to set
      */
-    public void setTotalNf(Double totalNf) {
-        this.totalNf = totalNf;
+    public void setTotalNF(Double totalNF) {
+        this.totalNF = totalNF;
     }
 
     /**
-     * @return the baseIcms
+     * @return the baseICMS
      */
-    public Double getBaseIcms() {
-        return baseIcms;
+    public Double getBaseICMS() {
+        return baseICMS;
     }
 
     /**
-     * @param baseIcms the baseIcms to set
+     * @param baseICMS the baseICMS to set
      */
-    public void setBaseIcms(Double baseIcms) {
-        this.baseIcms = baseIcms;
+    public void setBaseICMS(Double baseICMS) {
+        this.baseICMS = baseICMS;
     }
 
     /**
-     * @return the icms
+     * @return the ICMS
      */
-    public Double getIcms() {
-        return icms;
+    public Double getICMS() {
+        return ICMS;
     }
 
     /**
-     * @param icms the icms to set
+     * @param ICMS the ICMS to set
      */
-    public void setIcms(Double icms) {
-        this.icms = icms;
+    public void setICMS(Double ICMS) {
+        this.ICMS = ICMS;
     }
 
     /**
-     * @return the icmsOutras
+     * @return the ICMSOutras
      */
-    public Double getIcmsOutras() {
-        return icmsOutras;
+    public Double getICMSOutras() {
+        return ICMSOutras;
     }
 
     /**
-     * @param icmsOutras the icmsOutras to set
+     * @param ICMSOutras the ICMSOutras to set
      */
-    public void setIcmsOutras(Double icmsOutras) {
-        this.icmsOutras = icmsOutras;
+    public void setICMSOutras(Double ICMSOutras) {
+        this.ICMSOutras = ICMSOutras;
     }
 
     /**
-     * @return the issqn
+     * @return the ISSQN
      */
-    public Double getIssqn() {
-        return issqn;
+    public Double getISSQN() {
+        return ISSQN;
     }
 
     /**
-     * @param issqn the issqn to set
+     * @param ISSQN the ISSQN to set
      */
-    public void setIssqn(Double issqn) {
-        this.issqn = issqn;
+    public void setISSQN(Double ISSQN) {
+        this.ISSQN = ISSQN;
     }
 
     /**
-     * @return the pis
+     * @return the PIS
      */
-    public Double getPis() {
-        return pis;
+    public Double getPIS() {
+        return PIS;
     }
 
     /**
-     * @param pis the pis to set
+     * @param PIS the PIS to set
      */
-    public void setPis(Double pis) {
-        this.pis = pis;
+    public void setPIS(Double PIS) {
+        this.PIS = PIS;
     }
 
     /**
-     * @return the cofins
+     * @return the COFINS
      */
-    public Double getCofins() {
-        return cofins;
+    public Double getCOFINS() {
+        return COFINS;
     }
 
     /**
-     * @param cofins the cofins to set
+     * @param COFINS the COFINS to set
      */
-    public void setCofins(Double cofins) {
-        this.cofins = cofins;
+    public void setCOFINS(Double COFINS) {
+        this.COFINS = COFINS;
     }
 
     /**
-     * @return the ipi
+     * @return the IPI
      */
-    public Double getIpi() {
-        return ipi;
+    public Double getIPI() {
+        return IPI;
     }
 
     /**
-     * @param ipi the ipi to set
+     * @param IPI the IPI to set
      */
-    public void setIpi(Double ipi) {
-        this.ipi = ipi;
+    public void setIPI(Double IPI) {
+        this.IPI = IPI;
     }
 
     /**
@@ -376,61 +416,4 @@ public class Nf2CabecalhoVO  {
     public void setSincronizado(String sincronizado) {
         this.sincronizado = sincronizado;
     }
-
-    /**
-     * @return the clienteVO
-     */
-    public ClienteVO getClienteVO() {
-        return clienteVO;
-    }
-
-    /**
-     * @param clienteVO the clienteVO to set
-     */
-    public void setClienteVO(ClienteVO clienteVO) {
-        this.clienteVO = clienteVO;
-    }
-
-    /**
-     * @return the funcionarioVO
-     */
-    public FuncionarioVO getFuncionarioVO() {
-        return funcionarioVO;
-    }
-
-    /**
-     * @param funcionarioVO the funcionarioVO to set
-     */
-    public void setFuncionarioVO(FuncionarioVO funcionarioVO) {
-        this.funcionarioVO = funcionarioVO;
-    }
-
-    /**
-     * @return the cfopVO
-     */
-    public CfopVO getCfopVO() {
-        return cfopVO;
-    }
-
-    /**
-     * @param cfopVO the cfopVO to set
-     */
-    public void setCfopVO(CfopVO cfopVO) {
-        this.cfopVO = cfopVO;
-    }
-
-    /**
-     * @return the nf2DetalheVOCollection
-     */
-    public Collection<Nf2DetalheVO> getNf2DetalheVOCollection() {
-        return nf2DetalheVOCollection;
-    }
-
-    /**
-     * @param nf2DetalheVOCollection the nf2DetalheVOCollection to set
-     */
-    public void setNf2DetalheVOCollection(Collection<Nf2DetalheVO> nf2DetalheVOCollection) {
-        this.nf2DetalheVOCollection = nf2DetalheVOCollection;
-    }
-
 }
