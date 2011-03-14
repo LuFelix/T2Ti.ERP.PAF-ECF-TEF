@@ -1,0 +1,22 @@
+
+            AMERICAN EXPRESS
+        COMPROVANTE DE OPERACAO
+         !!!!! SIMULACAO !!!!!
+Amex       333333333333333         12/12
+ESTAB.     LOJA DE TESTES         
+                                  
+           987654321098765
+TERM=70000002   DOC=749865   LOTE=000001
+07/11/10 18:06   AUTORIZ.=123456   ONL-X
+VENDA CREDITO A VISTA
+VALOR VENDA:               30,00
+RECONHECO E PAGAREI A IMPORTANCIA ACIMA.
+
+
+     ______________________________
+      ASSINATURA IGUAL A DO CARTAO
+
+
+ . . . . . . . . . . . . . . . . . . . . . . . . 
+
+

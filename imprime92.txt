@@ -1,0 +1,68 @@
+
+     *** DEMONSTRACAO  PAY&GO ***
+          COMPROVANTE DE TEF
+   
+   ESTABELECIMENTO DE TESTE
+   823982346832235/03876463
+   
+   30/10/2010              18:53:07
+   REF.FISCAL:000092
+   DOC:018494        AUTORIZ:020170
+   REF.HOST:18530720216
+   
+   DEMOCARD        ************2222
+   VENDA DEBITO A VISTA
+   VALOR FINAL: R$ 100,00
+   
+   
+   ________________________________
+                   
+
+
+ . . . . . . . . . . . . . . . . . . . . . . . . 
+
+
+     *** DEMONSTRACAO  PAY&GO ***
+          COMPROVANTE DE TEF
+             VIA: CLIENTE
+   
+   ESTABELECIMENTO DE TESTE
+   823982346832235/03876463
+   
+   30/10/2010              18:53:07
+   REF.FISCAL:000092
+   DOC:018494        AUTORIZ:020170
+   REF.HOST:18530720216
+   
+   DEMOCARD        ************2222
+   VENDA DEBITO A VISTA
+   VALOR FINAL: R$ 100,00
+
+
+ . . . . . . . . . . . . . . . . . . . . . . . . 
+
+
+     *** DEMONSTRACAO  PAY&GO ***
+          COMPROVANTE DE TEF
+         VIA: ESTABELECIMENTO
+   
+   ESTABELECIMENTO DE TESTE
+   823982346832235/03876463
+   
+   30/10/2010              18:53:07
+   REF.FISCAL:000092
+   DOC:018494        AUTORIZ:020170
+   REF.HOST:18530720216
+   
+   DEMOCARD        ************2222
+   VENDA DEBITO A VISTA
+   VALOR FINAL: R$ 100,00
+   
+   
+   ________________________________
+                   
+
+
+ . . . . . . . . . . . . . . . . . . . . . . . . 
+
+

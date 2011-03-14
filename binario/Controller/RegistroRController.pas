@@ -1,0 +1,479 @@
+{ *******************************************************************************
+  Title: T2Ti ERP
+  Description: Classe de controle do Registro R.
+
+  The MIT License
+
+  Copyright: Copyright (C) 2010 T2Ti.COM
+
+  Permission is hereby granted, free of charge, to any person
+  obtaining a copy of this software and associated documentation
+  files (the "Software"), to deal in the Software without
+  restriction, including without limitation the rights to use,
+  copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the
+  Software is furnished to do so, subject to the following
+  conditions:
+
+  The above copyright notice and this permission notice shall be
+  included in all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+  OTHER DEALINGS IN THE SOFTWARE.
+
+  The author may be contacted at:
+  t2ti.com@gmail.com</p>
+
+  @author Albert Eije (T2Ti.COM)
+  @version 1.0
+  ******************************************************************************* }
+unit RegistroRController;
+
+interface
+
+uses
+  Classes, SQLExpr, SysUtils, R02VO, R03VO, R04VO, R05VO, R06VO, R07VO, Generics.Collections;
+
+type
+  TRegistroRController = class
+  protected
+  public
+    function TabelaR02: TObjectList<TR02VO>;
+    function TabelaR02Id(Id: Integer): TObjectList<TR02VO>;
+    function TabelaR03(Id: Integer): TObjectList<TR03VO>;
+    function TabelaR04: TObjectList<TR04VO>;
+    function TabelaR05(Id: Integer): TObjectList<TR05VO>;
+    function TabelaR06: TObjectList<TR06VO>;
+    function TabelaR07(Id: Integer): TObjectList<TR07VO>;
+  end;
+
+implementation
+
+uses UDataModule;
+
+var
+  ConsultaSQL: String;
+  Query: TSQLQuery;
+
+function TRegistroRController.TabelaR02: TObjectList<TR02VO>;
+var
+  ListaR02: TObjectList<TR02VO>;
+  R02: TR02VO;
+  TotalRegistros: Integer;
+begin
+  ConsultaSQL := 'select count(*) as TOTAL from R02';
+  try
+    try
+      Query := TSQLQuery.Create(nil);
+      Query.SQLConnection := FDataModule.Conexao;
+      Query.sql.Text := ConsultaSQL;
+      Query.Open;
+      TotalRegistros := Query.FieldByName('TOTAL').AsInteger;
+      if TotalRegistros > 0 then
+      begin
+        ListaR02 := TObjectList<TR02VO>.Create;
+
+        ConsultaSQL := 'select * from R02';
+        Query.sql.Text := ConsultaSQL;
+        Query.Open;
+        Query.First;
+        while not Query.Eof do
+        begin
+          R02 := TR02VO.Create;
+          R02.Id := Query.FieldByName('ID').AsInteger;
+          R02.IdCaixa := Query.FieldByName('ID_ECF_CAIXA').AsInteger;
+          R02.IdOperador := Query.FieldByName('ID_OPERADOR').AsInteger;
+          R02.IdImpressora := Query.FieldByName('ID_IMPRESSORA').AsInteger;
+          R02.CRZ := Query.FieldByName('CRZ').AsInteger;
+          R02.COO := Query.FieldByName('COO').AsInteger;
+          R02.CRO := Query.FieldByName('CRO').AsInteger;
+          R02.DataMovimento := Query.FieldByName('DATA_MOVIMENTO').AsString;
+          R02.DataEmissao := Query.FieldByName('DATA_EMISSAO').AsString;
+          R02.HoraEmissao := Query.FieldByName('HORA_EMISSAO').AsString;
+          R02.VendaBruta := Query.FieldByName('VENDA_BRUTA').AsFloat;
+          R02.GrandeTotal := Query.FieldByName('GRANDE_TOTAL').AsFloat;
+          ListaR02.Add(R02);
+          Query.next;
+        end;
+        result := ListaR02;
+      end
+      // caso não exista a relacao, retorna um ponteiro nulo
+      else
+        result := nil;
+    except
+      result := nil;
+    end;
+  finally
+    Query.Free;
+  end;
+end;
+
+function TRegistroRController.TabelaR02Id(Id: Integer): TObjectList<TR02VO>;
+var
+  ListaR02: TObjectList<TR02VO>;
+  R02: TR02VO;
+  TotalRegistros: Integer;
+begin
+  ConsultaSQL := 'select count(*) as TOTAL from R02 where ID_IMPRESSORA=' + IntToStr(Id);
+  try
+    try
+      Query := TSQLQuery.Create(nil);
+      Query.SQLConnection := FDataModule.Conexao;
+      Query.sql.Text := ConsultaSQL;
+      Query.Open;
+      TotalRegistros := Query.FieldByName('TOTAL').AsInteger;
+      if TotalRegistros > 0 then
+      begin
+        ListaR02 := TObjectList<TR02VO>.Create;
+
+        ConsultaSQL := 'select * from R02 where ID_IMPRESSORA=' + IntToStr(Id);
+        Query.sql.Text := ConsultaSQL;
+        Query.Open;
+        Query.First;
+        while not Query.Eof do
+        begin
+          R02 := TR02VO.Create;
+          R02.Id := Query.FieldByName('ID').AsInteger;
+          R02.IdCaixa := Query.FieldByName('ID_ECF_CAIXA').AsInteger;
+          R02.IdOperador := Query.FieldByName('ID_OPERADOR').AsInteger;
+          R02.IdImpressora := Query.FieldByName('ID_IMPRESSORA').AsInteger;
+          R02.CRZ := Query.FieldByName('CRZ').AsInteger;
+          R02.COO := Query.FieldByName('COO').AsInteger;
+          R02.CRO := Query.FieldByName('CRO').AsInteger;
+          R02.DataMovimento := Query.FieldByName('DATA_MOVIMENTO').AsString;
+          R02.DataEmissao := Query.FieldByName('DATA_EMISSAO').AsString;
+          R02.HoraEmissao := Query.FieldByName('HORA_EMISSAO').AsString;
+          R02.VendaBruta := Query.FieldByName('VENDA_BRUTA').AsFloat;
+          R02.GrandeTotal := Query.FieldByName('GRANDE_TOTAL').AsFloat;
+          ListaR02.Add(R02);
+          Query.next;
+        end;
+        result := ListaR02;
+      end
+      // caso não exista a relacao, retorna um ponteiro nulo
+      else
+        result := nil;
+    except
+      result := nil;
+    end;
+  finally
+    Query.Free;
+  end;
+end;
+
+function TRegistroRController.TabelaR03(Id: Integer): TObjectList<TR03VO>;
+var
+  ListaR03: TObjectList<TR03VO>;
+  R03: TR03VO;
+  TotalRegistros: Integer;
+begin
+  ConsultaSQL := 'select count(*) AS TOTAL from R03 where ID_R02='+IntToStr(Id);
+  try
+    try
+      Query := TSQLQuery.Create(nil);
+      Query.SQLConnection := FDataModule.Conexao;
+      Query.sql.Text := ConsultaSQL;
+      Query.Open;
+      TotalRegistros := Query.FieldByName('TOTAL').AsInteger;
+
+      if TotalRegistros > 0 then
+      begin
+        ListaR03 := TObjectList<TR03VO>.Create;
+
+        ConsultaSQL := 'select * from R03 where ID_R02='+IntToStr(Id);
+        Query.sql.Text := ConsultaSQL;
+        Query.Open;
+        Query.First;
+        while not Query.Eof do
+        begin
+          R03 := TR03VO.Create;
+          R03.Id := Query.FieldByName('ID').AsInteger;
+          R03.IdR02 := Query.FieldByName('ID_R02').AsInteger;
+          R03.TotalizadorParcial := Query.FieldByName('TOTALIZADOR_PARCIAL').AsString;
+          R03.ValorAcumulado := Query.FieldByName('VALOR_ACUMULADO').AsFloat;
+          ListaR03.Add(R03);
+          Query.next;
+        end;
+        result := ListaR03;
+      end
+      // caso não exista a relacao, retorna um ponteiro nulo
+      else
+        result := nil;
+    except
+      result := nil;
+    end;
+  finally
+    Query.Free;
+  end;
+end;
+
+function TRegistroRController.TabelaR04: TObjectList<TR04VO>;
+var
+  ListaR04: TObjectList<TR04VO>;
+  R04: TR04VO;
+  TotalRegistros: Integer;
+begin
+  ConsultaSQL :=
+    'select count(*) as TOTAL ' +
+    'from ECF_VENDA_CABECALHO VC, ECF_MOVIMENTO M '+
+    'where VC.ID_ECF_MOVIMENTO=M.ID';
+  try
+    try
+      Query := TSQLQuery.Create(nil);
+      Query.SQLConnection := FDataModule.Conexao;
+      Query.sql.Text := ConsultaSQL;
+      Query.Open;
+      TotalRegistros := Query.FieldByName('TOTAL').AsInteger;
+
+      if TotalRegistros > 0 then
+      begin
+        ListaR04 := TObjectList<TR04VO>.Create;
+
+        ConsultaSQL :=
+          'select VC.ID AS VCID, VC.ID_ECF_MOVIMENTO, VC.CCF, VC.COO, VC.DATA_HORA_VENDA, VC.VALOR_VENDA, '+
+          'VC.DESCONTO, VC.ACRESCIMO, VC.VALOR_FINAL, VC.STATUS_VENDA, VC.NOME_CLIENTE, '+
+          'VC.CPF_CNPJ_CLIENTE, M.ID AS MID, M.ID_ECF_IMPRESSORA, M.ID_ECF_OPERADOR '+
+          'from ECF_VENDA_CABECALHO VC, ECF_MOVIMENTO M '+
+          'where VC.ID_ECF_MOVIMENTO=M.ID';
+        Query.sql.Text := ConsultaSQL;
+        Query.Open;
+        Query.First;
+        while not Query.Eof do
+        begin
+          R04 := TR04VO.Create;
+          R04.Id := Query.FieldByName('VCID').AsInteger;
+          R04.IdOperador := Query.FieldByName('ID_ECF_OPERADOR').AsInteger;
+          R04.CCF := Query.FieldByName('CCF').AsInteger;
+          R04.COO := Query.FieldByName('COO').AsInteger;
+          R04.DataEmissao := Query.FieldByName('DATA_HORA_VENDA').AsString;
+          R04.SubTotal := Query.FieldByName('VALOR_VENDA').AsFloat;
+          R04.Desconto := Query.FieldByName('DESCONTO').AsFloat;
+          { TODO : Deixar sempre o indicador como V, visto que sempre gravamos o valor do desconto independente da taxa? }
+          R04.IndicadorDesconto := 'V';
+          R04.Acrescimo := Query.FieldByName('ACRESCIMO').AsFloat;
+          { TODO : Deixar sempre o indicador como V, visto que sempre gravamos o valor do desconto independente da taxa? }
+          R04.IndicadorAcrescimo := 'V';
+          R04.ValorLiquido := Query.FieldByName('VALOR_FINAL').AsFloat;
+          if Query.FieldByName('STATUS_VENDA').AsString = 'C' then
+            R04.Cancelado := 'S'
+          else
+            R04.Cancelado := 'N';
+          { TODO : Onde armazenar o valor do cancelamento do acrescimo? Permitir isso no sistema? Cancelar acrescimo e desconto? }
+          R04.CancelamentoAcrescimo := 0;
+          { TODO : Permitir desconto e acrescimo no mesmo cupom? }
+          R04.OrdemDescontoAcrescimo := 'D';
+          R04.Cliente := Query.FieldByName('NOME_CLIENTE').AsString;
+          R04.CPFCNPJ := Query.FieldByName('CPF_CNPJ_CLIENTE').AsString;
+          ListaR04.Add(R04);
+          Query.next;
+        end;
+        result := ListaR04;
+      end
+      // caso não exista a relacao, retorna um ponteiro nulo
+      else
+        result := nil;
+    except
+      result := nil;
+    end;
+  finally
+    Query.Free;
+  end;
+end;
+
+function TRegistroRController.TabelaR05(Id: Integer): TObjectList<TR05VO>;
+var
+  ListaR05: TObjectList<TR05VO>;
+  R05: TR05VO;
+  TotalRegistros : Integer;
+begin
+  ConsultaSQL :=
+    'select count(*) as TOTAL '+
+    'from ECF_VENDA_DETALHE V, PRODUTO P, UNIDADE_PRODUTO U '+
+    'where V.ID_ECF_PRODUTO=P.ID and P.ID_UNIDADE_PRODUTO=U.ID '+
+    'and V.ID_ECF_VENDA_CABECALHO=' +IntToStr(Id);
+
+  try
+    try
+      Query := TSQLQuery.Create(nil);
+      Query.ParamCheck := True;
+      Query.SQLConnection := FDataModule.Conexao;
+      Query.sql.Text := ConsultaSQL;
+      Query.Open;
+      TotalRegistros := Query.FieldByName('TOTAL').AsInteger;
+
+      if TotalRegistros > 0 then
+      begin
+        ListaR05 := TObjectList<TR05VO>.Create;
+
+        ConsultaSQL :=
+          'select V.ID AS VID, V.ITEM, P.GTIN, P.DESCRICAO_PDV, V.QUANTIDADE, '+
+          'U.NOME AS SIGLA_UNIDADE, V.VALOR_UNITARIO, V.DESCONTO, V.ACRESCIMO, '+
+          'V.TOTAL_ITEM, V.TOTALIZADOR_PARCIAL, V.CANCELADO, P.IAT, P.IPPT '+
+          'from ECF_VENDA_DETALHE V, PRODUTO P, UNIDADE_PRODUTO U '+
+          'where V.ID_ECF_PRODUTO=P.ID and P.ID_UNIDADE_PRODUTO=U.ID '+
+          'and V.ID_ECF_VENDA_CABECALHO=' +IntToStr(Id);
+        Query.sql.Text := ConsultaSQL;
+        Query.Open;
+        Query.First;
+        while not Query.Eof do
+        begin
+          R05 := TR05VO.Create;
+
+          R05.Id := Query.FieldByName('VID').AsInteger;
+          R05.Item := Query.FieldByName('ITEM').AsInteger;
+          R05.GTIN := Query.FieldByName('GTIN').AsString; //pegar do produto
+          { TODO : Usar mesmo a descricaoPDV para esses registros R? }
+          R05.DescricaoPDV := Query.FieldByName('DESCRICAO_PDV').AsString; //pegar do produto
+          R05.Quantidade := Query.FieldByName('QUANTIDADE').AsFloat;
+          R05.SiglaUnidade := Query.FieldByName('SIGLA_UNIDADE').AsString; //pegar da unidade
+          R05.ValorUnitario := Query.FieldByName('VALOR_UNITARIO').AsFloat;
+          { TODO : Desconto e acrescimo no item? Como controlar isso? }
+          R05.Desconto := Query.FieldByName('DESCONTO').AsFloat;
+          R05.Acrescimo := Query.FieldByName('ACRESCIMO').AsFloat;
+          R05.TotalItem := Query.FieldByName('TOTAL_ITEM').AsFloat;
+          R05.TotalizadorParcial := Query.FieldByName('TOTALIZADOR_PARCIAL').AsString;
+          R05.IndicadorCancelamento := Query.FieldByName('CANCELADO').AsString;
+          { TODO :
+          Quantidade cancelada, no caso de cancelamento parcial de item.
+          Vamos implementar isso? }
+          if R05.IndicadorCancelamento = 'S' then
+            R05.QuantidadeCancelada := 1
+          else
+            R05.QuantidadeCancelada := 0;
+          { TODO :
+          Valor cancelado, no caso de cancelamento parcial de item.
+          Vamos implementar isso? }
+          if R05.IndicadorCancelamento = 'S' then
+            R05.ValorCancelado := Query.FieldByName('TOTAL_ITEM').AsFloat
+          else
+            R05.ValorCancelado := 0;
+          { TODO : Cancelamento do acrescimo do item? Vamos implementar isso? }
+          R05.CancelamentoAcrescimo := 0;
+          R05.IAT := Query.FieldByName('IAT').AsString; //pegar do produto
+          R05.IPPT := Query.FieldByName('IPPT').AsString; //pegar do produto
+          { TODO : Deixar a opção de configurar essas casas decimais? }
+          R05.CasasDecimaisQuantidade := 3;
+          R05.CasasDecimaisValor := 2;
+
+          ListaR05.Add(R05);
+          Query.next;
+        end;
+        result := ListaR05;
+      end
+      // caso não exista a relacao, retorna um ponteiro nulo
+      else
+        result := nil;
+    except
+      result := nil;
+    end;
+  finally
+    Query.Free;
+  end;
+end;
+
+function TRegistroRController.TabelaR06: TObjectList<TR06VO>;
+var
+  ListaR06: TObjectList<TR06VO>;
+  R06: TR06VO;
+  TotalRegistros: Integer;
+begin
+  ConsultaSQL := 'select count(*) as TOTAL from R06';
+  try
+    try
+      Query := TSQLQuery.Create(nil);
+      Query.SQLConnection := FDataModule.Conexao;
+      Query.sql.Text := ConsultaSQL;
+      Query.Open;
+      TotalRegistros := Query.FieldByName('TOTAL').AsInteger;
+      if TotalRegistros > 0 then
+      begin
+        ListaR06 := TObjectList<TR06VO>.Create;
+
+        ConsultaSQL := 'select * from R06';
+        Query.sql.Text := ConsultaSQL;
+        Query.Open;
+        Query.First;
+        while not Query.Eof do
+        begin
+          R06 := TR06VO.Create;
+          R06.Id := Query.FieldByName('ID').AsInteger;
+          R06.IdCaixa := Query.FieldByName('ID_ECF_CAIXA').AsInteger;
+          R06.IdOperador := Query.FieldByName('ID_OPERADOR').AsInteger;
+          R06.IdImpressora := Query.FieldByName('ID_IMPRESSORA').AsInteger;
+          R06.COO := Query.FieldByName('COO').AsInteger;
+          R06.GNF := Query.FieldByName('GNF').AsInteger;
+          R06.GRG := Query.FieldByName('GRG').AsInteger;
+          R06.CDC := Query.FieldByName('CDC').AsInteger;
+          R06.Denominacao := Query.FieldByName('DENOMINACAO').AsString;
+          R06.DataEmissao := Query.FieldByName('DATA_EMISSAO').AsString;
+          R06.HoraEmissao := Query.FieldByName('HORA_EMISSAO').AsString;
+          ListaR06.Add(R06);
+          Query.next;
+        end;
+        result := ListaR06;
+      end
+      // caso não exista a relacao, retorna um ponteiro nulo
+      else
+        result := nil;
+    except
+      result := nil;
+    end;
+  finally
+    Query.Free;
+  end;
+end;
+
+function TRegistroRController.TabelaR07(Id: Integer): TObjectList<TR07VO>;
+var
+  ListaR07: TObjectList<TR07VO>;
+  R07: TR07VO;
+  TotalRegistros: Integer;
+begin
+  ConsultaSQL := 'select count(*) as TOTAL from R07 where ID_R06='+IntToStr(Id);
+  try
+    try
+      Query := TSQLQuery.Create(nil);
+      Query.SQLConnection := FDataModule.Conexao;
+      Query.sql.Text := ConsultaSQL;
+      Query.Open;
+      TotalRegistros := Query.FieldByName('TOTAL').AsInteger;
+
+      if TotalRegistros > 0 then
+      begin
+        ListaR07 := TObjectList<TR07VO>.Create;
+
+        ConsultaSQL := 'select * from R07 where ID_R06='+IntToStr(Id);
+        Query.sql.Text := ConsultaSQL;
+        Query.Open;
+        Query.First;
+        while not Query.Eof do
+        begin
+          R07 := TR07VO.Create;
+          R07.CCF := Query.FieldByName('CCF').AsInteger;
+          R07.MeioPagamento := Query.FieldByName('MEIO_PAGAMENTO').AsString;
+          R07.ValorPagamento := Query.FieldByName('VALOR_PAGAMENTO').AsFloat;
+          R07.IndicadorEstorno := Query.FieldByName('ESTORNO').AsString;
+          R07.ValorEstorno := Query.FieldByName('VALOR_ESTORNO').AsFloat;
+          ListaR07.Add(R07);
+          Query.next;
+        end;
+        result := ListaR07;
+      end
+      // caso não exista a relacao, retorna um ponteiro nulo
+      else
+        result := nil;
+    except
+      result := nil;
+    end;
+  finally
+    Query.Free;
+  end;
+end;
+
+end.
