@@ -121,13 +121,13 @@ public class IniciaMovimento extends javax.swing.JDialog {
         panelOperador = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        editSenhaOperador = new org.openswing.swing.client.PasswordControl();
-        editLoginOperador = new org.openswing.swing.client.TextControl();
+        editLoginOperador = new javax.swing.JTextField();
+        editSenhaOperador = new javax.swing.JPasswordField();
         panelGerente = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        editSenhaGerente = new org.openswing.swing.client.PasswordControl();
-        editLoginGerente = new org.openswing.swing.client.TextControl();
+        editLoginGerente = new javax.swing.JTextField();
+        editSenhaGerente = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
         editSuprimento = new javax.swing.JFormattedTextField();
         panelBotoes = new javax.swing.JPanel();
@@ -185,26 +185,20 @@ public class IniciaMovimento extends javax.swing.JDialog {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
         panelOperador.add(jLabel7, gridBagConstraints);
-
-        editSenhaOperador.setUpperCase(true);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panelOperador.add(editSenhaOperador, gridBagConstraints);
-
-        editLoginOperador.setUpperCase(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 70;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 10);
         panelOperador.add(editLoginOperador, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panelOperador.add(editSenhaOperador, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -229,26 +223,20 @@ public class IniciaMovimento extends javax.swing.JDialog {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
         panelGerente.add(jLabel3, gridBagConstraints);
-
-        editSenhaGerente.setUpperCase(true);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panelGerente.add(editSenhaGerente, gridBagConstraints);
-
-        editLoginGerente.setUpperCase(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 70;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 10);
         panelGerente.add(editLoginGerente, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panelGerente.add(editSenhaGerente, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -347,10 +335,10 @@ public class IniciaMovimento extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCancela;
     private javax.swing.JButton botaoConfirma;
-    private org.openswing.swing.client.TextControl editLoginGerente;
-    private org.openswing.swing.client.TextControl editLoginOperador;
-    private org.openswing.swing.client.PasswordControl editSenhaGerente;
-    private org.openswing.swing.client.PasswordControl editSenhaOperador;
+    private javax.swing.JTextField editLoginGerente;
+    private javax.swing.JTextField editLoginOperador;
+    private javax.swing.JPasswordField editSenhaGerente;
+    private javax.swing.JPasswordField editSenhaOperador;
     private javax.swing.JFormattedTextField editSuprimento;
     private javax.swing.JTable gridTurno;
     private javax.swing.JLabel jLabel1;
@@ -410,10 +398,10 @@ public class IniciaMovimento extends javax.swing.JDialog {
     private void confirma() {
         // verifica se senha do operador esta correta
         OperadorController operadorControl = new OperadorController();
-        OperadorVO operador = operadorControl.consultaUsuario(editLoginOperador.getText(), editSenhaOperador.getText());
+        OperadorVO operador = operadorControl.consultaUsuario(editLoginOperador.getText(), String.valueOf(editSenhaOperador.getPassword()));
         if (operador != null) {
             // verifica se senha do gerente esta correta
-            OperadorVO gerente = operadorControl.consultaUsuario(editLoginGerente.getText(), editSenhaGerente.getText());
+            OperadorVO gerente = operadorControl.consultaUsuario(editLoginGerente.getText(), String.valueOf(editSenhaGerente.getPassword()));
             if (gerente != null) {
                 //verifica nivel de acesso do gerente/supervisor
                 if (gerente.getFuncionarioVO().getNivelAutorizacao().equals("G") || gerente.getFuncionarioVO().getNivelAutorizacao().equals("S")) {

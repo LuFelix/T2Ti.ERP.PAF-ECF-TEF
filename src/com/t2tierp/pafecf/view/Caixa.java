@@ -80,7 +80,6 @@ import java.util.Random;
 import javax.swing.AbstractAction;
 import javax.swing.DefaultListModel;
 import javax.swing.JComponent;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
@@ -115,8 +114,6 @@ public class Caixa extends javax.swing.JFrame implements MouseListener, EstadoEC
     private NumberFormat formatter = new DecimalFormat("0.00");
     private Thread bannerRotativo;
 
-    static JFrame caixa;
-
 //****************************************************************************//
 // Construtor                                                                 //
 //****************************************************************************//
@@ -124,8 +121,6 @@ public class Caixa extends javax.swing.JFrame implements MouseListener, EstadoEC
     public Caixa() {
         initComponents();
 
-        caixa = this;
-        
         configuracao = new ConfiguracaoController().pegaConfiguracao();
 
         try {
@@ -710,7 +705,7 @@ public class Caixa extends javax.swing.JFrame implements MouseListener, EstadoEC
         panelBobina.setName("panelBobina"); // NOI18N
 
         bobina.setBackground(new java.awt.Color(255, 253, 228));
-        bobina.setFont(new java.awt.Font("Courier New", 1, 14)); // NOI18N
+        bobina.setFont(new java.awt.Font("Courier New", 1, 14));
         bobina.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -730,7 +725,7 @@ public class Caixa extends javax.swing.JFrame implements MouseListener, EstadoEC
         editUnitario.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         editUnitario.setText("0,00");
         editUnitario.setFocusable(false);
-        editUnitario.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        editUnitario.setFont(new java.awt.Font("Verdana", 1, 18));
         editUnitario.setName("editUnitario"); // NOI18N
         editUnitario.setBounds(490, 462, 200, 30);
         containerPrincipal.add(editUnitario, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -741,7 +736,6 @@ public class Caixa extends javax.swing.JFrame implements MouseListener, EstadoEC
         editCodigo.setText("0");
         editCodigo.setFont(new java.awt.Font("Verdana", 1, 18));
         editCodigo.setName("editCodigo"); // NOI18N
-        editCodigo.setOpaque(false);
         editCodigo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 editCodigoFocusLost(evt);
@@ -754,9 +748,8 @@ public class Caixa extends javax.swing.JFrame implements MouseListener, EstadoEC
         editQuantidade.setBorder(null);
         editQuantidade.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         editQuantidade.setText("0");
-        editQuantidade.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        editQuantidade.setFont(new java.awt.Font("Verdana", 1, 18));
         editQuantidade.setName("editQuantidade"); // NOI18N
-        editQuantidade.setOpaque(false);
         editQuantidade.setBounds(490, 362, 200, 30);
         containerPrincipal.add(editQuantidade, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -768,7 +761,6 @@ public class Caixa extends javax.swing.JFrame implements MouseListener, EstadoEC
         editSubTotal.setFocusable(false);
         editSubTotal.setFont(new java.awt.Font("Verdana", 1, 18));
         editSubTotal.setName("editSubTotal"); // NOI18N
-        editSubTotal.setOpaque(false);
         editSubTotal.setBounds(730, 562, 250, 30);
         containerPrincipal.add(editSubTotal, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -780,7 +772,6 @@ public class Caixa extends javax.swing.JFrame implements MouseListener, EstadoEC
         editTotalItem.setFocusable(false);
         editTotalItem.setFont(new java.awt.Font("Verdana", 1, 18));
         editTotalItem.setName("editTotalItem"); // NOI18N
-        editTotalItem.setOpaque(false);
         editTotalItem.setBounds(490, 562, 200, 30);
         containerPrincipal.add(editTotalItem, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -798,16 +789,16 @@ public class Caixa extends javax.swing.JFrame implements MouseListener, EstadoEC
         labelDescricaoProduto.setBounds(40, 110, 945, 83);
         containerPrincipal.add(labelDescricaoProduto, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        labelTotalGeral.setFont(new java.awt.Font("Verdana", 1, 27)); // NOI18N
+        labelTotalGeral.setFont(new java.awt.Font("Verdana", 1, 27));
         labelTotalGeral.setForeground(new java.awt.Color(255, 255, 255));
         labelTotalGeral.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelTotalGeral.setText("2.785.565,44");
         labelTotalGeral.setFocusable(false);
         labelTotalGeral.setName("labelTotalGeral"); // NOI18N
-        labelTotalGeral.setBounds(40, 650, 400, 40);
+        labelTotalGeral.setBounds(40, 652, 400, 40);
         containerPrincipal.add(labelTotalGeral, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        labelMensagens.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        labelMensagens.setFont(new java.awt.Font("Verdana", 1, 18));
         labelMensagens.setForeground(new java.awt.Color(255, 255, 0));
         labelMensagens.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelMensagens.setText("<html>Mensagem grande mensagem grande mensagem grande mensagem grande</html>");

@@ -44,7 +44,6 @@ import com.t2tierp.pafecf.vo.ConfiguracaoVO;
 import com.t2tierp.pafecf.vo.PosicaoComponentesVO;
 import java.awt.AWTKeyStroke;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FontMetrics;
 import java.awt.KeyboardFocusManager;
@@ -56,9 +55,7 @@ import java.util.List;
 import javax.swing.AbstractAction;
 import javax.swing.DefaultListSelectionModel;
 import javax.swing.JComponent;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
 import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
@@ -67,14 +64,10 @@ public class Configuracao extends javax.swing.JDialog {
     List<ConfiguracaoVO> listaConfiguracao = new ArrayList<ConfiguracaoVO>();
     List<PosicaoComponentesVO> listaPosicaoComponentes = new ArrayList<PosicaoComponentesVO>();
     ConfiguracaoController configuracaoControl = new ConfiguracaoController();
-    JFrame container;
 
-
-    public Configuracao(JFrame parent, boolean modal) {
+    public Configuracao(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-
-        this.container = parent;
 
         int r = Integer.valueOf(Caixa.configuracao.getCorJanelasInternas().substring(0, 3));
         int g = Integer.valueOf(Caixa.configuracao.getCorJanelasInternas().substring(4, 7));
@@ -91,8 +84,6 @@ public class Configuracao extends javax.swing.JDialog {
         configuraGridCabecalho(listaConfiguracao);
         configuraGridDetalhe(configuracaoControl.verificaPosicaoTamanho());
 
-        jScrollPane3.setViewportView(new EditorLayoutPanel(container, configuracaoControl, listaConfiguracao, listaPosicaoComponentes));
-        
         CancelaAction cancelaAction = new CancelaAction();
         botaoCancela.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "cancelaAction");
         botaoCancela.getActionMap().put("cancelaAction", cancelaAction);
@@ -136,11 +127,6 @@ public class Configuracao extends javax.swing.JDialog {
         gridDetalhe = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jSplitPane1 = new javax.swing.JSplitPane();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Mescla DAV");
@@ -284,40 +270,6 @@ public class Configuracao extends javax.swing.JDialog {
 
         jTabbedPane1.addTab("...", jPanel2);
 
-        jSplitPane1.setDividerLocation(100);
-        jSplitPane1.setRightComponent(jScrollPane3);
-        jSplitPane1.setLeftComponent(jScrollPane4);
-
-        jButton1.setText("Atualizar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
-                    .addComponent(jButton1))
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        jTabbedPane1.addTab("Editor de Layout", jPanel3);
-
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.ipadx = 400;
         panelComponentes.add(jTabbedPane1, gridBagConstraints);
@@ -343,16 +295,11 @@ public class Configuracao extends javax.swing.JDialog {
         dispose();
 }//GEN-LAST:event_botaoCancelaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                Configuracao dialog = new Configuracao(Caixa.caixa, true);
+                Configuracao dialog = new Configuracao(new javax.swing.JFrame(), true);
                 dialog.setLocationRelativeTo(null);
                 dialog.setVisible(true);
             }
@@ -363,17 +310,12 @@ public class Configuracao extends javax.swing.JDialog {
     private javax.swing.JButton botaoConfirma;
     private javax.swing.JTable gridCabecalho;
     private javax.swing.JTable gridDetalhe;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPanel panelBotoes;
     private javax.swing.JPanel panelComponentes;

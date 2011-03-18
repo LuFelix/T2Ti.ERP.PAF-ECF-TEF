@@ -1,6 +1,5 @@
 package com.t2tierp.pafecf.vo;
 
-import org.openswing.swing.message.receive.java.ValueObjectImpl;
 
 /**
  * <p>Title: T2Ti ERP</p>
@@ -37,7 +36,7 @@ import org.openswing.swing.message.receive.java.ValueObjectImpl;
  * @author Albert Eije (T2Ti.COM)
  * @version 1.0
  */
-public class TurnoVO extends ValueObjectImpl {
+public class TurnoVO {
 
     private Integer id;
     private String descricao;

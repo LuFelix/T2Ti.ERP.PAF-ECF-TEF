@@ -80,8 +80,7 @@ public class ConfiguracaoController {
             }
             return listaPosicoes;
         } catch (Exception e) {
-            e.printStackTrace(System.out);
-            // throw new RuntimeException(e);
+            e.printStackTrace();
             return null;
         } finally {
             bd.desconectar();

@@ -116,8 +116,8 @@ public class ImportaCliente extends javax.swing.JDialog {
         gridCliente = new javax.swing.JTable();
         panelLocaliza = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        editLocaliza = new org.openswing.swing.client.TextControl();
         botaoLocaliza = new javax.swing.JButton();
+        editLocaliza = new javax.swing.JTextField();
         panelBotoes = new javax.swing.JPanel();
         botaoConfirma = new javax.swing.JButton();
         botaoCancela = new javax.swing.JButton();
@@ -185,14 +185,6 @@ public class ImportaCliente extends javax.swing.JDialog {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
         panelLocaliza.add(jLabel2, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 10);
-        panelLocaliza.add(editLocaliza, gridBagConstraints);
 
         botaoLocaliza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/imgBotoes/botaoLocalizar.png"))); // NOI18N
         botaoLocaliza.setText("Localiza (F2)");
@@ -206,6 +198,13 @@ public class ImportaCliente extends javax.swing.JDialog {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 10);
         panelLocaliza.add(botaoLocaliza, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 10);
+        panelLocaliza.add(editLocaliza, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -296,7 +295,7 @@ public class ImportaCliente extends javax.swing.JDialog {
     private javax.swing.JButton botaoCancela;
     private javax.swing.JButton botaoConfirma;
     private javax.swing.JButton botaoLocaliza;
-    private org.openswing.swing.client.TextControl editLocaliza;
+    private javax.swing.JTextField editLocaliza;
     private javax.swing.JTable gridCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

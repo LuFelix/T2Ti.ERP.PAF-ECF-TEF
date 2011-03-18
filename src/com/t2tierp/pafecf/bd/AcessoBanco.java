@@ -45,7 +45,7 @@ public class AcessoBanco {
     public Connection conectar() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/t2tipafecf?user=root&password=root");
+            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/t2tipafecf?user=root&password=1234");
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null, "Não foi possível encontrar o Driver!", "Aviso do Sistema", JOptionPane.INFORMATION_MESSAGE);

@@ -42,18 +42,24 @@ import java.awt.Dimension;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashSet;
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
+import javax.swing.text.DefaultFormatterFactory;
+import javax.swing.text.MaskFormatter;
 
 public class MeiosPagamento extends javax.swing.JDialog {
 
     public MeiosPagamento(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+
+        defineFormatoData();
 
         int r = Integer.valueOf(Caixa.configuracao.getCorJanelasInternas().substring(0, 3));
         int g = Integer.valueOf(Caixa.configuracao.getCorJanelasInternas().substring(4, 7));
@@ -82,6 +88,17 @@ public class MeiosPagamento extends javax.swing.JDialog {
         this.pack();
     }
 
+    private void defineFormatoData() {
+        try {
+            MaskFormatter mascara = new MaskFormatter("##/##/####");
+            DefaultFormatterFactory formatter = new DefaultFormatterFactory(mascara);
+            dataInicial.setFormatterFactory(formatter);
+            dataFinal.setFormatterFactory(formatter);
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -92,10 +109,10 @@ public class MeiosPagamento extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         panelComponentes = new javax.swing.JPanel();
         panelPeriodo = new javax.swing.JPanel();
-        dataInicial = new org.openswing.swing.client.DateControl();
-        dataFinal = new org.openswing.swing.client.DateControl();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        dataInicial = new javax.swing.JFormattedTextField();
+        dataFinal = new javax.swing.JFormattedTextField();
         panelBotoes = new javax.swing.JPanel();
         botaoConfirma = new javax.swing.JButton();
         botaoCancela = new javax.swing.JButton();
@@ -118,22 +135,6 @@ public class MeiosPagamento extends javax.swing.JDialog {
 
         panelPeriodo.setBackground(new Color(255,255,255,0));
         panelPeriodo.setLayout(new java.awt.GridBagLayout());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 60;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
-        panelPeriodo.add(dataInicial, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 60;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
-        panelPeriodo.add(dataFinal, gridBagConstraints);
 
         jLabel2.setText("Data inicial:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -146,6 +147,20 @@ public class MeiosPagamento extends javax.swing.JDialog {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
         panelPeriodo.add(jLabel3, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panelPeriodo.add(dataInicial, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panelPeriodo.add(dataFinal, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -232,8 +247,8 @@ public class MeiosPagamento extends javax.swing.JDialog {
     private javax.swing.JButton botaoCancela;
     private javax.swing.JButton botaoConfirma;
     private javax.swing.ButtonGroup buttonGroup1;
-    private org.openswing.swing.client.DateControl dataFinal;
-    private org.openswing.swing.client.DateControl dataInicial;
+    private javax.swing.JFormattedTextField dataFinal;
+    private javax.swing.JFormattedTextField dataInicial;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -269,12 +284,25 @@ public class MeiosPagamento extends javax.swing.JDialog {
                 JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE,
                 null, opcoes, null);
         if (escolha == 0) {
-            //formata a data para realizar o filtro
-            SimpleDateFormat formataData = new SimpleDateFormat("yyyy-MM-dd");
-            String dataIni = formataData.format(dataInicial.getValue());
-            String dataFim = formataData.format(dataFinal.getValue());
+            SimpleDateFormat formataData;
+            Date dataIni = null;
+            Date dataFim = null;
+            try {
+                dataInicial.commitEdit();
+                dataFinal.commitEdit();
 
-            Paf.meiosPagamento(dataIni, dataFim);
+                formataData = new SimpleDateFormat("dd/MM/yyyy");
+                dataIni = formataData.parse((String) dataInicial.getValue());
+                dataFim = formataData.parse((String) dataFinal.getValue());
+            } catch (ParseException ex) {
+                ex.printStackTrace();
+            }
+            //formata a data para realizar o filtro
+            formataData = new SimpleDateFormat("yyyy-MM-dd");
+            String strDataIni = formataData.format(dataIni);
+            String strDataFim = formataData.format(dataFim);
+
+            Paf.meiosPagamento(strDataIni, strDataFim);
         }
     }
 }

@@ -41,18 +41,22 @@ import java.awt.Dimension;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.text.ParseException;
 import java.util.HashSet;
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
-import javax.swing.SwingConstants;
+import javax.swing.text.DefaultFormatterFactory;
+import javax.swing.text.MaskFormatter;
 
 public class LMFC extends javax.swing.JDialog {
 
     public LMFC(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+
+        defineFormatoData();
 
         int r = Integer.valueOf(Caixa.configuracao.getCorJanelasInternas().substring(0, 3));
         int g = Integer.valueOf(Caixa.configuracao.getCorJanelasInternas().substring(4, 7));
@@ -84,6 +88,17 @@ public class LMFC extends javax.swing.JDialog {
         this.pack();
     }
 
+    private void defineFormatoData() {
+        try {
+            MaskFormatter mascara = new MaskFormatter("##/##/####");
+            DefaultFormatterFactory formatter = new DefaultFormatterFactory(mascara);
+            dataInicial.setFormatterFactory(formatter);
+            dataFinal.setFormatterFactory(formatter);
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -98,15 +113,15 @@ public class LMFC extends javax.swing.JDialog {
         radioPeriodo = new javax.swing.JRadioButton();
         radioCRZ = new javax.swing.JRadioButton();
         panelPeriodo = new javax.swing.JPanel();
-        dataInicial = new org.openswing.swing.client.DateControl();
-        dataFinal = new org.openswing.swing.client.DateControl();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        dataInicial = new javax.swing.JFormattedTextField();
+        dataFinal = new javax.swing.JFormattedTextField();
         panelCRZ = new javax.swing.JPanel();
-        primeiroCRZ = new org.openswing.swing.client.NumericControl();
-        ultimoCRZ = new org.openswing.swing.client.NumericControl();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        primeiroCRZ = new javax.swing.JFormattedTextField();
+        ultimoCRZ = new javax.swing.JFormattedTextField();
         panelOpcao = new javax.swing.JPanel();
         opcao1 = new javax.swing.JRadioButton();
         opcao2 = new javax.swing.JRadioButton();
@@ -172,22 +187,6 @@ public class LMFC extends javax.swing.JDialog {
 
         panelPeriodo.setBackground(new Color(255,255,255,0));
         panelPeriodo.setLayout(new java.awt.GridBagLayout());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 40;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
-        panelPeriodo.add(dataInicial, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 40;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
-        panelPeriodo.add(dataFinal, gridBagConstraints);
 
         jLabel2.setText("Data inicial:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -200,6 +199,20 @@ public class LMFC extends javax.swing.JDialog {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
         panelPeriodo.add(jLabel3, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panelPeriodo.add(dataInicial, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panelPeriodo.add(dataFinal, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -211,28 +224,6 @@ public class LMFC extends javax.swing.JDialog {
 
         panelCRZ.setBackground(new Color(255,255,255,0));
         panelCRZ.setLayout(new java.awt.GridBagLayout());
-
-        primeiroCRZ.setEnabled(false);
-        primeiroCRZ.setTextAlignment(SwingConstants.RIGHT);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 26;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
-        panelCRZ.add(primeiroCRZ, gridBagConstraints);
-
-        ultimoCRZ.setEnabled(false);
-        ultimoCRZ.setTextAlignment(SwingConstants.RIGHT);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 26;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panelCRZ.add(ultimoCRZ, gridBagConstraints);
 
         jLabel4.setText("Primeiro:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -247,6 +238,24 @@ public class LMFC extends javax.swing.JDialog {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
         panelCRZ.add(jLabel5, gridBagConstraints);
+
+        primeiroCRZ.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
+        panelCRZ.add(primeiroCRZ, gridBagConstraints);
+
+        ultimoCRZ.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panelCRZ.add(ultimoCRZ, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -382,8 +391,8 @@ public class LMFC extends javax.swing.JDialog {
     private javax.swing.JButton botaoConfirma;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
-    private org.openswing.swing.client.DateControl dataFinal;
-    private org.openswing.swing.client.DateControl dataInicial;
+    private javax.swing.JFormattedTextField dataFinal;
+    private javax.swing.JFormattedTextField dataInicial;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -398,10 +407,10 @@ public class LMFC extends javax.swing.JDialog {
     private javax.swing.JPanel panelOpcao;
     private javax.swing.JPanel panelPeriodo;
     private javax.swing.JPanel panelPrincipal;
-    private org.openswing.swing.client.NumericControl primeiroCRZ;
+    private javax.swing.JFormattedTextField primeiroCRZ;
     private javax.swing.JRadioButton radioCRZ;
     private javax.swing.JRadioButton radioPeriodo;
-    private org.openswing.swing.client.NumericControl ultimoCRZ;
+    private javax.swing.JFormattedTextField ultimoCRZ;
     // End of variables declaration//GEN-END:variables
 
     private class ConfirmaAction extends AbstractAction {

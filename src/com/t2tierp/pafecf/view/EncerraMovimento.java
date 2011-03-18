@@ -116,14 +116,14 @@ public class EncerraMovimento extends javax.swing.JDialog {
         panelGerente = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        editSenhaGerente = new org.openswing.swing.client.PasswordControl();
-        editLoginGerente = new org.openswing.swing.client.TextControl();
+        editLoginGerente = new javax.swing.JTextField();
+        editSenhaGerente = new javax.swing.JPasswordField();
         panelBotoes = new javax.swing.JPanel();
         botaoConfirma = new javax.swing.JButton();
         botaoCancela = new javax.swing.JButton();
         panelOperador = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        editSenhaOperador = new org.openswing.swing.client.PasswordControl();
+        editSenhaOperador = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Encerra Movimento de Caixa");
@@ -145,7 +145,7 @@ public class EncerraMovimento extends javax.swing.JDialog {
         panelDadosMovimento.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados do movimento aberto:"));
         panelDadosMovimento.setLayout(new java.awt.GridBagLayout());
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel4.setText("Turno:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -160,7 +160,7 @@ public class EncerraMovimento extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
         panelDadosMovimento.add(labelTurno, gridBagConstraints);
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel7.setText("Terminal:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -179,7 +179,7 @@ public class EncerraMovimento extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
         panelDadosMovimento.add(labelTerminal, gridBagConstraints);
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel9.setText("Operador:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -198,7 +198,7 @@ public class EncerraMovimento extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
         panelDadosMovimento.add(labelOperador, gridBagConstraints);
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel11.setText("Impressora:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -240,26 +240,20 @@ public class EncerraMovimento extends javax.swing.JDialog {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
         panelGerente.add(jLabel3, gridBagConstraints);
-
-        editSenhaGerente.setUpperCase(true);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panelGerente.add(editSenhaGerente, gridBagConstraints);
-
-        editLoginGerente.setUpperCase(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 100;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 10);
         panelGerente.add(editLoginGerente, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 100;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panelGerente.add(editSenhaGerente, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -311,11 +305,20 @@ public class EncerraMovimento extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 10);
         panelComponentes.add(panelBotoes, gridBagConstraints);
 
-        panelOperador.setLayout(new java.awt.GridLayout());
+        panelOperador.setLayout(new java.awt.GridBagLayout());
 
         jLabel5.setText("Senha Operador:");
-        panelOperador.add(jLabel5);
-        panelOperador.add(editSenhaOperador);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panelOperador.add(jLabel5, gridBagConstraints);
+
+        editSenhaOperador.setPreferredSize(new java.awt.Dimension(111, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 100;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panelOperador.add(editSenhaOperador, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -349,9 +352,9 @@ public class EncerraMovimento extends javax.swing.JDialog {
     private javax.swing.JButton botaoCancela;
     private javax.swing.JButton botaoConfirma;
     private javax.swing.ButtonGroup buttonGroup1;
-    private org.openswing.swing.client.TextControl editLoginGerente;
-    private org.openswing.swing.client.PasswordControl editSenhaGerente;
-    private org.openswing.swing.client.PasswordControl editSenhaOperador;
+    private javax.swing.JTextField editLoginGerente;
+    private javax.swing.JPasswordField editSenhaGerente;
+    private javax.swing.JPasswordField editSenhaOperador;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -395,10 +398,10 @@ public class EncerraMovimento extends javax.swing.JDialog {
     private void confirma() {
         // verifica se senha do operador esta correta
         OperadorController operadorControl = new OperadorController();
-        OperadorVO operador = operadorControl.consultaUsuario(labelOperador.getText(), editSenhaOperador.getText());
+        OperadorVO operador = operadorControl.consultaUsuario(labelOperador.getText(), String.valueOf(editSenhaOperador.getPassword()));
         if (operador != null) {
             // verifica se senha do gerente esta correta
-            OperadorVO gerente = operadorControl.consultaUsuario(editLoginGerente.getText(), editSenhaGerente.getText());
+            OperadorVO gerente = operadorControl.consultaUsuario(editLoginGerente.getText(), String.valueOf(editSenhaGerente.getPassword()));
             if (gerente != null) {
                 //verifica nivel de acesso do gerente/supervisor
                 if (gerente.getFuncionarioVO().getNivelAutorizacao().equals("G") || gerente.getFuncionarioVO().getNivelAutorizacao().equals("S")) {

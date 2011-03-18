@@ -41,18 +41,22 @@ import java.awt.Dimension;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.text.ParseException;
 import java.util.HashSet;
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
-import javax.swing.SwingConstants;
+import javax.swing.text.DefaultFormatterFactory;
+import javax.swing.text.MaskFormatter;
 
 public class EspelhoMFD extends javax.swing.JDialog {
 
     public EspelhoMFD(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+
+        defineFormatoData();
 
         int r = Integer.valueOf(Caixa.configuracao.getCorJanelasInternas().substring(0, 3));
         int g = Integer.valueOf(Caixa.configuracao.getCorJanelasInternas().substring(4, 7));
@@ -83,6 +87,17 @@ public class EspelhoMFD extends javax.swing.JDialog {
         this.pack();
     }
 
+    private void defineFormatoData(){
+        try {
+            MaskFormatter mascara = new MaskFormatter("##/##/####");
+            DefaultFormatterFactory formatter = new DefaultFormatterFactory(mascara);
+            dataInicial.setFormatterFactory(formatter);
+            dataFinal.setFormatterFactory(formatter);
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -96,15 +111,15 @@ public class EspelhoMFD extends javax.swing.JDialog {
         radioPeriodo = new javax.swing.JRadioButton();
         radioCOO = new javax.swing.JRadioButton();
         panelPeriodo = new javax.swing.JPanel();
-        dataInicial = new org.openswing.swing.client.DateControl();
-        dataFinal = new org.openswing.swing.client.DateControl();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        dataInicial = new javax.swing.JFormattedTextField();
+        dataFinal = new javax.swing.JFormattedTextField();
         panelCOO = new javax.swing.JPanel();
-        primeiroCOO = new org.openswing.swing.client.NumericControl();
-        ultimoCOO = new org.openswing.swing.client.NumericControl();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        primeiroCOO = new javax.swing.JFormattedTextField();
+        ultimoCOO = new javax.swing.JFormattedTextField();
         panelBotoes = new javax.swing.JPanel();
         botaoConfirma = new javax.swing.JButton();
         botaoCancela = new javax.swing.JButton();
@@ -167,22 +182,6 @@ public class EspelhoMFD extends javax.swing.JDialog {
 
         panelPeriodo.setBackground(new Color(255,255,255,0));
         panelPeriodo.setLayout(new java.awt.GridBagLayout());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 40;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
-        panelPeriodo.add(dataInicial, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 40;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
-        panelPeriodo.add(dataFinal, gridBagConstraints);
 
         jLabel2.setText("Data inicial:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -195,6 +194,20 @@ public class EspelhoMFD extends javax.swing.JDialog {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
         panelPeriodo.add(jLabel3, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
+        panelPeriodo.add(dataInicial, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
+        panelPeriodo.add(dataFinal, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -206,28 +219,6 @@ public class EspelhoMFD extends javax.swing.JDialog {
 
         panelCOO.setBackground(new Color(255,255,255,0));
         panelCOO.setLayout(new java.awt.GridBagLayout());
-
-        primeiroCOO.setEnabled(false);
-        primeiroCOO.setTextAlignment(SwingConstants.RIGHT);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 26;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
-        panelCOO.add(primeiroCOO, gridBagConstraints);
-
-        ultimoCOO.setEnabled(false);
-        ultimoCOO.setTextAlignment(SwingConstants.RIGHT);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 26;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        panelCOO.add(ultimoCOO, gridBagConstraints);
 
         jLabel4.setText("Primeiro:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -242,6 +233,20 @@ public class EspelhoMFD extends javax.swing.JDialog {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
         panelCOO.add(jLabel5, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
+        panelCOO.add(primeiroCOO, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        panelCOO.add(ultimoCOO, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -342,8 +347,8 @@ public class EspelhoMFD extends javax.swing.JDialog {
     private javax.swing.JButton botaoCancela;
     private javax.swing.JButton botaoConfirma;
     private javax.swing.ButtonGroup buttonGroup1;
-    private org.openswing.swing.client.DateControl dataFinal;
-    private org.openswing.swing.client.DateControl dataInicial;
+    private javax.swing.JFormattedTextField dataFinal;
+    private javax.swing.JFormattedTextField dataInicial;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -355,10 +360,10 @@ public class EspelhoMFD extends javax.swing.JDialog {
     private javax.swing.JPanel panelFiltro;
     private javax.swing.JPanel panelPeriodo;
     private javax.swing.JPanel panelPrincipal;
-    private org.openswing.swing.client.NumericControl primeiroCOO;
+    private javax.swing.JFormattedTextField primeiroCOO;
     private javax.swing.JRadioButton radioCOO;
     private javax.swing.JRadioButton radioPeriodo;
-    private org.openswing.swing.client.NumericControl ultimoCOO;
+    private javax.swing.JFormattedTextField ultimoCOO;
     // End of variables declaration//GEN-END:variables
 
     private class ConfirmaAction extends AbstractAction {
